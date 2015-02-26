@@ -1,0 +1,40 @@
+{
+    "name": "ebayenterprise/magento2-address-validation",
+    "description": "Magento 2 module for validating addresses using the eBay Enterprise Retail Order Management API.",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Scott van Brug",
+            "email": "svanbrug@ebay.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "type": "magento2-module",
+    "require": {
+        "php": "~5.5.0|~5.6.0",
+        "ebayenterprise/retail-order-management": "~1.1",
+        "magento/framework": "~0.0",
+        "magento/module-customer": "~0.0"
+    },
+    "repositories": {
+        "retail-order-management": {
+            "type": "vcs",
+            "url": "https://github.com/eBayEnterprise/RetailOrderManagement-SDK.git"
+        },
+        "magento": {
+            "type": "composer",
+            "url": "https://packages.magento.com"
+        }
+    },
+    "extra": {
+        "map": [
+            "src/EbayEnterprise/Address",
+            "EbayEnterprise/Address"
+        ]
+    },
+    "autoload": {
+        "psr-4": {
+            "EbayEnterprise\\Address\\": "src/EbayEnterprise/Address"
+        }
+    }
+}
