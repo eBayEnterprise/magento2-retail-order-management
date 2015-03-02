@@ -16,6 +16,9 @@
         "magento/framework": "~0.0",
         "magento/module-customer": "~0.0"
     },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
     "repositories": {
         "retail-order-management": {
             "type": "vcs",
@@ -30,11 +33,12 @@
         "map": [
             "src/EbayEnterprise/Address",
             "EbayEnterprise/Address"
-        ]
+        ],
+        "magento-root-dir": "build/magento"
     },
     "autoload": {
         "psr-4": {
-            "EbayEnterprise\\Address\\": "src/EbayEnterprise/Address"
+            "EbayEnterprise\\Address\\": ["src/EbayEnterprise/Address", "tests/EbayEnterprise/Address"]
         }
     }
 }

@@ -1,0 +1,14 @@
+composer:
+    image: scottvanbrug/magento2_tools
+    volumes:
+        - .:/var/www/code
+        - ~/.composer/:/root/.composer/
+    working_dir: /var/www/code
+    command: list
+    entrypoint: composer
+phpunit:
+    image: scottvanbrug/magento2_tools
+    volumes:
+        - .:/var/www/code
+    working_dir: /var/www/code
+    entrypoint: vendor/bin/phpunit
