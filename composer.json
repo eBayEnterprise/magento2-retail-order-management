@@ -31,8 +31,10 @@
     },
     "extra": {
         "map": [
-            "src/EbayEnterprise/Address/*",
-            "EbayEnterprise/Address"
+            [
+                "src/EbayEnterprise/Address/*",
+                "EbayEnterprise/Address"
+            ]
         ],
         "magento-root-dir": "build/magento"
     },
