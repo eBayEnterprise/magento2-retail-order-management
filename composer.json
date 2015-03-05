@@ -17,7 +17,8 @@
         "magento/module-customer": "~0.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.0"
+        "phpunit/phpunit": "~4.0",
+        "magento/product-community-edition"
     },
     "repositories": {
         "retail-order-management": {
@@ -36,7 +37,8 @@
                 "EbayEnterprise/Address"
             ]
         ],
-        "magento-root-dir": "build/magento"
+        "magento-root-dir": "build/magento",
+        "magento-force": true
     },
     "autoload": {
         "psr-4": {
