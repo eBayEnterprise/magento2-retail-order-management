@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <system>
+        <tab id="ebay_enterprise" translate="label" sortOrder="100000">
+            <label>eBay Enterprise</label>
+        </tab>
+        <section id="ebay_enterprise_retail_order_management" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Retail Order Management</label>
+            <tab>ebay_enterprise</tab>
+            <resource>EbayEnterprise_Address::retail_order_management_config</resource>
+            <group id="web_services" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1">
+                <label>Web Services</label>
+                <field id="web_service_hostname" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>API Hostname</label>
+                </field>
+                <field id="web_service_api_key" translate="label" type="password" sortOrder="20" showInDefault="1" showInWebsite="1">
+                    <label>API Key</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="web_service_api_timeout" translate="label" type="text" sortOrder="30" showInDefault="1">
+                    <label>API Timeout</label>
+                    <validate>validate-digits</validate>
+                </field>
+            </group>
+            <group id="address_validation" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Address Validation</label>
+                <field id="enable_address_validation" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Address Validation</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="max_address_validation_suggestions" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Maximum Suggestions</label>
+                    <validate>validate-digits</validate>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
