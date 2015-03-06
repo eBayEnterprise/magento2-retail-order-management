@@ -42,7 +42,8 @@
     },
     "autoload": {
         "psr-4": {
-            "EbayEnterprise\\Address\\": ["src/EbayEnterprise/Address", "tests/EbayEnterprise/Address"]
+            "EbayEnterprise\\Address\\": ["src/EbayEnterprise/Address", "tests/EbayEnterprise/Address"],
+            "Magento\\Setup\\": "build/magento/setup/src/Magento/Setup"
         }
     }
 }

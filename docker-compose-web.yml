@@ -1,0 +1,51 @@
+dbdata:
+    image: mysql:5
+    command: echo 'Providing data volume for mysql data'
+setup:
+    image: php:5.6-apache
+    user: default
+    volumes:
+        - .:/var/www/code
+        - ~/.composer/:/root/.composer/
+    working_dir: /var/www/code
+    command: bin/setup
+db:
+    image: mysql:5
+    environment:
+        - MYSQL_ROOT_PASSWORD=mage
+        - MYSQL_USER=mage
+        - MYSQL_PASSWORD=mage
+        - MYSQL_DATABASE=mage
+    volumes_from:
+        - dbdata
+    ports:
+        - "3306:3306"
+web:
+    image: scottvanbrug/magento2_web
+    environment:
+        - MAGE_MODE=developer
+    volumes:
+        - .:/var/www/code
+        - ~/.composer/:/root/.composer/
+    links:
+        - db
+    ports:
+        - "8080:80"
+install:
+    image: scottvanbrug/magento2_web
+    user: default
+    volumes:
+        - .:/var/www/code
+    links:
+        - db
+    command: install_magento
+magentosetup:
+    image: scottvanbrug/magento2_web
+    user: default
+    volumes:
+        - .:/var/www/code
+    links:
+        - db
+    working_dir: /var/www/code/build/magento/setup
+    entrypoint: ["php", "index.php"]
+    command: help
