@@ -1,12 +1,14 @@
 <?php
 
-namespace EbayEnterprise\Address\Model;
+namespace EbayEnterprise\Address\Model\Plugin;
 
 use eBayEnterprise\RetailOrderManagement\Api\HttpConfig;
 use Magento\TestFramework\Helper\ObjectManager;
 
 class ValidatorTest extends \PHPUnit_Framework_TestCase
 {
+    /** @var \Magento\TestFramework\Helper\ObjectManager */
+    protected $objectManager;
     /** @var \Magento\Customer\Model\Address\AbstractAddress (mock) */
     protected $address;
     /** @var \Magento\Customer\Api\Data\AddressInterface (mock) */
@@ -29,9 +31,9 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
             ->method('getResponseBody')
             ->will($this->returnValue($this->response));
 
-        $objectManager = new ObjectManager($this);
-        $this->validator = $objectManager->getObject(
-            'EbayEnterprise\Address\Model\Validator'
+        $this->objectManager = new ObjectManager($this);
+        $this->validator = $this->objectManager->getObject(
+            'EbayEnterprise\Address\Model\Plugin\Validator'
         );
     }
 
