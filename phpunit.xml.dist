@@ -20,10 +20,9 @@
         stopOnFailure="false"
         stopOnIncomplete="false"
         stopOnSkipped="false"
-        strict="true"
         verbose="true"
         timeoutForSmallTests="1"
-        bootstrap="vendor/autoload.php">
+        bootstrap="build/magento/app/autoload.php">
     <testsuites>
         <testsuite name="eBay Enterprise Address Validation">
             <directory>tests</directory>
