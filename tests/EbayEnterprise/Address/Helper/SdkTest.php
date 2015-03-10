@@ -56,7 +56,6 @@ class SdkTest extends \PHPUnit_Framework_TestCase
             '\EbayEnterprise\Address\Helper\Sdk',
             [
                 'context' => $this->context,
-                'regionInterfaceFactory' => $this->regionFactory,
             ]
         );
     }

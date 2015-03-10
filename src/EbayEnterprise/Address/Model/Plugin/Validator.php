@@ -2,6 +2,8 @@
 
 namespace EbayEnterprise\Address\Model\Plugin;
 
+use eBayEnterprise\RetailOrderManagement\Api\HttpApi;
+use eBayEnterprise\RetailOrderManagement\Api\HttpConfig;
 use EbayEnterprise\Address\Helper\Sdk;
 use Magento\Customer\Model\Address\AbstractAddress;
 use Magento\Framework\App\Config\ScopeConfigInterface;
@@ -15,12 +17,12 @@ class Validator
 
     public function __construct(
         Sdk $sdkHelper,
-        ScopeConfigInterface $scopeConfig,
-        LoggerInterface $logger
+        LoggerInterface $logger,
+        ScopeConfigInterface $scopeConfig
     ) {
         $this->sdkHelper = $sdkHelper;
-        $this->scopeConfig = $scopeConfig;
         $this->logger = $logger;
+        $this->scopeConfig = $scopeConfig;
     }
 
     /**
@@ -32,9 +34,34 @@ class Validator
      */
     public function afterValidate(AbstractAddress $address, $result)
     {
+        $this->logger->warning('validating address');
         if ($result === true) {
-
+            return $this->validateAddress($address);
         }
         return $result;
+    }
+
+    protected function validateAddress(AbstractAddress $address)
+    {
+        $httpConfig = new HttpConfig(
+            $this->scopeConfig->getValue('ebay_enterprise/web_services/api_key'),
+            $this->scopeConfig->getValue('ebay_enterprise/web_services/hostname'),
+            $this->scopeConfig->getValue('ebay_enterprise/web_services/major_version'),
+            $this->scopeConfig->getValue('ebay_enterprise/web_services/minor_version'),
+            $this->scopeConfig->getValue('ebay_enterprise/general/store_id'),
+            $this->scopeConfig->getValue('ebay_enterprise/address_validation/service'),
+            $this->scopeConfig->getValue('ebay_enterprise/address_validation/operation'),
+            [],
+            $this->logger
+        );
+        $api = new HttpApi($httpConfig);
+        $req = $this->sdkHelper->transferAddressToPhysicalAddressPayload(
+            $address->getDataModel(),
+            $api->getRequestBody()
+        );
+        $req->setMaxSuggestions($this->scopeConfig->getValue('ebay_enterprise/address_validation/max_suggestions'));
+        $api->setRequestBody($req)->send();
+        $resp = $api->getResponseBody();
+        return $resp->isAcceptable() ? true : ['Address is invalid'];
     }
 }

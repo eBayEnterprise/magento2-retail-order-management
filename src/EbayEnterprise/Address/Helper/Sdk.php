@@ -5,7 +5,6 @@ namespace EbayEnterprise\Address\Helper;
 use eBayEnterprise\RetailOrderManagement\Payload\Checkout\IPhysicalAddress;
 use Magento\Customer\Api\Data\AddressDataBuilder;
 use Magento\Customer\Api\Data\AddressInterface;
-use Magento\Customer\Api\Data\RegionInterfaceFactory;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 
@@ -20,7 +19,7 @@ class Sdk extends AbstractHelper
      */
     public function __construct(
         Context $context,
-        RegionInterfaceFactory $regionDataFactory
+        \Magento\Customer\Api\Data\RegionInterfaceFactory $regionDataFactory
     ) {
         parent::__construct($context);
         $this->regionDataFactory = $regionDataFactory;
@@ -43,11 +42,13 @@ class Sdk extends AbstractHelper
         IPhysicalAddress $addressPayload,
         AddressDataBuilder $addressBuilder
     ) {
+        $region = $this->regionDataFactory->create();
+        $region->setRegionCode($addressPayload->getMainDivision());
         $addressBuilder
             ->setStreet(explode("\n", $addressPayload->getLines()))
             ->setCity($addressPayload->getCity())
             ->setCountryId($addressPayload->getCountryCode())
-            ->setRegion($this->regionDataFactory->create())
+            ->setRegion($region)
             ->setPostcode($addressPayload->getPostalCode());
         return $addressBuilder->create();
     }
