@@ -12,3 +12,48 @@ phpunit:
         - .:/var/www/code
     working_dir: /var/www/code
     entrypoint: vendor/bin/phpunit
+phpmd:
+    image: scottvanbrug/magento2_tools
+    volumes:
+        - .:/var/www/code
+    working_dir: /var/www/code
+    entrypoint: vendor/bin/phpmd
+    command: src,tests text phpmd.xml
+document:
+    image: scottvanbrug/magento2_tools
+    volumes:
+        - .:/var/www/code
+    entrypoint: vendor/bin/phpdoc
+    command: -d src -t build/doc
+pdepend:
+    image: scottvanbrug/magento2_tools
+    volumes:
+        - .:/var/www/code
+    entrypoint: vendor/bin/pdepend
+    command: --jdepend-chart=build/pdepend-chart.svg
+             --overview-pyramid=build/pdepend-overview-pyramid.svg
+             src,tests
+phpcpd:
+    image: scottvanbrug/magento2_tools
+    volumes:
+        - .:/var/www/code
+    entrypoint: vendor/bin/phpcpd
+    command: --fuzzy --progress src tests
+phpcs:
+    image: scottvanbrug/magento2_tools
+    volumes:
+        - .:/var/www/code
+    entrypoint: vendor/bin/phpcs
+    command: -p --standard=PSR2 src tests
+phploc:
+    image: scottvanbrug/magento2_tools
+    volumes:
+        - .:/var/www/code
+    entrypoint: vendor/bin/phploc
+    command: --count-tests --progress src tests
+phplint:
+    image: scottvanbrug/magento2_tools
+    volumes:
+        - .:/var/www/code
+    command: sh -c 'find src tests \( -name "*.php" -o -name "*.phtml" \) -print0 |
+                    xargs -0 -n1 -P6 -- php -l > /dev/null && echo "no errors"'
