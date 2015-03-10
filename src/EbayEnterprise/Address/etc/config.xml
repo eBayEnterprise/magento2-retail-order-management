@@ -2,8 +2,19 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <default>
         <ebay_enterprise>
+            <general>
+                <store_id/>
+            </general>
+            <web_services>
+                <api_key backend_model="Magento\Config\Model\Config\Backend\Encrypted"/>
+                <hostname/>
+                <major_version>1</major_version>
+                <minor_version>0</minor_version>
+            </web_services>
             <address_validation>
                 <max_suggestions>3</max_suggestions>
+                <service>address</service>
+                <operation>validate</operation>
             </address_validation>
         </ebay_enterprise>
     </default>

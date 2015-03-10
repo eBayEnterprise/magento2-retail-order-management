@@ -4,11 +4,17 @@
         <tab id="ebay_enterprise" translate="label" sortOrder="100000">
             <label>eBay Enterprise</label>
         </tab>
-        <section id="ebay_enterprise_retail_order_management" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+        <section id="ebay_enterprise" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
             <class>separator-top</class>
             <label>Retail Order Management</label>
             <tab>ebay_enterprise</tab>
             <resource>EbayEnterprise_Address::retail_order_management_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="01" showInDefault="1" showInWebsite="1">
+                <label>General</label>
+                <field id="store_id" translate="label" type="text" sortOrder="10" showInDefault="1">
+                    <label>Store Id</label>
+                </field>
+            </group>
             <group id="web_services" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1">
                 <label>Web Services</label>
                 <field id="hostname" translate="label" type="text" sortOrder="10" showInDefault="1">
