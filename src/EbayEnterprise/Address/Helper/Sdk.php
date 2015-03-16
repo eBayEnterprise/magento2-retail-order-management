@@ -25,6 +25,13 @@ class Sdk extends AbstractHelper
         $this->regionDataFactory = $regionDataFactory;
     }
 
+    /**
+     * Transfer the Magento address object to a physical address SDK payload.
+     *
+     * @param \Magento\Customer\Api\Data\AddressInterface
+     * @param \eBayEnterprise\RetailOrderManagement\Payload\Checkout\IPhysicalAddress
+     * @return \eBayEnterprise\RetailOrderManagement\Payload\Checkout\IPhysicalAddress
+     */
     public function transferAddressToPhysicalAddressPayload(
         AddressInterface $address,
         IPhysicalAddress $addressPayload
@@ -38,6 +45,13 @@ class Sdk extends AbstractHelper
         return $addressPayload;
     }
 
+    /**
+     * Transfer the SDK payload data to a Magento address object.
+     *
+     * @param \eBayEnterprise\RetailOrderManagement\Payload\Checkout\IPhysicalAddress
+     * @param \Magento\Customer\Api\Data\AddressInterface
+     * @return \Magento\Customer\Api\Data\AddressInterface
+     */
     public function transferPhysicalAddressPayloadToAddress(
         IPhysicalAddress $addressPayload,
         AddressDataBuilder $addressBuilder
