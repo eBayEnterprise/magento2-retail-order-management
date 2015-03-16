@@ -2,27 +2,39 @@
 
 namespace EbayEnterprise\Address\Model\Plugin;
 
-use eBayEnterprise\RetailOrderManagement\Api\HttpApi;
-use eBayEnterprise\RetailOrderManagement\Api\HttpConfig;
-use EbayEnterprise\Address\Helper\Sdk;
+use EbayEnterprise\Address\Api\AddressValidationInterface;
+use EbayEnterprise\Address\Api\Data\AddressInterfaceBuilder;
+use EbayEnterprise\Address\Helper\Converter as AddressConverter;
 use Magento\Customer\Model\Address\AbstractAddress;
-use Magento\Framework\App\Config\ScopeConfigInterface;
 use Psr\Log\LoggerInterface;
 
 class Validator
 {
-    protected $sdkHelper;
-    protected $scopeConfig;
+    /** @var AddressValidationInterface */
+    protected $addressValidation;
+    /** @var AddressInterfaceBuilder */
+    protected $addressBuilder;
+    /** @var AddressConverter */
+    protected $addressConverter;
+    /** @var \Psr\Log\LoggerInterface */
     protected $logger;
 
+    /**
+     * @param AddressValidationInterface
+     * @param AddressInterfaceBuilder
+     * @param AddressConverter
+     * @param LoggerInterface
+     */
     public function __construct(
-        Sdk $sdkHelper,
-        LoggerInterface $logger,
-        ScopeConfigInterface $scopeConfig
+        AddressValidationInterface $quoteAddressValidation,
+        AddressInterfaceBuilder $addressBuilder,
+        AddressConverter $addressConverter,
+        LoggerInterface $logger
     ) {
-        $this->sdkHelper = $sdkHelper;
+        $this->addressValidation = $quoteAddressValidation;
+        $this->addressBuilder = $addressBuilder;
+        $this->addressConverter = $addressConverter;
         $this->logger = $logger;
-        $this->scopeConfig = $scopeConfig;
     }
 
     /**
@@ -34,34 +46,12 @@ class Validator
      */
     public function afterValidate(AbstractAddress $address, $result)
     {
-        $this->logger->warning('validating address');
         if ($result === true) {
-            return $this->validateAddress($address);
+            $validationResult = $this->addressValidation->validate(
+                $this->addressConverter->convertAbstractAddressToDataAddress($address)
+            );
+            return $validationResult->isAcceptable() ?: ['Address is invalid.'];
         }
         return $result;
-    }
-
-    protected function validateAddress(AbstractAddress $address)
-    {
-        $httpConfig = new HttpConfig(
-            $this->scopeConfig->getValue('ebay_enterprise/web_services/api_key'),
-            $this->scopeConfig->getValue('ebay_enterprise/web_services/hostname'),
-            $this->scopeConfig->getValue('ebay_enterprise/web_services/major_version'),
-            $this->scopeConfig->getValue('ebay_enterprise/web_services/minor_version'),
-            $this->scopeConfig->getValue('ebay_enterprise/general/store_id'),
-            $this->scopeConfig->getValue('ebay_enterprise/address_validation/service'),
-            $this->scopeConfig->getValue('ebay_enterprise/address_validation/operation'),
-            [],
-            $this->logger
-        );
-        $api = new HttpApi($httpConfig);
-        $req = $this->sdkHelper->transferAddressToPhysicalAddressPayload(
-            $address->getDataModel(),
-            $api->getRequestBody()
-        );
-        $req->setMaxSuggestions($this->scopeConfig->getValue('ebay_enterprise/address_validation/max_suggestions'));
-        $api->setRequestBody($req)->send();
-        $resp = $api->getResponseBody();
-        return $resp->isAcceptable() ? true : ['Address is invalid'];
     }
 }

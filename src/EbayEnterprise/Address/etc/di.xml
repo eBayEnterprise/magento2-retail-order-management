@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
+    <preference for="EbayEnterprise\Address\Api\Data\AddressInterface"
+        type="EbayEnterprise\Address\Model\Address" />
+    <preference for="EbayEnterprise\Address\Api\AddressValidation"
+        type="EbayEnterprise\Address\Model\Service\AddressValidation" />
     <type name="Magento\Customer\Model\Address\AbstractAddress">
         <plugin name="ebayenterprise_address_validate_after" type="\EbayEnterprise\Address\Model\Plugin\Validator" sortOrder="1"/>
     </type>
