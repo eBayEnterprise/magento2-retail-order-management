@@ -2,40 +2,41 @@
 
 namespace EbayEnterprise\Address\Model\Service;
 
+use eBayEnterprise\RetailOrderManagement\Payload\Address\IValidationRequest;
+use EbayEnterprise\Address\Api\AddressValidationInterface;
+use EbayEnterprise\Address\Api\Data\AddressInterface;
+use EbayEnterprise\Address\Api\Data\ValidationResultInterfaceFactory;
 use EbayEnterprise\Address\Helper\Sdk as SdkHelper;
 use EbayEnterprise\Address\Model\HttpApiFactory;
-use EbayEnterprise\Address\Model\ResultFactory;
-use EbayEnterprise\Address\Api\QuoteAddressValidationInterface;
-use Magento\Customer\Model\Address\AbstractAddress;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Psr\Log\LoggerInterface;
 
 class AddressValidation implements AddressValidationInterface
 {
-    /** @var \EbayEnterprise\Address\Helper\Sdk */
+    /** @var SdkHelper */
     protected $sdkHelper;
-    /** @var \Psr\Log\LoggerInterface */
+    /** @var LoggerInterface */
     protected $logger;
-    /** @var \Magento\Framework\App\Config\ScopeConfigInterface */
+    /** @var ScopeConfigInterface */
     protected $scopeConfig;
-    /** @var \EbayEnterprise\Address\Model\HttpApiFactory */
+    /** @var HttpApiFactory */
     protected $httpApiFactory;
-    /** @var \EbayEnterprise\Address\Model\ResultFactory */
+    /** @var ValidationResultInterfaceBuilder */
     protected $resultFactory ;
 
     /**
-     * @param \EbayEnterprise\Address\Helper\Sdk $sdkHelper,
-     * @param \Psr\Log\LoggerInterface $logger,
-     * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig,
-     * @param \EbayEnterprise\Address\Model\HttpApiFactory $httpApiFactory,
-     * @param \EbayEnterprise\Address\Model\ResultFactory $resultFactory
+     * @param SdkHelper $sdkHelper,
+     * @param LoggerInterface $logger,
+     * @param ScopeConfigInterface $scopeConfig,
+     * @param HttpApiFactory $httpApiFactory,
+     * @param ValidationResultInterfaceBuilder $resultFactory
      */
     public function __construct(
         SdkHelper $sdkHelper,
         LoggerInterface $logger,
         ScopeConfigInterface $scopeConfig,
         HttpApiFactory $httpApiFactory,
-        ResultFactory $resultFactory
+        ValidationResultInterfaceFactory $resultFactory
     ) {
         $this->sdkHelper = $sdkHelper;
         $this->logger = $logger;
@@ -47,15 +48,29 @@ class AddressValidation implements AddressValidationInterface
     /**
      * {@inheritDoc}
      */
-    public function validate(\EbayEnterprise\Address\Api\Data\AddressInterface $address)
+    public function validate(AddressInterface $address)
     {
         $api = $this->httpApiFactory->create($this->scopeConfig);
-        $req = $this->sdkHelper->transferAddressToPhysicalAddressPayload(
-            $address->getDataModel(),
-            $api->getRequestBody()
-        );
-        $req->setMaxSuggestions($this->scopeConfig->getValue('ebay_enterprise/address_validation/max_suggestions'));
-        $api->setRequestBody($req)->send();
+        $api->setRequestBody($this->prepareSdkRequest($api->getRequestBody(), $address))
+            ->send();
         return $this->resultFactory->create(['replyPayload' => $api->getResponseBody()]);
+    }
+
+    /**
+     * Prepare a validation request payload, setting the address and config
+     * data on the payload.
+     *
+     * @param IValidationRequest
+     * @param AddressInterface
+     * @return IValidationRequest
+     */
+    protected function prepareSdkRequest(IValidationRequest $request, AddressInterface $address)
+    {
+        return $this->sdkHelper
+            ->transferAddressToPhysicalAddressPayload(
+                $address->getDataModel(),
+                $request
+            )
+            ->setMaxSuggestions($this->scopeConfig->getValue('ebay_enterprise/address_validation/max_suggestions'));
     }
 }
