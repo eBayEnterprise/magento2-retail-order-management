@@ -3,34 +3,19 @@
 namespace EbayEnterprise\Address\Helper;
 
 use eBayEnterprise\RetailOrderManagement\Payload\Checkout\IPhysicalAddress;
-use Magento\Customer\Api\Data\AddressDataBuilder;
-use Magento\Customer\Api\Data\AddressInterface;
+use EbayEnterprise\Address\Api\Data\AddressInterface;
+use EbayEnterprise\Address\Api\Data\AddressInterfaceBuilder;
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
 
 class Sdk extends AbstractHelper
 {
-    /** @var RegionInterfaceFactory */
-    protected $regionDataFactory;
-
-    /**
-     * @param AddressDataBuilder $context
-     * @param Context $context
-     */
-    public function __construct(
-        Context $context,
-        \Magento\Customer\Api\Data\RegionInterfaceFactory $regionDataFactory
-    ) {
-        parent::__construct($context);
-        $this->regionDataFactory = $regionDataFactory;
-    }
-
     /**
      * Transfer the Magento address object to a physical address SDK payload.
      *
-     * @param \Magento\Customer\Api\Data\AddressInterface
-     * @param \eBayEnterprise\RetailOrderManagement\Payload\Checkout\IPhysicalAddress
-     * @return \eBayEnterprise\RetailOrderManagement\Payload\Checkout\IPhysicalAddress
+     * @param AddressInterface
+     * @param IPhysicalAddress
+     * @return IPhysicalAddress
      */
     public function transferAddressToPhysicalAddressPayload(
         AddressInterface $address,
@@ -39,7 +24,7 @@ class Sdk extends AbstractHelper
         $addressPayload
             ->setLines(implode("\n", (array) $address->getStreet()))
             ->setCity($address->getCity())
-            ->setMainDivision($address->getRegion()->getRegionCode())
+            ->setMainDivision($address->getRegionCode())
             ->setCountryCode($address->getCountryId())
             ->setPostalCode($address->getPostcode());
         return $addressPayload;
@@ -48,22 +33,20 @@ class Sdk extends AbstractHelper
     /**
      * Transfer the SDK payload data to a Magento address object.
      *
-     * @param \eBayEnterprise\RetailOrderManagement\Payload\Checkout\IPhysicalAddress
-     * @param \Magento\Customer\Api\Data\AddressInterface
-     * @return \Magento\Customer\Api\Data\AddressInterface
+     * @param IPhysicalAddress
+     * @param AddressInterface
+     * @return AddressInterface
      */
     public function transferPhysicalAddressPayloadToAddress(
         IPhysicalAddress $addressPayload,
-        AddressDataBuilder $addressBuilder
+        AddressInterfaceBuilder $addressBuilder
     ) {
-        $region = $this->regionDataFactory->create();
-        $region->setRegionCode($addressPayload->getMainDivision());
-        $addressBuilder
+        return $addressBuilder
             ->setStreet(explode("\n", $addressPayload->getLines()))
             ->setCity($addressPayload->getCity())
             ->setCountryId($addressPayload->getCountryCode())
-            ->setRegion($region)
-            ->setPostcode($addressPayload->getPostalCode());
-        return $addressBuilder->create();
+            ->setRegionCode($addressPayload->getMainDivision())
+            ->setPostcode($addressPayload->getPostalCode())
+            ->create();
     }
 }
