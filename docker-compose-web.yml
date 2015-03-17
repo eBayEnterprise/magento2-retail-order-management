@@ -49,3 +49,12 @@ magentosetup:
     working_dir: /var/www/code/build/magento/setup
     entrypoint: ["php", "index.php"]
     command: help
+cachetools:
+    image: scottvanbrug/magento2_web
+    user: default
+    volumes:
+        - .:/var/www/code
+    links:
+        - db
+    working_dir: /var/www/code/build/magento
+    entrypoint: ["php", "dev/shell/cache.php"]
