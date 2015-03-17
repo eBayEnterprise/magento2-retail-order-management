@@ -13,7 +13,7 @@ interface AddressValidationInterface
      * available.
      *
      * @param \EbayEnterprise\Address\Api\Data\AddressInterface $address
-     * @return \EbayEnterprise\Address\Api\Data\ResultInterface
+     * @return \EbayEnterprise\Address\Api\Data\ValidationResultInterface
      */
     public function validate(AddressInterface $address);
 }

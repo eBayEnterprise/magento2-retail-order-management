@@ -2,7 +2,7 @@
 
 namespace EbayEnterprise\Address\Api\Data;
 
-interface ResultInterface
+interface ValidationResultInterface
 {
     /**
      * Indicates if the address has been successfully validated.

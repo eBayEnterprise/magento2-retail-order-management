@@ -3,8 +3,9 @@
 namespace EbayEnterprise\Address\Model\Validation;
 
 use eBayEnterprise\RetailOrderManagement\Payload\Address\IValidationReply;
+use EbayEnterprise\Address\Api\Data\ValidationResultInterface;
 
-class Result
+class Result implements ValidationResultInterface
 {
     /** @var \EbayEnterprise\Address\Helper\Sdk */
     protected $sdkHelper;
