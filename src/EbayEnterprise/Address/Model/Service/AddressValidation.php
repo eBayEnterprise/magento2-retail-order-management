@@ -53,7 +53,7 @@ class AddressValidation implements AddressValidationInterface
         $api = $this->httpApiFactory->create($this->scopeConfig);
         $api->setRequestBody($this->prepareSdkRequest($api->getRequestBody(), $address))
             ->send();
-        return $this->resultFactory->create(['replyPayload' => $api->getResponseBody()]);
+        return $this->resultFactory->create(['replyPayload' => $api->getResponseBody(), 'originalAddress' => $address]);
     }
 
     /**
@@ -67,10 +67,7 @@ class AddressValidation implements AddressValidationInterface
     protected function prepareSdkRequest(IValidationRequest $request, AddressInterface $address)
     {
         return $this->sdkHelper
-            ->transferAddressToPhysicalAddressPayload(
-                $address->getDataModel(),
-                $request
-            )
+            ->transferAddressToPhysicalAddressPayload($address, $request)
             ->setMaxSuggestions($this->scopeConfig->getValue('ebay_enterprise/address_validation/max_suggestions'));
     }
 }

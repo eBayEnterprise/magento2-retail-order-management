@@ -5,11 +5,22 @@ namespace EbayEnterprise\Address\Helper;
 use eBayEnterprise\RetailOrderManagement\Payload\Checkout\IPhysicalAddress;
 use EbayEnterprise\Address\Api\Data\AddressInterface;
 use EbayEnterprise\Address\Api\Data\AddressInterfaceBuilder;
-use Magento\Framework\App\Helper\AbstractHelper;
-use Magento\Framework\App\Helper\Context;
+use Psr\Log\LoggerInterface;
 
-class Sdk extends AbstractHelper
+class Sdk
 {
+    /** @var LoggerInterface */
+    protected $logger;
+
+    /**
+     * @param LoggerInterface
+     */
+    public function __construct(
+        LoggerInterface $logger
+    ) {
+        $this->logger = $logger;
+    }
+
     /**
      * Transfer the Magento address object to a physical address SDK payload.
      *
@@ -21,6 +32,13 @@ class Sdk extends AbstractHelper
         AddressInterface $address,
         IPhysicalAddress $addressPayload
     ) {
+        $this->logger->debug('Sending address with data', [
+            'lines' => $address->getStreet(),
+            'city' => $address->getCity(),
+            'main_division' => $address->getRegionCode(),
+            'country_code' => $address->getCountryId(),
+            'postal_code' => $address->getPostcode(),
+        ]);
         $addressPayload
             ->setLines(implode("\n", (array) $address->getStreet()))
             ->setCity($address->getCity())

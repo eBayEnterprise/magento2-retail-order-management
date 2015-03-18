@@ -4,19 +4,24 @@ namespace EbayEnterprise\Address\Helper;
 
 use EbayEnterprise\Address\Api\Data\AddressInterfaceBuilderFactory;
 use Magento\Customer\Model\Address\AbstractAddress as AbstractCustomerAddress;
+use Psr\Log\LoggerInterface;
 
-class Data
+class Converter
 {
     /** @var AddressInterfaceBuilderFactory */
     protected $addressBuilderFactory;
+    /** @var LoggerInterface */
+    protected $logger;
 
     /**
      * @param AddressInterfaceBuilderFactory
      */
     public function __construct(
-        AddressInterfaceBuilderFactory $addressBuilderFactory
+        AddressInterfaceBuilderFactory $addressBuilderFactory,
+        LoggerInterface $logger
     ) {
         $this->addressBuilderFactory = $addressBuilderFactory;
+        $this->logger = $logger;
     }
 
     /**
@@ -28,14 +33,17 @@ class Data
      */
     public function convertAbstractAddressToDataAddress(AbstractCustomerAddress $address)
     {
-        return $this->addressBuilderFactory()
-            ->create([
-                'street' => $address->getStreet(),
-                'city' => $address->getCity(),
-                'region_code' => $address->getRegion()->getRegionCode(),
-                'country_id' => $address->getCountryId(),
-                'postcode' => $address->getPostcode(),
-            ])
+        $data = [
+            'street' => $address->getStreet(),
+            'city' => $address->getCity(),
+            'region_code' => $address->getRegionCode(),
+            'country_id' => $address->getCountryId(),
+            'postcode' => $address->getPostcode(),
+        ];
+        $this->logger->debug('Creating address with data.', $data);
+        return $this->addressBuilderFactory
+            ->create()
+            ->populateWithArray($data)
             ->create();
     }
 }

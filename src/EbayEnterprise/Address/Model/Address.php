@@ -3,16 +3,16 @@
 namespace EbayEnterprise\Address\Model;
 
 use EbayEnterprise\Address\Api\Data\AddressInterface;
-use Magento\Framework\Object as FrameworkObject;
+use Magento\Framework\Api\AbstractSimpleObject;
 
-class Address extends FrameworkObject implements AddressInterface
+class Address extends AbstractSimpleObject implements AddressInterface
 {
     /**
      * {@inheritDoc}
      */
     public function getStreet()
     {
-        return $this->getData('street');
+        return $this->_get('street');
     }
 
     /**
@@ -31,7 +31,7 @@ class Address extends FrameworkObject implements AddressInterface
      */
     public function getCity()
     {
-        return $this->getData('city');
+        return $this->_get('city');
     }
 
     /**
@@ -39,7 +39,7 @@ class Address extends FrameworkObject implements AddressInterface
      */
     public function getRegionCode()
     {
-        return $this->getData('region_code');
+        return $this->_get('region_code');
     }
 
     /**
@@ -47,7 +47,7 @@ class Address extends FrameworkObject implements AddressInterface
      */
     public function getCountryId()
     {
-        return $this->getData('country_id');
+        return $this->_get('country_id');
     }
 
     /**
@@ -55,6 +55,6 @@ class Address extends FrameworkObject implements AddressInterface
      */
     public function getPostcode()
     {
-        return $this->getData('postcode');
+        return $this->_get('postcode');
     }
 }

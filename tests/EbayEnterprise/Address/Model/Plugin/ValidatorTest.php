@@ -10,33 +10,42 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     /** @var \Magento\TestFramework\Helper\ObjectManager */
     protected $objectManager;
     /** @var \Magento\Customer\Model\Address\AbstractAddress (mock) */
-    protected $address;
+    protected $abstractAddress;
     /** @var \Magento\Customer\Api\Data\AddressInterface (mock) */
     protected $addressDataModel;
     /** @var Validator */
     protected $validator;
+    /** @var \EbayEnterprise\Address\Helper\Converter (mock) */
+    protected $addressConverter;
+    /** @var \EbayEnterprise\Address\Api\Data\ValidationResultInterface (mock) */
+    protected $validationResults;
 
     public function setUp()
     {
-        $this->address = $this
+        $this->abstractAddress = $this
             ->getMockBuilder('\Magento\Customer\Model\Address\AbstractAddress')
             ->disableOriginalConstructor()
             ->getMock();
-        $this->addressDataModel = $this->getMock('Magento\Customer\Api\Data\AddressInterface');
-
-        $this->request = $this->getMock('eBayEnterpries\RetailOrderManagement\Payload\Address\IValidationRequest');
-        $this->response = $this->getMock('eBayEnterpries\RetailOrderManagement\Payload\Address\IValidationReply');
-        $this->api = $this->getMock('eBayEnterprise\RetailOrderManagement\Api\IBidirectionalApi');
-        $this->api->expects($this->any())
-            ->method('getRequestBody')
-            ->will($this->returnValue($this->request));
-        $this->api->expects($this->any())
-            ->method('getResponseBody')
-            ->will($this->returnValue($this->response));
+        $this->addressDataModel = $this
+            ->getMockBuilder('EbayEnterprise\Address\Api\Data\AddressInterface')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $this->addressValidation = $this
+            ->getMock('EbayEnterprise\Address\Api\AddressValidationInterface');
+        $this->addressConverter = $this
+            ->getMockBuilder('EbayEnterprise\Address\Helper\Converter')
+            ->disableOriginalConstructor()
+            ->getMock();
+        $this->validationResults = $this
+            ->getMock('EbayEnterprise\Address\Api\Data\ValidationResultInterface');
 
         $this->objectManager = new ObjectManager($this);
         $this->validator = $this->objectManager->getObject(
-            'EbayEnterprise\Address\Model\Plugin\Validator'
+            'EbayEnterprise\Address\Model\Plugin\Validator',
+            [
+                'addressValidation' => $this->addressValidation,
+                'addressConverter' => $this->addressConverter,
+            ]
         );
     }
 
@@ -47,11 +56,12 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testAlreadyInvalidAddressIsNotValidated()
     {
-        $this->markTestSkipped('Not sure if this is needed');
         $error = ['Some error'];
+        $this->addressValidation->expects($this->never())
+            ->method('validate');
         $this->assertSame(
             $error,
-            $this->validator->afterValidate($this->address, ['Some error'])
+            $this->validator->afterValidate($this->abstractAddress, ['Some error'])
         );
     }
 
@@ -59,12 +69,41 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
      * When an address has not yet been found invalid though local checks,
      * validate it via the SDK.
      */
-    public function testMakeSdkRequestToValidateAddress()
+    public function testValidateAddressSuccess()
     {
-        $this->markTestSkipped('Not sure if this is needed');
-        $this->api->expects($this->once())
-            ->method('send')
-            ->will($this->returnSelf());
-        $this->validator->afterValidate($this->address, true);
+        $this->addressConverter->expects($this->once())
+            ->method('convertAbstractAddressToDataAddress')
+            ->with($this->identicalTo($this->abstractAddress))
+            ->will($this->returnValue($this->addressDataModel));
+        $this->addressValidation->expects($this->once())
+            ->method('validate')
+            ->with($this->identicalTo($this->addressDataModel))
+            ->will($this->returnValue($this->validationResults));
+        $this->validationResults->expects($this->any())
+            ->method('isAcceptable')
+            ->will($this->returnValue(true));
+
+        $this->assertTrue($this->validator->afterValidate($this->abstractAddress, true));
+    }
+
+    /**
+     * When an address has not yet been found invalid though local checks,
+     * validate it via the SDK.
+     */
+    public function testValidateAddressFailure()
+    {
+        $this->addressConverter->expects($this->once())
+            ->method('convertAbstractAddressToDataAddress')
+            ->with($this->identicalTo($this->abstractAddress))
+            ->will($this->returnValue($this->addressDataModel));
+        $this->addressValidation->expects($this->once())
+            ->method('validate')
+            ->with($this->identicalTo($this->addressDataModel))
+            ->will($this->returnValue($this->validationResults));
+        $this->validationResults->expects($this->any())
+            ->method('isAcceptable')
+            ->will($this->returnValue(false));
+
+        $this->assertTrue(is_array($this->validator->afterValidate($this->abstractAddress, true)));
     }
 }

@@ -2,8 +2,11 @@
 
 namespace EbayEnterprise\Address\Model\Validation;
 
-use eBayEnterprise\RetailOrderManagement\Payload\Address\IValidationReply;
+use EbayEnterprise\Address\Api\Data\AddressInterface;
+use EbayEnterprise\Address\Api\Data\AddressInterfaceBuilderFactory;
 use EbayEnterprise\Address\Api\Data\ValidationResultInterface;
+use EbayEnterprise\Address\Helper\Sdk as SdkHelper;
+use eBayEnterprise\RetailOrderManagement\Payload\Address\IValidationReply;
 
 class Result implements ValidationResultInterface
 {
@@ -13,34 +16,25 @@ class Result implements ValidationResultInterface
     protected $replyPayload;
 
     /**
-     * @param \EbayEnterprise\Address\Helper\Sdk
-     * @param \eBayEnterprise\RetailOrderManagement\Payload\Address\IValidationReply
+     * @param SdkHelper
+     * @param IValidationReply
+     * @param AddressInterfaceBuilderFactory
+     * @param AddressInterface
      */
     public function __construct(
-        Address\Helper\Sdk $sdkHelper,
+        SdkHelper $sdkHelper,
         IValidationReply $replyPayload,
-        \Magento\Customer\Api\Data\AddressDataBuilderFactory $AddressDataBuilderFactory
+        AddressInterfaceBuilderFactory $addressBuilderFactory,
+        AddressInterface $originalAddress
     ) {
         $this->sdkHelper = $sdkHelper;
         $this->replyPayload = $replyPayload;
         $this->addressBuilderFactory = $addressBuilderFactory;
+        $this->originalAddress = $originalAddress;
     }
 
     /**
-     * Return if the address is acceptable based upon the reponse from the
-     * address validation service.
-     *
-     * @return bool
-     */
-    public function isAcceptable()
-    {
-        return $this->replyPayload->isAcceptable();
-    }
-
-    /**
-     * Return if the address was found to be valid.
-     *
-     * @return bool
+     * {@inheritDoc}
      */
     public function isValid()
     {
@@ -48,10 +42,23 @@ class Result implements ValidationResultInterface
     }
 
     /**
-     * Get address objects for suggestions returned in the API reply.
-     *
-     * @return \Generator \eBayEnterprise\RetailOrderManagement\Payload\Address\ISuggestedAddress
-     *                        => \Magento\Customer\Api\Data\AddressInterface
+     * {@inheritDoc}
+     */
+    public function isAcceptable()
+    {
+        return $this->replyPayload->isAcceptable();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function hasSuggestions()
+    {
+        return $this->replyPayload->hasSuggestions();
+    }
+
+    /**
+     * {@inheritDoc}
      */
     public function getSuggestions()
     {
@@ -61,5 +68,24 @@ class Result implements ValidationResultInterface
                 $this->addressDataBuilderFactory->create()
             );
         }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getOriginalAddress()
+    {
+        return $this->originalAddress;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCorrectedAddress()
+    {
+        return $this->sdkHelper->transferPhysicalAddressPayloadToAddress(
+            $this->replyPayload,
+            $this->addressDataBuilderFactory->create()
+        );
     }
 }
