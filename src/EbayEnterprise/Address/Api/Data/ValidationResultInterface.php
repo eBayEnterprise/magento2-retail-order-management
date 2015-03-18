@@ -20,11 +20,25 @@ interface ValidationResultInterface
     public function isAcceptable();
 
     /**
+     * Get the fields on which errors were detected in the request.
+     *
+     * @return eBayEnterprise\RetailOrderManagement\Payload\Address\IErrorLocationIterable
+     */
+    public function getErrorLocations();
+
+    /**
      * Indicates if suggestions to correct the address are available.
      *
      * @return bool
      */
     public function hasSuggestions();
+
+    /**
+     * The number of suggestions available for the validated address.
+     *
+     * @return int
+     */
+    public function getSuggestionCount();
 
     /**
      * Get any addresses returned as suggested corrections to the address

@@ -10,10 +10,14 @@ use eBayEnterprise\RetailOrderManagement\Payload\Address\IValidationReply;
 
 class Result implements ValidationResultInterface
 {
-    /** @var \EbayEnterprise\Address\Helper\Sdk */
+    /** @var SdkHelper */
     protected $sdkHelper;
-    /** @var \eBayEnterprise\RetailOrderManagement\Payload\Address\IValidationReply */
+    /** @var IValidationReply */
     protected $replyPayload;
+    /** @var AddressInterfaceBuilderFactory */
+    protected $addressBuilderFactory;
+    /** @var AddressInterface */
+    protected $originalAddress;
 
     /**
      * @param SdkHelper
@@ -52,9 +56,25 @@ class Result implements ValidationResultInterface
     /**
      * {@inheritDoc}
      */
+    public function getErrorLocations()
+    {
+        return $this->replyPayload->getResultErrorLocations();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function hasSuggestions()
     {
         return $this->replyPayload->hasSuggestions();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getSuggestionCount()
+    {
+        return $this->replyPayload->getResultSuggestionCount();
     }
 
     /**
@@ -65,7 +85,7 @@ class Result implements ValidationResultInterface
         foreach ($this->replyPayload->getSuggestedAddresses() as $suggestedAddress) {
             yield $suggestedAddress => $this->sdkHelper->transferPhysicalAddressPayloadToAddress(
                 $suggestedAddress,
-                $this->addressDataBuilderFactory->create()
+                $this->addressBuilderFactory->create()
             );
         }
     }
@@ -85,7 +105,7 @@ class Result implements ValidationResultInterface
     {
         return $this->sdkHelper->transferPhysicalAddressPayloadToAddress(
             $this->replyPayload,
-            $this->addressDataBuilderFactory->create()
+            $this->addressBuilderFactory->create()
         );
     }
 }
