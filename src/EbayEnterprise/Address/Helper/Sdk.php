@@ -32,13 +32,6 @@ class Sdk
         AddressInterface $address,
         IPhysicalAddress $addressPayload
     ) {
-        $this->logger->debug('Sending address with data', [
-            'lines' => $address->getStreet(),
-            'city' => $address->getCity(),
-            'main_division' => $address->getRegionCode(),
-            'country_code' => $address->getCountryId(),
-            'postal_code' => $address->getPostcode(),
-        ]);
         $addressPayload
             ->setLines(implode("\n", (array) $address->getStreet()))
             ->setCity($address->getCity())

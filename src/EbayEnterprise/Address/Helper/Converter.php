@@ -40,7 +40,6 @@ class Converter
             'country_id' => $address->getCountryId(),
             'postcode' => $address->getPostcode(),
         ];
-        $this->logger->debug('Creating address with data.', $data);
         return $this->addressBuilderFactory
             ->create()
             ->populateWithArray($data)
