@@ -49,32 +49,8 @@ class Validator
             } catch (\Exception $e) {
                 return [$e->getMessage()];
             }
-            $this->logResults($validationResult);
             return $validationResult->isAcceptable() ?: ['Invalid.'];
         }
         return $result;
-    }
-
-    protected function logResults($validationResult)
-    {
-        $this->logger->debug(sprintf('Have %d suggestions.', $validationResult->getSuggestionCount()));
-        $this->logAddress($validationResult->getCorrectedAddress());
-        foreach ($validationResult->getSuggestions() as $suggestedAddress) {
-            $this->logAddress($suggestedAddress);
-        }
-        return $this;
-    }
-
-    protected function logAddress($address)
-    {
-        $this->logger->debug(sprintf(
-            'Corrected address: %s\n%s, %s %s %s',
-            implode("\n", $address->getStreet()),
-            $address->getCity(),
-            $address->getRegionCode(),
-            $address->getCountryId(),
-            $address->getPostcode()
-        ));
-        return $this;
     }
 }

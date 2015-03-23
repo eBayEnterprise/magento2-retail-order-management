@@ -3,7 +3,7 @@
 namespace EbayEnterprise\Address\Helper;
 
 use Magento\Framework\App\ScopeInterface;
-use Magento\TestFramework\Helper\ObjectManager;
+use Magento\Framework\TestFramework\Unit\Helper\ObjectManager;
 
 class SdkTest extends \PHPUnit_Framework_TestCase
 {
@@ -39,6 +39,7 @@ class SdkTest extends \PHPUnit_Framework_TestCase
         $this->addressDataBuilder = $this
             ->getMockBuilder('EbayEnterprise\Address\Api\Data\AddressInterfaceBuilder')
             ->disableOriginalConstructor()
+            ->setMethods(['setStreet', 'setCity', 'setCountryId', 'setRegionCode', 'setPostcode', 'create'])
             ->getMock();
 
         $this->objectManager = new ObjectManager($this);

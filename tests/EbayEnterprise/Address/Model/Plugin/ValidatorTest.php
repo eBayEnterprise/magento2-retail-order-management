@@ -3,7 +3,7 @@
 namespace EbayEnterprise\Address\Model\Plugin;
 
 use eBayEnterprise\RetailOrderManagement\Api\HttpConfig;
-use Magento\TestFramework\Helper\ObjectManager;
+use Magento\Framework\TestFramework\Unit\Helper\ObjectManager;
 
 class ValidatorTest extends \PHPUnit_Framework_TestCase
 {

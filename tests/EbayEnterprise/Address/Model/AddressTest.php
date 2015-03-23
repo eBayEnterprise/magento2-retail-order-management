@@ -2,7 +2,7 @@
 
 namespace EbayEnterprise\Address\Model;
 
-use Magento\TestFramework\Helper\ObjectManager;
+use Magento\Framework\TestFramework\Unit\Helper\ObjectManager;
 
 class AddressTest extends \PHPUnit_Framework_TestCase
 {
