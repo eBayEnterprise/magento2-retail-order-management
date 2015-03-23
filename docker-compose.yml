@@ -1,59 +1,116 @@
-composer:
-    image: scottvanbrug/magento2_tools
+dbdata:
+    image: mysql:5
+    command: echo 'Providing data volume for mysql data'
+db:
+    image: mysql:5
+    environment:
+        - MYSQL_ROOT_PASSWORD=mage
+        - MYSQL_USER=mage
+        - MYSQL_PASSWORD=mage
+        - MYSQL_DATABASE=mage
+    volumes_from:
+        - dbdata
+fsdata:
+    build: .
     volumes:
         - .:/var/www/code
-        - ~/.composer/:/root/.composer/
+    command: echo 'Providing fs data volume'
+web:
+    build: .
+    environment:
+        - MAGE_MODE=developer
+    volumes_from:
+        - fsdata
+    links:
+        - db
+    ports:
+        - "80"
+install:
+    build: .
+    user: default
+    volumes_from:
+        - fsdata
+    links:
+        - db
+    command: install_magento
+magentosetup:
+    build: .
+    user: default
+    volumes_from:
+        - fsdata
+    links:
+        - db
+    working_dir: /var/www/code/build/magento/setup
+    entrypoint: ["php", "index.php"]
+    command: help
+shelltools:
+    build: .
+    user: default
+    volumes_from:
+        - fsdata
+    links:
+        - db
+    working_dir: /var/www/code/build/magento/dev/shell
+    entrypoint: "php"
+    command: ["-r", "echo implode('    ', glob('*.php')) . PHP_EOL;"]
+composer:
+    build: .
+    volumes_from:
+        - fsdata
+    volumes:
+        - ~/.composer:/home/default/.composer
+    user: default
     working_dir: /var/www/code
     command: list
     entrypoint: composer
 phpunit:
-    image: scottvanbrug/magento2_tools
-    volumes:
-        - .:/var/www/code
+    build: .
+    volumes_from:
+        - fsdata
     working_dir: /var/www/code
     entrypoint: vendor/bin/phpunit
 phpmd:
-    image: scottvanbrug/magento2_tools
-    volumes:
-        - .:/var/www/code
+    build: .
+    volumes_from:
+        - fsdata
     working_dir: /var/www/code
     entrypoint: vendor/bin/phpmd
     command: src,tests text phpmd.xml
 document:
-    image: scottvanbrug/magento2_tools
-    volumes:
-        - .:/var/www/code
+    build: .
+    volumes_from:
+        - fsdata
     entrypoint: vendor/bin/phpdoc
     command: -d src -t build/doc
 pdepend:
-    image: scottvanbrug/magento2_tools
-    volumes:
-        - .:/var/www/code
+    build: .
+    volumes_from:
+        - fsdata
     entrypoint: vendor/bin/pdepend
     command: --jdepend-chart=build/pdepend-chart.svg
              --overview-pyramid=build/pdepend-overview-pyramid.svg
              src,tests
 phpcpd:
-    image: scottvanbrug/magento2_tools
-    volumes:
-        - .:/var/www/code
+    build: .
+    volumes_from:
+        - fsdata
     entrypoint: vendor/bin/phpcpd
     command: --fuzzy --progress src tests
 phpcs:
-    image: scottvanbrug/magento2_tools
-    volumes:
-        - .:/var/www/code
+    build: .
+    volumes_from:
+        - fsdata
     entrypoint: vendor/bin/phpcs
     command: -p --standard=PSR2 src tests
 phploc:
-    image: scottvanbrug/magento2_tools
-    volumes:
-        - .:/var/www/code
+    build: .
+    volumes_from:
+        - fsdata
     entrypoint: vendor/bin/phploc
     command: --count-tests --progress src tests
 phplint:
-    image: scottvanbrug/magento2_tools
-    volumes:
-        - .:/var/www/code
+    build: .
+    volumes_from:
+        - fsdata
     command: sh -c 'find src tests \( -name "*.php" -o -name "*.phtml" \) -print0 |
                     xargs -0 -n1 -P6 -- php -l > /dev/null && echo "no errors"'

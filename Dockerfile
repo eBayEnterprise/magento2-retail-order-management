@@ -42,7 +42,7 @@ RUN adduser --system --uid=1000 default
 
 # Extension repo should be mounted to /var/www/code. Magento 2 will be built
 # and served from /var/www/code/build/magento.
-RUN mkdir -p /var/www/code/build/magento
+RUN mkdir -p /var/www/code/build/magento && chown -R default /var/www/code
 ENV MAGENTO_ROOT_DIR /var/www/code/build/magento
 WORKDIR /var/www/code
 
@@ -50,11 +50,7 @@ WORKDIR /var/www/code
 COPY env/config/apache2.conf /etc/apache2/apache2.conf
 RUN a2enmod rewrite
 
-COPY . /var/www/magento
-RUN composer --no-ansi --no-interaction update
-RUN chown -R default /var/www/magento
-
-VOLUME /var/www/magento
+VOLUME /var/www/code
 
 COPY env/bin/* /usr/local/bin/
 
