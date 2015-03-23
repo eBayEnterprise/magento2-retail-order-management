@@ -1,0 +1,33 @@
+#!/bin/bash
+
+main() {
+    install_magento && fix_base_url
+}
+
+install_magento() {
+    cd "${MAGENTO_ROOT_DIR}/setup" && \
+        php index.php install \
+            --base_url="http://localhost/" \
+            --backend_frontname="admin" \
+            --db_host="db" \
+            --db_name="$DB_ENV_MYSQL_DATABASE" \
+            --db_user="$DB_ENV_MYSQL_USER" \
+            --db_pass="$DB_ENV_MYSQL_PASSWORD" \
+            --admin_firstname="admin" \
+            --admin_lastname="admin" \
+            --admin_email="test@example.com" \
+            --admin_username="admin" \
+            --admin_password="testing123" \
+            --language="en_US" \
+            --currency="USD" \
+            --timezone="America/Indianapolis"
+}
+
+fix_base_url() {
+    mysql() {
+        command mysql -h db -u "$DB_ENV_MYSQL_USER" --password="${DB_ENV_MYSQL_PASSWORD}" "$DB_ENV_MYSQL_DATABASE" "$@"
+    }
+    mysql -e 'UPDATE core_config_data set value="{{base_url}}" where path="web/unsecure/base_url";'
+}
+
+main "$@"

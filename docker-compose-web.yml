@@ -21,7 +21,7 @@ db:
     ports:
         - "3306:3306"
 web:
-    image: scottvanbrug/magento2_web
+    build: .
     environment:
         - MAGE_MODE=developer
     volumes:
@@ -32,7 +32,7 @@ web:
     ports:
         - "8080:80"
 install:
-    image: scottvanbrug/magento2_web
+    build: .
     user: default
     volumes:
         - .:/var/www/code
@@ -40,7 +40,7 @@ install:
         - db
     command: install_magento
 magentosetup:
-    image: scottvanbrug/magento2_web
+    build: .
     user: default
     volumes:
         - .:/var/www/code
@@ -50,7 +50,7 @@ magentosetup:
     entrypoint: ["php", "index.php"]
     command: help
 shelltools:
-    image: scottvanbrug/magento2_web
+    build: .
     user: default
     volumes:
         - .:/var/www/code
