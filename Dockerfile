@@ -4,8 +4,10 @@ MAINTAINER Scott van Brug <svanbrug@ebay.com>
 # Install PHP deps for Magento 2 / ROM Extension
 RUN apt-get update && apt-get install -qqy \
         apt-utils \
+        g++ \
         git \
         libfreetype6-dev \
+        libicu-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
         libpng12-dev \
@@ -18,13 +20,15 @@ RUN apt-get update && apt-get install -qqy \
     && docker-php-ext-install \
         bcmath \
         gd \
+        intl \
         mbstring \
         mcrypt \
         mysql \
         pdo_mysql \
         pcntl \
         xsl \
-        zip
+        zip \
+    && apt-get autoremove -qqy
 
 # Install composer
 WORKDIR /usr/local/bin
