@@ -82,12 +82,12 @@
         },
         {
             "name": "magento/framework",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_framework-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_framework-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "9a80d42dd641fbe04bc12587e04c7bf3d0818d4a"
+                "shasum": "e0814ab097cca027df3f1ac36de5633996407bc3"
             },
             "require": {
                 "ext-curl": "*",
@@ -203,17 +203,17 @@
         },
         {
             "name": "magento/module-authorization",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-authorization-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-authorization-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "0f61d3281e5d0a2b49e926463b1035224827721f"
+                "shasum": "f4aaaecd1f57152c3b5229cbf49f473ab412add3"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -233,32 +233,32 @@
         },
         {
             "name": "magento/module-backend",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-backend-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-backend-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "2bec0011ce669cf5ca63cf0121b2c001514d1067"
+                "shasum": "83e7f7b51c7b8c88f76676970a136ee836102e53"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backup": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-cron": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-developer": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-reports": "0.42.0-beta11",
-                "magento/module-require-js": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-theme": "0.42.0-beta11",
-                "magento/module-translation": "0.42.0-beta11",
-                "magento/module-user": "0.42.0-beta11",
+                "magento/module-backup": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-cron": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-developer": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-reports": "0.74.0-beta1",
+                "magento/module-require-js": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-theme": "0.74.0-beta1",
+                "magento/module-translation": "0.74.0-beta1",
+                "magento/module-user": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -278,19 +278,19 @@
         },
         {
             "name": "magento/module-backup",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-backup-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-backup-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "2704116918f3590f0966e57d3ff6f5e57dc636d8"
+                "shasum": "5c86973583a15ec4e65567d22e6ad38daf00ed14"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-cron": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-cron": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -310,34 +310,34 @@
         },
         {
             "name": "magento/module-bundle",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-bundle-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-bundle-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "2b961da17bb1100d90ecf7bbb1c469c68779ad9f"
+                "shasum": "6efb68def20a45b14d4a73dab75ffb27a2b58bee"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-inventory": "0.42.0-beta11",
-                "magento/module-catalog-rule": "0.42.0-beta11",
-                "magento/module-checkout": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-gift-message": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-tax": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-inventory": "0.74.0-beta1",
+                "magento/module-catalog-rule": "0.74.0-beta1",
+                "magento/module-checkout": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-gift-message": "0.74.0-beta1",
+                "magento/module-media-storage": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-tax": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "suggest": {
-                "magento/module-webapi": "0.42.0-beta11"
+                "magento/module-webapi": "0.74.0-beta1"
             },
             "type": "magento2-module",
             "extra": {
@@ -356,43 +356,43 @@
         },
         {
             "name": "magento/module-catalog",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-catalog-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-catalog-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "b68bfe38f1fed8f4d5fb038c299a86d5e2030b5d"
+                "shasum": "bf05d75a610ecf4161513f45a6e486f03c492555"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog-inventory": "0.42.0-beta11",
-                "magento/module-catalog-rule": "0.42.0-beta11",
-                "magento/module-catalog-url-rewrite": "0.42.0-beta11",
-                "magento/module-checkout": "0.42.0-beta11",
-                "magento/module-cms": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-indexer": "0.42.0-beta11",
-                "magento/module-log": "0.42.0-beta11",
-                "magento/module-msrp": "0.42.0-beta11",
-                "magento/module-page-cache": "0.42.0-beta11",
-                "magento/module-product-alert": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-tax": "0.42.0-beta11",
-                "magento/module-theme": "0.42.0-beta11",
-                "magento/module-url-rewrite": "0.42.0-beta11",
-                "magento/module-widget": "0.42.0-beta11",
-                "magento/module-wishlist": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog-inventory": "0.74.0-beta1",
+                "magento/module-catalog-rule": "0.74.0-beta1",
+                "magento/module-catalog-url-rewrite": "0.74.0-beta1",
+                "magento/module-checkout": "0.74.0-beta1",
+                "magento/module-cms": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-indexer": "0.74.0-beta1",
+                "magento/module-log": "0.74.0-beta1",
+                "magento/module-media-storage": "0.74.0-beta1",
+                "magento/module-msrp": "0.74.0-beta1",
+                "magento/module-page-cache": "0.74.0-beta1",
+                "magento/module-product-alert": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-tax": "0.74.0-beta1",
+                "magento/module-theme": "0.74.0-beta1",
+                "magento/module-url-rewrite": "0.74.0-beta1",
+                "magento/module-widget": "0.74.0-beta1",
+                "magento/module-wishlist": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "suggest": {
-                "magento/module-cookie": "0.42.0-beta11"
+                "magento/module-cookie": "0.74.0-beta1"
             },
             "type": "magento2-module",
             "extra": {
@@ -411,25 +411,25 @@
         },
         {
             "name": "magento/module-catalog-import-export",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-catalog-import-export-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-catalog-import-export-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "456c01b4d7d211946f3d05cd0782a47eae562704"
+                "shasum": "5cb03e9f18c66babdd302517fa2bb67dd78ff5be"
             },
             "require": {
                 "ext-ctype": "*",
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-inventory": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-import-export": "0.42.0-beta11",
-                "magento/module-indexer": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-inventory": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-import-export": "0.74.0-beta1",
+                "magento/module-indexer": "0.74.0-beta1",
+                "magento/module-media-storage": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -449,23 +449,23 @@
         },
         {
             "name": "magento/module-catalog-inventory",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-catalog-inventory-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-catalog-inventory-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "569490fd7493b123ac3b435bc0dcf31b8364c645"
+                "shasum": "7d07cf4788b6a4b1f40d94cc11d1ec3209a6f56a"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-indexer": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-indexer": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -485,24 +485,24 @@
         },
         {
             "name": "magento/module-catalog-rule",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-catalog-rule-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-catalog-rule-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "0725d29af677296547983197caf62f1b1e8e21fd"
+                "shasum": "2eec936d2274eed37789c68c4ee7a43d79101a05"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-import-export": "0.42.0-beta11",
-                "magento/module-indexer": "0.42.0-beta11",
-                "magento/module-rule": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-import-export": "0.74.0-beta1",
+                "magento/module-indexer": "0.74.0-beta1",
+                "magento/module-rule": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -522,23 +522,23 @@
         },
         {
             "name": "magento/module-catalog-url-rewrite",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-catalog-url-rewrite-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-catalog-url-rewrite-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "71c5be642748aa0e754bc9c0cf524913f0fde0cb"
+                "shasum": "5e7d753f2c876a6ae42e2c1945f431fa3a04e390"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-import-export": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-import-export": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-url-rewrite": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-import-export": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-import-export": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-url-rewrite": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -558,20 +558,20 @@
         },
         {
             "name": "magento/module-centinel",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-centinel-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-centinel-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "a5149bc2c94256fa194ba7371cff44d784dad37d"
+                "shasum": "859d49c242b0df6aea91e9d344600362b367bd78"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-checkout": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-checkout": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -591,37 +591,37 @@
         },
         {
             "name": "magento/module-checkout",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-checkout-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-checkout-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "43559eb0f2753a82fbc55612c1749be82a33af60"
+                "shasum": "f96a162c5f9a6b7ccf30e6f137b9bf0bd48c0878"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-inventory": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-gift-message": "0.42.0-beta11",
-                "magento/module-msrp": "0.42.0-beta11",
-                "magento/module-page-cache": "0.42.0-beta11",
-                "magento/module-payment": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-tax": "0.42.0-beta11",
-                "magento/module-theme": "0.42.0-beta11",
-                "magento/module-ui": "0.42.0-beta11",
-                "magento/module-wishlist": "0.42.0-beta11",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-inventory": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-gift-message": "0.74.0-beta1",
+                "magento/module-msrp": "0.74.0-beta1",
+                "magento/module-page-cache": "0.74.0-beta1",
+                "magento/module-payment": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-tax": "0.74.0-beta1",
+                "magento/module-theme": "0.74.0-beta1",
+                "magento/module-ui": "0.74.0-beta1",
+                "magento/module-wishlist": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "suggest": {
-                "magento/module-cookie": "0.42.0-beta11"
+                "magento/module-cookie": "0.74.0-beta1"
             },
             "type": "magento2-module",
             "extra": {
@@ -640,25 +640,25 @@
         },
         {
             "name": "magento/module-cms",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-cms-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-cms-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "a405eb017254557fd67ca6f148b784e1655d055b"
+                "shasum": "c55cf444b036ba5d116ee8c066b93ee7e11fcaa2"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-email": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-theme": "0.42.0-beta11",
-                "magento/module-ui": "0.42.0-beta11",
-                "magento/module-variable": "0.42.0-beta11",
-                "magento/module-widget": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-email": "0.74.0-beta1",
+                "magento/module-media-storage": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-theme": "0.74.0-beta1",
+                "magento/module-ui": "0.74.0-beta1",
+                "magento/module-variable": "0.74.0-beta1",
+                "magento/module-widget": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -678,19 +678,19 @@
         },
         {
             "name": "magento/module-cms-url-rewrite",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-cms-url-rewrite-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-cms-url-rewrite-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "ec1961294e65bb7cb8fd6713b1b99041b77f0923"
+                "shasum": "3deecbfd5b05666fbb9193c76fde6b1e8b386dcd"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-cms": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-url-rewrite": "0.42.0-beta11",
+                "magento/module-cms": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-url-rewrite": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -710,22 +710,22 @@
         },
         {
             "name": "magento/module-config",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-config-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-config-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "378b50d8ed99f273f1a19e5217a2fefbccd58d7c"
+                "shasum": "1bb6b4a67c141c77bcede8458663c576fd7f230c"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-cron": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-email": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-cron": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-email": "0.74.0-beta1",
+                "magento/module-media-storage": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -745,20 +745,20 @@
         },
         {
             "name": "magento/module-contact",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-contact-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-contact-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "5a2e599f6143ad331e686e0882a5dd4803939442"
+                "shasum": "2fb6255ff3fe89b91772943375b6613e23255b76"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-cms": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-cms": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -777,51 +777,19 @@
             "description": "N/A"
         },
         {
-            "name": "magento/module-core",
-            "version": "0.42.0-beta11",
-            "dist": {
-                "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-core-0.42.0-beta11.zip",
-                "reference": null,
-                "shasum": "bb70751e6beb751cc8db412aaf16c62a77457d31"
-            },
-            "require": {
-                "lib-libxml": "*",
-                "magento/framework": "0.42.0-beta11",
-                "magento/magento-composer-installer": "*",
-                "magento/module-authorization": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "php": "~5.5.0|~5.6.0"
-            },
-            "type": "magento2-module",
-            "extra": {
-                "map": [
-                    [
-                        "*",
-                        "Magento/Core"
-                    ]
-                ]
-            },
-            "license": [
-                "OSL-3.0",
-                "AFL-3.0"
-            ],
-            "description": "N/A"
-        },
-        {
             "name": "magento/module-cron",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-cron-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-cron-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "be66d7a8fef08846b50abded846a5f3c796da8a7"
+                "shasum": "aed656fcd3bcd75c9ab34245b4ca494effc88b48"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -841,39 +809,39 @@
         },
         {
             "name": "magento/module-customer",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-customer-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-customer-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "98a6095a6a792749d81e18106bdfad017cdd69be"
+                "shasum": "9161d77a2734bb8baec272b2aae241389539580e"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-authorization": "0.42.0-beta11",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-checkout": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-integration": "0.42.0-beta11",
-                "magento/module-newsletter": "0.42.0-beta11",
-                "magento/module-page-cache": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-review": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-tax": "0.42.0-beta11",
-                "magento/module-theme": "0.42.0-beta11",
-                "magento/module-ui": "0.42.0-beta11",
-                "magento/module-wishlist": "0.42.0-beta11",
+                "magento/module-authorization": "0.74.0-beta1",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-checkout": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-integration": "0.74.0-beta1",
+                "magento/module-media-storage": "0.74.0-beta1",
+                "magento/module-newsletter": "0.74.0-beta1",
+                "magento/module-page-cache": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-review": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-tax": "0.74.0-beta1",
+                "magento/module-theme": "0.74.0-beta1",
+                "magento/module-ui": "0.74.0-beta1",
+                "magento/module-wishlist": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "suggest": {
-                "magento/module-cookie": "0.42.0-beta11"
+                "magento/module-cookie": "0.74.0-beta1"
             },
             "type": "magento2-module",
             "extra": {
@@ -892,17 +860,17 @@
         },
         {
             "name": "magento/module-developer",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-developer-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-developer-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "bf90ee37721751b04fe0af625f5a523bf0f9f686"
+                "shasum": "1815c848599eeafd87d34a8ee40c1e06abe01b6f"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -922,21 +890,20 @@
         },
         {
             "name": "magento/module-directory",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-directory-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-directory-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "50543a86a36b559e8f8c7f3e8b10b8a5c0382406"
+                "shasum": "4136debfa4e32c4c8f1d0cd9b4355e92f91f26bf"
             },
             "require": {
                 "lib-libxml": "*",
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -956,33 +923,33 @@
         },
         {
             "name": "magento/module-downloadable",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-downloadable-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-downloadable-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "341113adaf59f53cc9dc8d998fdb2f9db2c6e90a"
+                "shasum": "1a00dad74ed7a4b921606b87f40b889267c9d356"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-inventory": "0.42.0-beta11",
-                "magento/module-checkout": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-gift-message": "0.42.0-beta11",
-                "magento/module-msrp": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-tax": "0.42.0-beta11",
-                "magento/module-theme": "0.42.0-beta11",
-                "magento/module-wishlist": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-inventory": "0.74.0-beta1",
+                "magento/module-checkout": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-gift-message": "0.74.0-beta1",
+                "magento/module-media-storage": "0.74.0-beta1",
+                "magento/module-msrp": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-tax": "0.74.0-beta1",
+                "magento/module-theme": "0.74.0-beta1",
+                "magento/module-wishlist": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1002,21 +969,21 @@
         },
         {
             "name": "magento/module-eav",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-eav-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-eav-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "c7677e645d4e30a107e3582d6be847362a4f9412"
+                "shasum": "a02c99f6256487b1ac9512fa4a53d0f04a377ad5"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-media-storage": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1036,23 +1003,21 @@
         },
         {
             "name": "magento/module-email",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-email-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-email-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "c75c19153ba57b07dc9ada9fe23450f1faf70f07"
+                "shasum": "505c46ce5b423641802b0560fe9e629d38def0bd"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-cms": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-theme": "0.42.0-beta11",
-                "magento/module-variable": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-cms": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-variable": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1072,29 +1037,26 @@
         },
         {
             "name": "magento/module-gift-message",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-gift-message-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-gift-message-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "27125ee6cc41939746a80edb8a63942a73f47cc9"
+                "shasum": "3f379a485c526f2c0a5ebbf886a3c10aa93da1f7"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-checkout": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-multishipping": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-checkout": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-multishipping": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
-            },
-            "suggest": {
-                "magento/module-core": "0.42.0-beta11"
             },
             "type": "magento2-module",
             "extra": {
@@ -1113,27 +1075,27 @@
         },
         {
             "name": "magento/module-grouped-product",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-grouped-product-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-grouped-product-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "4d9f1d74b20eedb486af0b9661ff838cf7c933ee"
+                "shasum": "58d07e2ae62a2811cc7e5aded5d7241334c7ee6d"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-inventory": "0.42.0-beta11",
-                "magento/module-checkout": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-msrp": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-inventory": "0.74.0-beta1",
+                "magento/module-checkout": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-media-storage": "0.74.0-beta1",
+                "magento/module-msrp": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1153,22 +1115,22 @@
         },
         {
             "name": "magento/module-import-export",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-import-export-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-import-export-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "7e8e5a8af1c773aa8616e33391af0882bb62b8c1"
+                "shasum": "48e7b2334116563863c348b8f38b10b9615fc473"
             },
             "require": {
                 "ext-ctype": "*",
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-indexer": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-indexer": "0.74.0-beta1",
+                "magento/module-media-storage": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1188,18 +1150,18 @@
         },
         {
             "name": "magento/module-indexer",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-indexer-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-indexer-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "c126af5846890f33119ce1425bd14074906da2ff"
+                "shasum": "cbbfa64dc2b11d7b3dc34a83b683c89b2d5e0d54"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-page-cache": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-page-cache": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1219,21 +1181,21 @@
         },
         {
             "name": "magento/module-integration",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-integration-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-integration-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "b6d71d7339e620b331fafd52c680a009f79d7c7a"
+                "shasum": "9d61bd3f7764a72158c41b80748bc02a1c8cac21"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-authorization": "0.42.0-beta11",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-user": "0.42.0-beta11",
+                "magento/module-authorization": "0.74.0-beta1",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-user": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1253,20 +1215,20 @@
         },
         {
             "name": "magento/module-log",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-log-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-log-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "bff146069f066463ffa4bded815694ba6bcf3c9d"
+                "shasum": "6dcaecfecc2e3555f6625548a31285adf63b74ed"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1285,25 +1247,57 @@
             "description": "N/A"
         },
         {
-            "name": "magento/module-msrp",
-            "version": "0.42.0-beta11",
+            "name": "magento/module-media-storage",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-msrp-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-media-storage-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "c974829c21d13024af10222e1fc93fa6bb019121"
+                "shasum": "48e527d677aa26b67ed75afdd7765c3220bb635e"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-bundle": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-downloadable": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-grouped-product": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-tax": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "php": "~5.5.0|~5.6.0"
+            },
+            "type": "magento2-module",
+            "extra": {
+                "map": [
+                    [
+                        "*",
+                        "Magento/MediaStorage"
+                    ]
+                ]
+            },
+            "license": [
+                "OSL-3.0",
+                "AFL-3.0"
+            ],
+            "description": "N/A"
+        },
+        {
+            "name": "magento/module-msrp",
+            "version": "0.74.0-beta1",
+            "dist": {
+                "type": "zip",
+                "url": "https://packages.magento.com/_packages/magento_module-msrp-0.74.0-beta1.zip",
+                "reference": null,
+                "shasum": "98aa92e90ec2cd0d1f2f1b422b017f910353a969"
+            },
+            "require": {
+                "magento/framework": "0.74.0-beta1",
+                "magento/magento-composer-installer": "*",
+                "magento/module-bundle": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-downloadable": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-grouped-product": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-tax": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1323,24 +1317,24 @@
         },
         {
             "name": "magento/module-multishipping",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-multishipping-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-multishipping-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "ab9aac08dfc4ee2d308e3c8d8bfa5e74d7fc83e4"
+                "shasum": "361f34767ffd51a821d473d940d06da22f54811b"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-checkout": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-payment": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-tax": "0.42.0-beta11",
-                "magento/module-theme": "0.42.0-beta11",
+                "magento/module-checkout": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-payment": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-tax": "0.74.0-beta1",
+                "magento/module-theme": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1360,25 +1354,25 @@
         },
         {
             "name": "magento/module-newsletter",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-newsletter-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-newsletter-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "d2abf663fcafa24bd22b0d6d3a2dce39c0d6e626"
+                "shasum": "bbf4d2d42aca0b99605e1050ab4441fd3332de8a"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-cms": "0.42.0-beta11",
-                "magento/module-cron": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-email": "0.42.0-beta11",
-                "magento/module-require-js": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-widget": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-cms": "0.74.0-beta1",
+                "magento/module-cron": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-email": "0.74.0-beta1",
+                "magento/module-require-js": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-widget": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1398,19 +1392,19 @@
         },
         {
             "name": "magento/module-page-cache",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-page-cache-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-page-cache-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "265246ef10c5ee7358c85de92302518e7095617c"
+                "shasum": "47d032eb9fae616c858077a6bc2f40682a55fdbc"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1430,22 +1424,22 @@
         },
         {
             "name": "magento/module-payment",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-payment-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-payment-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "22ead546c9e6f4f42cedec5e989fe78a22d7b025"
+                "shasum": "cea47678d7fef94ec6323e91495935f4febf0fc2"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-centinel": "0.42.0-beta11",
-                "magento/module-checkout": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-centinel": "0.74.0-beta1",
+                "magento/module-checkout": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1465,19 +1459,19 @@
         },
         {
             "name": "magento/module-product-alert",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-product-alert-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-product-alert-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "4a86a02bb1308dfdae5f1350e691bd4231831993"
+                "shasum": "61596a39b64c53536484f8c6ea4ab8cbc2781f5b"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1497,28 +1491,28 @@
         },
         {
             "name": "magento/module-quote",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-quote-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-quote-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "ac078d11ac30638fa998d8d1b9635afa85788ed5"
+                "shasum": "510068e7250e643243ffd24f37d4a8ca445fc360"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-authorization": "0.42.0-beta11",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-inventory": "0.42.0-beta11",
-                "magento/module-catalog-rule": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-payment": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-tax": "0.42.0-beta11",
+                "magento/module-authorization": "0.74.0-beta1",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-inventory": "0.74.0-beta1",
+                "magento/module-catalog-rule": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-payment": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-tax": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1538,33 +1532,33 @@
         },
         {
             "name": "magento/module-reports",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-reports-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-reports-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "6bd92592890b6287db8dccc31679634056c91710"
+                "shasum": "0de97a7a780412cfe7caf8b37ea94e697fc6a0a8"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-inventory": "0.42.0-beta11",
-                "magento/module-cms": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-downloadable": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-log": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-review": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-sales-rule": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-tax": "0.42.0-beta11",
-                "magento/module-widget": "0.42.0-beta11",
-                "magento/module-wishlist": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-inventory": "0.74.0-beta1",
+                "magento/module-cms": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-downloadable": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-log": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-review": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-sales-rule": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-tax": "0.74.0-beta1",
+                "magento/module-widget": "0.74.0-beta1",
+                "magento/module-wishlist": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1584,15 +1578,15 @@
         },
         {
             "name": "magento/module-require-js",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-require-js-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-require-js-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "2b0444deaf09359681928cb7eec632f709da02f9"
+                "shasum": "1ebf668c10064abe11144053310bf576f72fdf80"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
                 "php": "~5.5.0|~5.6.0"
             },
@@ -1613,29 +1607,28 @@
         },
         {
             "name": "magento/module-review",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-review-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-review-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "6020b7caeed4d2e31036562c931edc57bfc6ea3e"
+                "shasum": "73713182ebdfce724e778634bd3f27dcd3a983b2"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-newsletter": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-theme": "0.42.0-beta11",
-                "magento/module-ui": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-newsletter": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-theme": "0.74.0-beta1",
+                "magento/module-ui": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "suggest": {
-                "magento/module-cookie": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11"
+                "magento/module-cookie": "0.74.0-beta1"
             },
             "type": "magento2-module",
             "extra": {
@@ -1654,19 +1647,19 @@
         },
         {
             "name": "magento/module-rss",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-rss-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-rss-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "e7c9245152418cdcb9abb344dd0867a87c24cea9"
+                "shasum": "5be5e55fc36f25f8b4042fdacd616ade030d9b51"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1686,21 +1679,21 @@
         },
         {
             "name": "magento/module-rule",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-rule-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-rule-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "007178bc75a85ba2bbcaa8b0b61c6c03c6d53cd3"
+                "shasum": "144225f464f3fa4db357e368143e26625d42f488"
             },
             "require": {
                 "lib-libxml": "*",
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1720,39 +1713,39 @@
         },
         {
             "name": "magento/module-sales",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-sales-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-sales-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "e00ce6294cbd2d0bfeec6d3aaf935033db0c8c8d"
+                "shasum": "783c8ddf941afe5b35de1b174b9af5b65415f7ad"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-authorization": "0.42.0-beta11",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-inventory": "0.42.0-beta11",
-                "magento/module-checkout": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-email": "0.42.0-beta11",
-                "magento/module-gift-message": "0.42.0-beta11",
-                "magento/module-payment": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-reports": "0.42.0-beta11",
-                "magento/module-sales-rule": "0.42.0-beta11",
-                "magento/module-shipping": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-tax": "0.42.0-beta11",
-                "magento/module-theme": "0.42.0-beta11",
-                "magento/module-ui": "0.42.0-beta11",
-                "magento/module-widget": "0.42.0-beta11",
-                "magento/module-wishlist": "0.42.0-beta11",
+                "magento/module-authorization": "0.74.0-beta1",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-inventory": "0.74.0-beta1",
+                "magento/module-checkout": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-email": "0.74.0-beta1",
+                "magento/module-gift-message": "0.74.0-beta1",
+                "magento/module-media-storage": "0.74.0-beta1",
+                "magento/module-payment": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-reports": "0.74.0-beta1",
+                "magento/module-sales-rule": "0.74.0-beta1",
+                "magento/module-shipping": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-tax": "0.74.0-beta1",
+                "magento/module-theme": "0.74.0-beta1",
+                "magento/module-ui": "0.74.0-beta1",
+                "magento/module-widget": "0.74.0-beta1",
+                "magento/module-wishlist": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1772,31 +1765,31 @@
         },
         {
             "name": "magento/module-sales-rule",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-sales-rule-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-sales-rule-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "0573e1adb736cddcdd6400603d7f439190342df0"
+                "shasum": "bd2a7b5edac863e18de3878ff4649ac4dbbda475"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-rule": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-payment": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-reports": "0.42.0-beta11",
-                "magento/module-rule": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-shipping": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-widget": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-rule": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-payment": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-reports": "0.74.0-beta1",
+                "magento/module-rule": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-shipping": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-widget": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1816,33 +1809,33 @@
         },
         {
             "name": "magento/module-shipping",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-shipping-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-shipping-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "0260878bfab0a02cf45ec228dd345e1108adb48c"
+                "shasum": "63be17e8e5b233ac80a53691b0ca648a4614c573"
             },
             "require": {
                 "ext-gd": "*",
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-inventory": "0.42.0-beta11",
-                "magento/module-contact": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-payment": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-tax": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-inventory": "0.74.0-beta1",
+                "magento/module-contact": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-payment": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-tax": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "suggest": {
-                "magento/module-fedex": "0.42.0-beta11",
-                "magento/module-ups": "0.42.0-beta11"
+                "magento/module-fedex": "0.74.0-beta1",
+                "magento/module-ups": "0.74.0-beta1"
             },
             "type": "magento2-module",
             "extra": {
@@ -1861,20 +1854,20 @@
         },
         {
             "name": "magento/module-store",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-store-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-store-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "28e385883cc2445a800387f10d8e9f95a351209f"
+                "shasum": "e15e397ab7acd69fa246b40330da5432a800d61d"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-ui": "0.42.0-beta11",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-media-storage": "0.74.0-beta1",
+                "magento/module-ui": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1894,28 +1887,28 @@
         },
         {
             "name": "magento/module-tax",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-tax-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-tax-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "507ae645817472da840fa0a818f8173d2a7c1be2"
+                "shasum": "7a9a8576300e058c163d92052819fb646204a71f"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-checkout": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-reports": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-shipping": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-checkout": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-reports": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-shipping": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -1935,29 +1928,29 @@
         },
         {
             "name": "magento/module-theme",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-theme-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-theme-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "2c3fdb634f098bf9485f5269b3313d14d15e40fe"
+                "shasum": "9ebc0324a5ec6ac9669c835435844d6065dd91cd"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-cms": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-require-js": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-widget": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-cms": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-media-storage": "0.74.0-beta1",
+                "magento/module-require-js": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-widget": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "suggest": {
-                "magento/module-translation": "0.42.0-beta11"
+                "magento/module-translation": "0.74.0-beta1"
             },
             "type": "magento2-module",
             "extra": {
@@ -1976,20 +1969,20 @@
         },
         {
             "name": "magento/module-translation",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-translation-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-translation-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "1e317cf6a375b677156197681499ee33456d3607"
+                "shasum": "7c9e6631fdd0fb7f5f79b0cd17875e91ee3a8279"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-developer": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-theme": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-developer": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-theme": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -2009,19 +2002,18 @@
         },
         {
             "name": "magento/module-ui",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-ui-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-ui-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "a98794f212537fc13a015326254b9ba2714c6aee"
+                "shasum": "12a95d14894d1508ab65ce1669e1a43d11a60f74"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -2041,22 +2033,22 @@
         },
         {
             "name": "magento/module-url-rewrite",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-url-rewrite-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-url-rewrite-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "b2ae4bdc68e5a4aa90e5ad1a73ac8b0215173b2a"
+                "shasum": "c18a8332974d72aa1a0342bf61d7e44b06384b31"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-url-rewrite": "0.42.0-beta11",
-                "magento/module-cms": "0.42.0-beta11",
-                "magento/module-cms-url-rewrite": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-url-rewrite": "0.74.0-beta1",
+                "magento/module-cms": "0.74.0-beta1",
+                "magento/module-cms-url-rewrite": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -2076,22 +2068,20 @@
         },
         {
             "name": "magento/module-user",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-user-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-user-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "628502c7a00f569f69da9b2155e4881e064f4d85"
+                "shasum": "1462b90bdd2ac7966b9c4bf5650a494cb4590681"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-authorization": "0.42.0-beta11",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-integration": "0.42.0-beta11",
-                "magento/module-require-js": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-theme": "0.42.0-beta11",
+                "magento/module-authorization": "0.74.0-beta1",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-integration": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -2111,19 +2101,19 @@
         },
         {
             "name": "magento/module-variable",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-variable-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-variable-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "4996cec19ac8bdb2cb435b20aeb633680dbf424c"
+                "shasum": "d95c0c78641a42d35e8825031d83f7928bc11bc5"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-email": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-email": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.4.11|~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -2143,22 +2133,22 @@
         },
         {
             "name": "magento/module-widget",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-widget-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-widget-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "55935e8c906a0b483baac0aba22d576951bcb5c9"
+                "shasum": "d44e8f599d7432a68ecadb6de4236884a10c3282"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-cms": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-theme": "0.42.0-beta11",
-                "magento/module-variable": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-cms": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-theme": "0.74.0-beta1",
+                "magento/module-variable": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -2178,34 +2168,34 @@
         },
         {
             "name": "magento/module-wishlist",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-wishlist-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-wishlist-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "29ad90764010004c8c00cd8cf25c937d374fde72"
+                "shasum": "4a0fe10c870d3f06f4f03b6cdad2c959b2cafad1"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-inventory": "0.42.0-beta11",
-                "magento/module-checkout": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-grouped-product": "0.42.0-beta11",
-                "magento/module-rss": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-theme": "0.42.0-beta11",
-                "magento/module-ui": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-inventory": "0.74.0-beta1",
+                "magento/module-checkout": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-grouped-product": "0.74.0-beta1",
+                "magento/module-rss": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-theme": "0.74.0-beta1",
+                "magento/module-ui": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "suggest": {
-                "magento/module-bundle": "0.42.0-beta11",
-                "magento/module-configurable-product": "0.42.0-beta11",
-                "magento/module-cookie": "0.42.0-beta11",
-                "magento/module-downloadable": "0.42.0-beta11"
+                "magento/module-bundle": "0.74.0-beta1",
+                "magento/module-configurable-product": "0.74.0-beta1",
+                "magento/module-cookie": "0.74.0-beta1",
+                "magento/module-downloadable": "0.74.0-beta1"
             },
             "type": "magento2-module",
             "extra": {
@@ -3147,15 +3137,15 @@
         },
         {
             "name": "magento/language-de_de",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_language-de_de-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_language-de_de-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "d28fd7d2a589c4679f4da646fa232246e28321c7"
+                "shasum": "75cacd07bb4ae4d0e22a4a1ad3ea54984cc26bfb"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*"
             },
             "type": "magento2-language",
@@ -3175,15 +3165,15 @@
         },
         {
             "name": "magento/language-en_us",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_language-en_us-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_language-en_us-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "00ff612d0d540d4d9dc61dd2e42bd03d5e318656"
+                "shasum": "4667365f385f0df18f06f0ea410a8a84a321f603"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*"
             },
             "type": "magento2-language",
@@ -3203,15 +3193,15 @@
         },
         {
             "name": "magento/language-es_es",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_language-es_es-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_language-es_es-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "81413d4f492f560d6d1ccba5662a110bff557b87"
+                "shasum": "62d39612551383568d5d6c125b55a9c8f0c8e335"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*"
             },
             "type": "magento2-language",
@@ -3231,15 +3221,15 @@
         },
         {
             "name": "magento/language-fr_fr",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_language-fr_fr-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_language-fr_fr-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "c5c55d13f6dfbddf109a7f4dee29f297c26cb49b"
+                "shasum": "cc31b568a8f880d501592134e3f96a359f845569"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*"
             },
             "type": "magento2-language",
@@ -3259,15 +3249,15 @@
         },
         {
             "name": "magento/language-nl_nl",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_language-nl_nl-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_language-nl_nl-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "0d747fc1160d7dbc0c3ae4bb09b9efd653e5de52"
+                "shasum": "bb1af3577fb830da24605ce8d675b4cd51f8ed82"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*"
             },
             "type": "magento2-language",
@@ -3287,15 +3277,15 @@
         },
         {
             "name": "magento/language-pt_br",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_language-pt_br-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_language-pt_br-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "019036a792f7c6eeb39c19638b5ea028f1c8cfea"
+                "shasum": "693effd6ff18e81ce47a1a78978c6b93309c9b10"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*"
             },
             "type": "magento2-language",
@@ -3315,15 +3305,15 @@
         },
         {
             "name": "magento/language-zh_cn",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_language-zh_cn-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_language-zh_cn-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "10595caa1c1160c0e969736bad88664b3f26f182"
+                "shasum": "97a976c47200a7c53b072e6ee5462ff668a9b589"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*"
             },
             "type": "magento2-language",
@@ -3343,12 +3333,12 @@
         },
         {
             "name": "magento/magento2-base",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_magento2-base-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_magento2-base-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "e338662142994307b64df0000853b1c8d64627ca"
+                "shasum": "05ea1931dd8ddf9d681d205e797e2e2c4b77f5d0"
             },
             "require": {
                 "magento/magento-composer-installer": "*"
@@ -3360,7 +3350,6 @@
                 "components/jquery": "1.11.0",
                 "components/jqueryui": "1.10.4",
                 "linkorb/jsmin-php": "1.1.2",
-                "oyejorge/less.php": "1.7.0",
                 "phpseclib/phpseclib": "0.2.1",
                 "tinymce/tinymce": "3.4.7",
                 "trentrichardson/jquery-timepicker-addon": "1.4.3",
@@ -3369,7 +3358,6 @@
             "type": "magento2-component",
             "extra": {
                 "component_paths": {
-                    "oyejorge/less.php": "lib/internal/Less",
                     "trentrichardson/jquery-timepicker-addon": "lib/web/jquery/jquery-ui-timepicker-addon.js",
                     "colinmollenhour/cache-backend-redis": "lib/internal/Cm/Cache/Backend/Redis.php",
                     "colinmollenhour/credis": "lib/internal/Credis",
@@ -3415,10 +3403,6 @@
                     [
                         "lib/internal/JSMin",
                         "lib/internal/JSMin"
-                    ],
-                    [
-                        "lib/internal/Less",
-                        "lib/internal/Less"
                     ],
                     [
                         "lib/.htaccess",
@@ -3745,12 +3729,12 @@
                         "dev/tests/unit/phpunit.xml.dist"
                     ],
                     [
-                        "dev/tests/unit/framework",
-                        "dev/tests/unit/framework"
+                        "dev/tests/unit/tmp",
+                        "dev/tests/unit/tmp"
                     ],
                     [
-                        "dev/tests/unit/testsuite/Magento",
-                        "dev/tests/unit/testsuite/Magento"
+                        "dev/tests/unit/framework",
+                        "dev/tests/unit/framework"
                     ],
                     [
                         "dev/tests/unit/.gitignore",
@@ -3918,20 +3902,20 @@
         },
         {
             "name": "magento/module-admin-notification",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-admin-notification-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-admin-notification-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "70e93f4cd43ed654bd3707930612e03c927fd1c6"
+                "shasum": "62604184560c6e06cba30cdf2f6417271b55baae"
             },
             "require": {
                 "lib-libxml": "*",
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-media-storage": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -3951,20 +3935,20 @@
         },
         {
             "name": "magento/module-captcha",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-captcha-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-captcha-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "aaf339f4b9e71bfdae4c0b11f26a4bd6bece4025"
+                "shasum": "72bbeca2ee18904cc76cc186b789cb8dd6e5a231"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-checkout": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-checkout": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -3984,25 +3968,25 @@
         },
         {
             "name": "magento/module-catalog-search",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-catalog-search-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-catalog-search-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "ea3b98767ea287bfe001c30d8cd1692c21c1f50e"
+                "shasum": "70e06e7856138e64418ddb0b4d963dbf8b194103"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-indexer": "0.42.0-beta11",
-                "magento/module-search": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-theme": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-indexer": "0.74.0-beta1",
+                "magento/module-search": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-theme": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4022,24 +4006,24 @@
         },
         {
             "name": "magento/module-catalog-widget",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-catalog-widget-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-catalog-widget-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "86c13f3dc7524aa7cd7f311b137670a0a9232d48"
+                "shasum": "c98283eee987bd91ca70b79a36d77c59f16c4b72"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-rule": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-widget": "0.42.0-beta11",
-                "magento/module-wishlist": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-rule": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-widget": "0.74.0-beta1",
+                "magento/module-wishlist": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4059,19 +4043,19 @@
         },
         {
             "name": "magento/module-checkout-agreements",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-checkout-agreements-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-checkout-agreements-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "68e8371dd8ea9d569d9352855d1a29920812c0d0"
+                "shasum": "9989beae116e3e47c55b5d33608ccd91d5697e2b"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-checkout": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-checkout": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4091,21 +4075,21 @@
         },
         {
             "name": "magento/module-configurable-import-export",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-configurable-import-export-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-configurable-import-export-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "7f31ed026eca021b251a01a09c6eede191008ee6"
+                "shasum": "36bbee96dfc6fa5893a5aa8914181736e58a81f7"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-import-export": "0.42.0-beta11",
-                "magento/module-configurable-product": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-import-export": "0.42.0-beta11",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-import-export": "0.74.0-beta1",
+                "magento/module-configurable-product": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-import-export": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4125,32 +4109,32 @@
         },
         {
             "name": "magento/module-configurable-product",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-configurable-product-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-configurable-product-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "98f99fcc128be0f75921655ce79c3a9e1f7a5b96"
+                "shasum": "9d9bc606f8e51609e7d807965537364e0279e2e9"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-inventory": "0.42.0-beta11",
-                "magento/module-catalog-rule": "0.42.0-beta11",
-                "magento/module-checkout": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-inventory": "0.74.0-beta1",
+                "magento/module-catalog-rule": "0.74.0-beta1",
+                "magento/module-checkout": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-media-storage": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "suggest": {
-                "magento/module-webapi": "0.42.0-beta11"
+                "magento/module-webapi": "0.74.0-beta1"
             },
             "type": "magento2-module",
             "extra": {
@@ -4169,21 +4153,21 @@
         },
         {
             "name": "magento/module-cookie",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-cookie-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-cookie-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "57aa7a266476e38a552a0a56f3d8ff4bcf04731a"
+                "shasum": "8b335a0ac9a3821a02468adc3c1dae1314062323"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.4.11|~5.5.0|~5.6.0"
             },
             "suggest": {
-                "magento/module-backend": "0.42.0-beta11"
+                "magento/module-backend": "0.74.0-beta1"
             },
             "type": "magento2-module",
             "extra": {
@@ -4202,21 +4186,21 @@
         },
         {
             "name": "magento/module-currency-symbol",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-currency-symbol-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-currency-symbol-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "730c9aa32b15aa5b63c25cbbf3264662130b9ca6"
+                "shasum": "f420464b0c1e716a1271a5c7dead69eb0968e77f"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-page-cache": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-page-cache": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4236,22 +4220,22 @@
         },
         {
             "name": "magento/module-customer-import-export",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-customer-import-export-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-customer-import-export-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "936f46722ce83269e4852a2debd3889f209ab1fb"
+                "shasum": "0ae73f1ff25d6efa672c2e87fe66c16377945412"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-import-export": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-import-export": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4271,23 +4255,23 @@
         },
         {
             "name": "magento/module-design-editor",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-design-editor-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-design-editor-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "0a3bf6e40ff29a3ff1e48d41e3940395be8eef83"
+                "shasum": "d9efdd60a691e98415649795f1ae62f09ad5c52c"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-theme": "0.42.0-beta11",
-                "magento/module-translation": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-media-storage": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-theme": "0.74.0-beta1",
+                "magento/module-translation": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4307,28 +4291,27 @@
         },
         {
             "name": "magento/module-dhl",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-dhl-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-dhl-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "20022312a7296a25ca6c6255011373a2c2fc2b8e"
+                "shasum": "5f4731aadb83e4f46dd70cc7ae52da3d1021b7e7"
             },
             "require": {
                 "lib-libxml": "*",
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-inventory": "0.42.0-beta11",
-                "magento/module-checkout": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-shipping": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-inventory": "0.74.0-beta1",
+                "magento/module-checkout": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-shipping": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4348,25 +4331,25 @@
         },
         {
             "name": "magento/module-fedex",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-fedex-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-fedex-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "11b6b51825bb037fdf4e01d3f19c050ac60ff73b"
+                "shasum": "56f7740cb60361124a0ba9fb6f4f0c771d8ae315"
             },
             "require": {
                 "lib-libxml": "*",
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-inventory": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-shipping": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-inventory": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-shipping": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4386,18 +4369,18 @@
         },
         {
             "name": "magento/module-google-adwords",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-google-adwords-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-google-adwords-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "4c17ecbccf3ad461252e8ba5e97b06878c4e2fa7"
+                "shasum": "cba9cd06b481cd66b7f522bfb155ff3e3a43bc71"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4417,19 +4400,19 @@
         },
         {
             "name": "magento/module-google-analytics",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-google-analytics-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-google-analytics-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "801bda0cbafed89a878baad49b28f671a3b75955"
+                "shasum": "4d0a2b7b7ac35722d88136d139ff95d34f9ed523"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-cookie": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-cookie": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4449,21 +4432,21 @@
         },
         {
             "name": "magento/module-google-optimizer",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-google-optimizer-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-google-optimizer-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "8aafd274020666f7f861ac48dd4ad66185b0ee44"
+                "shasum": "284904b4cf43dad6e9ad0a34085b9c6c194e507c"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-cms": "0.42.0-beta11",
-                "magento/module-google-analytics": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-cms": "0.74.0-beta1",
+                "magento/module-google-analytics": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4483,23 +4466,23 @@
         },
         {
             "name": "magento/module-google-shopping",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-google-shopping-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-google-shopping-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "434771a9dd64f6c199040348f91ffe11e1f9cf29"
+                "shasum": "37c7c9f20568fe39c2464bc48bb4b48acc8d97de"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-tax": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-tax": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4519,21 +4502,21 @@
         },
         {
             "name": "magento/module-grouped-import-export",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-grouped-import-export-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-grouped-import-export-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "22c7d532f8deba0de49b0d9d4291c6493fbbc4a0"
+                "shasum": "efc81fe52c84d746e5126f2abd1ac5012e8f081b"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-import-export": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-grouped-product": "0.42.0-beta11",
-                "magento/module-import-export": "0.42.0-beta11",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-import-export": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-grouped-product": "0.74.0-beta1",
+                "magento/module-import-export": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4553,18 +4536,18 @@
         },
         {
             "name": "magento/module-layered-navigation",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-layered-navigation-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-layered-navigation-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "d75719cba62c68e4c6541cbb5a480c2ae8b09b42"
+                "shasum": "dee03b43ae1b0d91a73f0b0e5885c240b9260c4b"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4584,17 +4567,17 @@
         },
         {
             "name": "magento/module-offline-payments",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-offline-payments-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-offline-payments-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "ccf81b74382e4dfd70e17c945f273be5052d2d17"
+                "shasum": "83974b41db48c6214c02e9129bf8ad875b43489f"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-payment": "0.42.0-beta11",
+                "magento/module-payment": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4614,26 +4597,26 @@
         },
         {
             "name": "magento/module-offline-shipping",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-offline-shipping-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-offline-shipping-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "48ea2afcd5ed982bbd74bd4b47da83f375149e35"
+                "shasum": "711141133c58c9cfc8ce4305694ac84b9af6ea62"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-checkout": "0.42.0-beta11",
-                "magento/module-config": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-sales-rule": "0.42.0-beta11",
-                "magento/module-shipping": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-checkout": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-sales-rule": "0.74.0-beta1",
+                "magento/module-shipping": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4653,22 +4636,22 @@
         },
         {
             "name": "magento/module-persistent",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-persistent-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-persistent-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "0a5f00e6302ffa1976226f56d3a0542391469e28"
+                "shasum": "ceadadbfdf1a60a3e1bebe36f78ccf088ebbb3b5"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-checkout": "0.42.0-beta11",
-                "magento/module-cron": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-page-cache": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-checkout": "0.74.0-beta1",
+                "magento/module-cron": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-page-cache": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4688,20 +4671,20 @@
         },
         {
             "name": "magento/module-search",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-search-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-search-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "55700dffe31e331ea62afbbcaf63e938ad9bf4c4"
+                "shasum": "1062e9557f0ba85052008e35ccfcd295f540dea1"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog-search": "0.42.0-beta11",
-                "magento/module-reports": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog-search": "0.74.0-beta1",
+                "magento/module-reports": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4721,20 +4704,20 @@
         },
         {
             "name": "magento/module-sendfriend",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-sendfriend-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-sendfriend-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "1987724cc630d81e4bb3968519f7116ae2713f60"
+                "shasum": "53b65ed52765f3dfa20bfa1e2443587e5df18e64"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-theme": "0.42.0-beta11",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-theme": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4754,23 +4737,23 @@
         },
         {
             "name": "magento/module-sitemap",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-sitemap-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-sitemap-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "a95b218db0a14bc95023e452357f18197028fe4f"
+                "shasum": "892b8af73c031e88c62e8f440ab6c9369cf6e1ab"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-url-rewrite": "0.42.0-beta11",
-                "magento/module-cms": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-url-rewrite": "0.74.0-beta1",
+                "magento/module-cms": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-media-storage": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4790,20 +4773,20 @@
         },
         {
             "name": "magento/module-tax-import-export",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-tax-import-export-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-tax-import-export-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "d3149ed97eddd5e493e20b8dbeff7238a7a54ae2"
+                "shasum": "8d0a75fd0b24a4961b6bee8d3bd472c9c678138c"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-tax": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-tax": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4823,23 +4806,23 @@
         },
         {
             "name": "magento/module-ups",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-ups-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-ups-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "007527a2dc47995567010dc6232de2a6f0d4a5c9"
+                "shasum": "3ada513e79e9acd07f8c88b7181cf698f881d2c8"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog-inventory": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-shipping": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog-inventory": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-shipping": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4859,25 +4842,25 @@
         },
         {
             "name": "magento/module-usps",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-usps-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-usps-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "e0f967c57d4da2f847f9b4711f891d369f84a9e7"
+                "shasum": "0bc590bf01bb385810578accbe9d537a49939bf6"
             },
             "require": {
                 "lib-libxml": "*",
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-catalog-inventory": "0.42.0-beta11",
-                "magento/module-core": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-shipping": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-catalog-inventory": "0.74.0-beta1",
+                "magento/module-config": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-shipping": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -4897,15 +4880,15 @@
         },
         {
             "name": "magento/module-version",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-version-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-version-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "738d6801626052ccacbdd60ba2100ce22319c56e"
+                "shasum": "b1c9e15827cb5790ef40715d475a3433e2eeea1c"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
                 "php": "~5.5.0|~5.6.0"
             },
@@ -4926,24 +4909,24 @@
         },
         {
             "name": "magento/module-webapi",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-webapi-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-webapi-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "34f00897e3ee08749a182add462f91040438279d"
+                "shasum": "0b801f3b57deff9e6d915f3f1b96adc7ec6e5788"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-authorization": "0.42.0-beta11",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-integration": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
+                "magento/module-authorization": "0.74.0-beta1",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-integration": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "suggest": {
-                "magento/module-user": "0.42.0-beta11"
+                "magento/module-user": "0.74.0-beta1"
             },
             "type": "magento2-module",
             "extra": {
@@ -4962,25 +4945,25 @@
         },
         {
             "name": "magento/module-weee",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_module-weee-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_module-weee-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "2e9b2ddf0f1c8e0b6ed13926dd8fab4587c06417"
+                "shasum": "557a78e97fe2b51ff8ee001816bd8270791ee47e"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/module-backend": "0.42.0-beta11",
-                "magento/module-catalog": "0.42.0-beta11",
-                "magento/module-customer": "0.42.0-beta11",
-                "magento/module-directory": "0.42.0-beta11",
-                "magento/module-eav": "0.42.0-beta11",
-                "magento/module-quote": "0.42.0-beta11",
-                "magento/module-sales": "0.42.0-beta11",
-                "magento/module-store": "0.42.0-beta11",
-                "magento/module-tax": "0.42.0-beta11",
+                "magento/module-backend": "0.74.0-beta1",
+                "magento/module-catalog": "0.74.0-beta1",
+                "magento/module-customer": "0.74.0-beta1",
+                "magento/module-directory": "0.74.0-beta1",
+                "magento/module-eav": "0.74.0-beta1",
+                "magento/module-quote": "0.74.0-beta1",
+                "magento/module-sales": "0.74.0-beta1",
+                "magento/module-store": "0.74.0-beta1",
+                "magento/module-tax": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-module",
@@ -5000,16 +4983,16 @@
         },
         {
             "name": "magento/product-community-edition",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/magento/magento2-community-edition.git",
-                "reference": "2ed942983d938bbfa0a40ed965d1e383d4be850e"
+                "reference": "97feea3b11dfd59caf5c0f2ab7def601dfeaa777"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/magento/magento2-community-edition/zipball/2ed942983d938bbfa0a40ed965d1e383d4be850e",
-                "reference": "2ed942983d938bbfa0a40ed965d1e383d4be850e",
+                "url": "https://api.github.com/repos/magento/magento2-community-edition/zipball/97feea3b11dfd59caf5c0f2ab7def601dfeaa777",
+                "reference": "97feea3b11dfd59caf5c0f2ab7def601dfeaa777",
                 "shasum": ""
             },
             "require": {
@@ -5022,6 +5005,7 @@
                 "magento/language-nl_nl": "self.version",
                 "magento/language-pt_br": "self.version",
                 "magento/language-zh_cn": "self.version",
+                "magento/magento-composer-installer": "*",
                 "magento/magento2-base": "self.version",
                 "magento/module-admin-notification": "self.version",
                 "magento/module-authorization": "self.version",
@@ -5046,7 +5030,6 @@
                 "magento/module-configurable-product": "self.version",
                 "magento/module-contact": "self.version",
                 "magento/module-cookie": "self.version",
-                "magento/module-core": "self.version",
                 "magento/module-cron": "self.version",
                 "magento/module-currency-symbol": "self.version",
                 "magento/module-customer": "self.version",
@@ -5071,6 +5054,7 @@
                 "magento/module-integration": "self.version",
                 "magento/module-layered-navigation": "self.version",
                 "magento/module-log": "self.version",
+                "magento/module-media-storage": "self.version",
                 "magento/module-msrp": "self.version",
                 "magento/module-multishipping": "self.version",
                 "magento/module-newsletter": "self.version",
@@ -5113,6 +5097,7 @@
                 "magento/theme-frontend-luma": "self.version",
                 "magento/zendframework1": "1.12.10",
                 "monolog/monolog": "1.11.0",
+                "oyejorge/less.php": "1.7.0.3",
                 "php": "~5.5.0|~5.6.0",
                 "tubalmartin/cssmin": "2.4.8-p4",
                 "zendframework/zend-code": "2.3.1",
@@ -5143,13 +5128,14 @@
                 "ext-gd": "*",
                 "ext-hash": "*",
                 "ext-iconv": "*",
+                "ext-intl": "*",
                 "ext-mcrypt": "*",
                 "ext-simplexml": "*",
                 "ext-spl": "*",
                 "fabpot/php-cs-fixer": "~1.2",
                 "lib-libxml": "*",
                 "lusitanian/oauth": "~0.3",
-                "pdepend/pdepend": "2.0.4",
+                "pdepend/pdepend": "2.0.6",
                 "phpmd/phpmd": "@stable",
                 "phpunit/phpunit": "4.1.0",
                 "sjparkinson/static-review": "~4.1",
@@ -5158,7 +5144,8 @@
             "type": "project",
             "autoload": {
                 "psr-4": {
-                    "Magento\\Framework\\": "lib/internal/Magento/Framework/"
+                    "Magento\\Framework\\": "lib/internal/Magento/Framework/",
+                    "Magento\\Setup\\": "setup/src/Magento/Setup/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -5167,19 +5154,19 @@
                 "AFL-3.0"
             ],
             "description": "eCommerce Platform for Growth (Community Edition)",
-            "time": "2015-03-06 18:01:32"
+            "time": "2015-03-23 12:46:31"
         },
         {
             "name": "magento/theme-adminhtml-backend",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_theme-adminhtml-backend-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_theme-adminhtml-backend-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "341fedfc46f319f2ffe2b52e5318993859c5bae7"
+                "shasum": "9d3712371a97f3227c7e29bfe2d154f450b008a7"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
                 "php": "~5.5.0|~5.6.0"
             },
@@ -5200,15 +5187,15 @@
         },
         {
             "name": "magento/theme-frontend-blank",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_theme-frontend-blank-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_theme-frontend-blank-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "392a595c81efe6c7d963c1a2795e2826633021cb"
+                "shasum": "2ca31712a8ae5cd2c2f30ff167f871a32a48abae"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
                 "php": "~5.5.0|~5.6.0"
             },
@@ -5229,17 +5216,17 @@
         },
         {
             "name": "magento/theme-frontend-luma",
-            "version": "0.42.0-beta11",
+            "version": "0.74.0-beta1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.magento.com/_packages/magento_theme-frontend-luma-0.42.0-beta11.zip",
+                "url": "https://packages.magento.com/_packages/magento_theme-frontend-luma-0.74.0-beta1.zip",
                 "reference": null,
-                "shasum": "309188eb26f417e9d4785536903e321718bdf7b9"
+                "shasum": "f111cea8f2739bd395846b0985a7f7bd75ad8801"
             },
             "require": {
-                "magento/framework": "0.42.0-beta11",
+                "magento/framework": "0.74.0-beta1",
                 "magento/magento-composer-installer": "*",
-                "magento/theme-frontend-blank": "0.42.0-beta11",
+                "magento/theme-frontend-blank": "0.74.0-beta1",
                 "php": "~5.5.0|~5.6.0"
             },
             "type": "magento2-theme",
@@ -5420,6 +5407,65 @@
                 "php"
             ],
             "time": "2014-07-23 18:24:17"
+        },
+        {
+            "name": "oyejorge/less.php",
+            "version": "v1.7.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oyejorge/less.php.git",
+                "reference": "6e08ecb07e6f6d9170c23e8744c58fdd822ad0de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oyejorge/less.php/zipball/6e08ecb07e6f6d9170c23e8744c58fdd822ad0de",
+                "reference": "6e08ecb07e6f6d9170c23e8744c58fdd822ad0de",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2"
+            },
+            "bin": [
+                "bin/lessc"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Less": "lib/"
+                },
+                "classmap": [
+                    "lessc.inc.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Matt Agar",
+                    "homepage": "https://github.com/agar"
+                },
+                {
+                    "name": "Martin Jantošovič",
+                    "homepage": "https://github.com/Mordred"
+                },
+                {
+                    "name": "Josh Schmidt",
+                    "homepage": "https://github.com/oyejorge"
+                }
+            ],
+            "description": "PHP port of the Javascript version of LESS http://lesscss.org",
+            "homepage": "http://lessphp.gpeasy.com",
+            "keywords": [
+                "css",
+                "less",
+                "less.js",
+                "lesscss",
+                "php",
+                "stylesheet"
+            ],
+            "time": "2015-03-10 18:12:59"
         },
         {
             "name": "pdepend/pdepend",
@@ -6159,24 +6205,27 @@
         },
         {
             "name": "phploc/phploc",
-            "version": "2.0.6",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phploc.git",
-                "reference": "322ad07c112d5c6832abed4269d648cacff5959b"
+                "reference": "0e7ead01180d93536dec14da10d038a62d9f509d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phploc/zipball/322ad07c112d5c6832abed4269d648cacff5959b",
-                "reference": "322ad07c112d5c6832abed4269d648cacff5959b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phploc/zipball/0e7ead01180d93536dec14da10d038a62d9f509d",
+                "reference": "0e7ead01180d93536dec14da10d038a62d9f509d",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3",
+                "php": ">=5.4",
                 "sebastian/finder-facade": "~1.1",
-                "sebastian/git": "~1.0",
-                "sebastian/version": "~1.0",
-                "symfony/console": "~2.2"
+                "sebastian/git": "~2.0",
+                "sebastian/version": "~1.0.3",
+                "symfony/console": "~2.5"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4"
             },
             "bin": [
                 "phploc"
@@ -6184,7 +6233,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "2.1-dev"
                 }
             },
             "autoload": {
@@ -6205,7 +6254,7 @@
             ],
             "description": "A tool for quickly measuring the size of a PHP project.",
             "homepage": "https://github.com/sebastianbergmann/phploc",
-            "time": "2014-06-25 08:11:02"
+            "time": "2015-03-10 16:49:43"
         },
         {
             "name": "phpmd/phpmd",
@@ -7080,16 +7129,16 @@
         },
         {
             "name": "sebastian/git",
-            "version": "1.2.0",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/git.git",
-                "reference": "a99fbc102e982c1404041ef3e4d431562b29bcba"
+                "reference": "572c35353fefcc8607d6fef0e362a9f3a5e84d96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/git/zipball/a99fbc102e982c1404041ef3e4d431562b29bcba",
-                "reference": "a99fbc102e982c1404041ef3e4d431562b29bcba",
+                "url": "https://api.github.com/repos/sebastianbergmann/git/zipball/572c35353fefcc8607d6fef0e362a9f3a5e84d96",
+                "reference": "572c35353fefcc8607d6fef0e362a9f3a5e84d96",
                 "shasum": ""
             },
             "require": {
@@ -7098,7 +7147,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.2-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -7122,7 +7171,7 @@
             "keywords": [
                 "git"
             ],
-            "time": "2013-08-04 09:35:29"
+            "time": "2014-06-14 07:12:53"
         },
         {
             "name": "sebastian/global-state",
@@ -7437,22 +7486,25 @@
         },
         {
             "name": "symfony/config",
-            "version": "v2.6.4",
+            "version": "v2.6.5",
             "target-dir": "Symfony/Component/Config",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Config.git",
-                "reference": "a9f781ba1221067d1f07c8cec0bc50f81b8d7408"
+                "reference": "7a47189c7667ca69bcaafd19ef8a8941db449a2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Config/zipball/a9f781ba1221067d1f07c8cec0bc50f81b8d7408",
-                "reference": "a9f781ba1221067d1f07c8cec0bc50f81b8d7408",
+                "url": "https://api.github.com/repos/symfony/Config/zipball/7a47189c7667ca69bcaafd19ef8a8941db449a2c",
+                "reference": "7a47189c7667ca69bcaafd19ef8a8941db449a2c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "symfony/filesystem": "~2.3"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7"
             },
             "type": "library",
             "extra": {
@@ -7481,21 +7533,21 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-21 20:57:55"
+            "time": "2015-03-12 10:28:44"
         },
         {
             "name": "symfony/console",
-            "version": "v2.6.4",
+            "version": "v2.6.5",
             "target-dir": "Symfony/Component/Console",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Console.git",
-                "reference": "e44154bfe3e41e8267d7a3794cd9da9a51cfac34"
+                "reference": "53f86497ccd01677e22435cfb7262599450a90d1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Console/zipball/e44154bfe3e41e8267d7a3794cd9da9a51cfac34",
-                "reference": "e44154bfe3e41e8267d7a3794cd9da9a51cfac34",
+                "url": "https://api.github.com/repos/symfony/Console/zipball/53f86497ccd01677e22435cfb7262599450a90d1",
+                "reference": "53f86497ccd01677e22435cfb7262599450a90d1",
                 "shasum": ""
             },
             "require": {
@@ -7504,6 +7556,7 @@
             "require-dev": {
                 "psr/log": "~1.0",
                 "symfony/event-dispatcher": "~2.1",
+                "symfony/phpunit-bridge": "~2.7",
                 "symfony/process": "~2.1"
             },
             "suggest": {
@@ -7538,21 +7591,21 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-25 04:39:26"
+            "time": "2015-03-13 17:37:22"
         },
         {
             "name": "symfony/event-dispatcher",
-            "version": "v2.6.4",
+            "version": "v2.6.5",
             "target-dir": "Symfony/Component/EventDispatcher",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/EventDispatcher.git",
-                "reference": "f75989f3ab2743a82fe0b03ded2598a2b1546813"
+                "reference": "70f7c8478739ad21e3deef0d977b38c77f1fb284"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/f75989f3ab2743a82fe0b03ded2598a2b1546813",
-                "reference": "f75989f3ab2743a82fe0b03ded2598a2b1546813",
+                "url": "https://api.github.com/repos/symfony/EventDispatcher/zipball/70f7c8478739ad21e3deef0d977b38c77f1fb284",
+                "reference": "70f7c8478739ad21e3deef0d977b38c77f1fb284",
                 "shasum": ""
             },
             "require": {
@@ -7563,6 +7616,7 @@
                 "symfony/config": "~2.0,>=2.0.5",
                 "symfony/dependency-injection": "~2.6",
                 "symfony/expression-language": "~2.6",
+                "symfony/phpunit-bridge": "~2.7",
                 "symfony/stopwatch": "~2.3"
             },
             "suggest": {
@@ -7596,25 +7650,28 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "http://symfony.com",
-            "time": "2015-02-01 16:10:57"
+            "time": "2015-03-13 17:37:22"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v2.6.4",
+            "version": "v2.6.5",
             "target-dir": "Symfony/Component/Filesystem",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Filesystem.git",
-                "reference": "a1f566d1f92e142fa1593f4555d6d89e3044a9b7"
+                "reference": "fdc5f151bc2db066b51870d5bea3773d915ced0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/a1f566d1f92e142fa1593f4555d6d89e3044a9b7",
-                "reference": "a1f566d1f92e142fa1593f4555d6d89e3044a9b7",
+                "url": "https://api.github.com/repos/symfony/Filesystem/zipball/fdc5f151bc2db066b51870d5bea3773d915ced0b",
+                "reference": "fdc5f151bc2db066b51870d5bea3773d915ced0b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7"
             },
             "type": "library",
             "extra": {
@@ -7643,25 +7700,28 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-03 21:13:09"
+            "time": "2015-03-12 10:28:44"
         },
         {
             "name": "symfony/finder",
-            "version": "v2.6.4",
+            "version": "v2.6.5",
             "target-dir": "Symfony/Component/Finder",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Finder.git",
-                "reference": "16513333bca64186c01609961a2bb1b95b5e1355"
+                "reference": "bebc7479c566fa4f14b9bcef9e32e719eabec74e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Finder/zipball/16513333bca64186c01609961a2bb1b95b5e1355",
-                "reference": "16513333bca64186c01609961a2bb1b95b5e1355",
+                "url": "https://api.github.com/repos/symfony/Finder/zipball/bebc7479c566fa4f14b9bcef9e32e719eabec74e",
+                "reference": "bebc7479c566fa4f14b9bcef9e32e719eabec74e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7"
             },
             "type": "library",
             "extra": {
@@ -7690,25 +7750,28 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-03 08:01:59"
+            "time": "2015-03-12 10:28:44"
         },
         {
             "name": "symfony/process",
-            "version": "v2.6.4",
+            "version": "v2.6.5",
             "target-dir": "Symfony/Component/Process",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Process.git",
-                "reference": "ecfc23e89d9967999fa5f60a1e9af7384396e9ae"
+                "reference": "4d717f34f3d1d6ab30fbe79f7132960a27f4a0dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Process/zipball/ecfc23e89d9967999fa5f60a1e9af7384396e9ae",
-                "reference": "ecfc23e89d9967999fa5f60a1e9af7384396e9ae",
+                "url": "https://api.github.com/repos/symfony/Process/zipball/4d717f34f3d1d6ab30fbe79f7132960a27f4a0dc",
+                "reference": "4d717f34f3d1d6ab30fbe79f7132960a27f4a0dc",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7"
             },
             "type": "library",
             "extra": {
@@ -7737,25 +7800,28 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-25 04:39:26"
+            "time": "2015-03-12 10:28:44"
         },
         {
             "name": "symfony/stopwatch",
-            "version": "v2.6.4",
+            "version": "v2.6.5",
             "target-dir": "Symfony/Component/Stopwatch",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Stopwatch.git",
-                "reference": "e8da5286132ba75ce4b4275fbf0f4cd369bfd71c"
+                "reference": "ba4e774f71e2ce3e3f65cabac4031b9029972af5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Stopwatch/zipball/e8da5286132ba75ce4b4275fbf0f4cd369bfd71c",
-                "reference": "e8da5286132ba75ce4b4275fbf0f4cd369bfd71c",
+                "url": "https://api.github.com/repos/symfony/Stopwatch/zipball/ba4e774f71e2ce3e3f65cabac4031b9029972af5",
+                "reference": "ba4e774f71e2ce3e3f65cabac4031b9029972af5",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7"
             },
             "type": "library",
             "extra": {
@@ -7784,21 +7850,21 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-03 08:01:59"
+            "time": "2015-02-24 11:52:21"
         },
         {
             "name": "symfony/translation",
-            "version": "v2.6.4",
+            "version": "v2.6.5",
             "target-dir": "Symfony/Component/Translation",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Translation.git",
-                "reference": "f289cdf8179d32058c1e1cbac723106a5ff6fa39"
+                "reference": "043db5f1eef9598d1bc1d75b93304984c003d7d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Translation/zipball/f289cdf8179d32058c1e1cbac723106a5ff6fa39",
-                "reference": "f289cdf8179d32058c1e1cbac723106a5ff6fa39",
+                "url": "https://api.github.com/repos/symfony/Translation/zipball/043db5f1eef9598d1bc1d75b93304984c003d7d9",
+                "reference": "043db5f1eef9598d1bc1d75b93304984c003d7d9",
                 "shasum": ""
             },
             "require": {
@@ -7808,6 +7874,7 @@
                 "psr/log": "~1.0",
                 "symfony/config": "~2.3,>=2.3.12",
                 "symfony/intl": "~2.3",
+                "symfony/phpunit-bridge": "~2.7",
                 "symfony/yaml": "~2.2"
             },
             "suggest": {
@@ -7842,21 +7909,21 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-03 15:33:07"
+            "time": "2015-03-14 11:42:25"
         },
         {
             "name": "symfony/validator",
-            "version": "v2.6.4",
+            "version": "v2.6.5",
             "target-dir": "Symfony/Component/Validator",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Validator.git",
-                "reference": "1906eb78a5049b41a80094c20faf66dfbaaf2049"
+                "reference": "90d8a2196635fc8e107510f8575a01ef29d459a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Validator/zipball/1906eb78a5049b41a80094c20faf66dfbaaf2049",
-                "reference": "1906eb78a5049b41a80094c20faf66dfbaaf2049",
+                "url": "https://api.github.com/repos/symfony/Validator/zipball/90d8a2196635fc8e107510f8575a01ef29d459a2",
+                "reference": "90d8a2196635fc8e107510f8575a01ef29d459a2",
                 "shasum": ""
             },
             "require": {
@@ -7872,6 +7939,7 @@
                 "symfony/expression-language": "~2.4",
                 "symfony/http-foundation": "~2.1",
                 "symfony/intl": "~2.3",
+                "symfony/phpunit-bridge": "~2.7",
                 "symfony/property-access": "~2.3",
                 "symfony/yaml": "~2.0,>=2.0.5"
             },
@@ -7913,25 +7981,28 @@
             ],
             "description": "Symfony Validator Component",
             "homepage": "http://symfony.com",
-            "time": "2015-02-01 16:10:57"
+            "time": "2015-03-13 17:37:22"
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.6.4",
+            "version": "v2.6.5",
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "60ed7751671113cf1ee7d7778e691642c2e9acd8"
+                "reference": "0cd8e72071e46e15fc072270ae39ea1b66b10a9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/60ed7751671113cf1ee7d7778e691642c2e9acd8",
-                "reference": "60ed7751671113cf1ee7d7778e691642c2e9acd8",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/0cd8e72071e46e15fc072270ae39ea1b66b10a9d",
+                "reference": "0cd8e72071e46e15fc072270ae39ea1b66b10a9d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "symfony/phpunit-bridge": "~2.7"
             },
             "type": "library",
             "extra": {
@@ -7960,7 +8031,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-25 04:39:26"
+            "time": "2015-03-12 10:28:44"
         },
         {
             "name": "theseer/fdomdocument",
