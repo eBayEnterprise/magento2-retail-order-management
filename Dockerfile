@@ -51,12 +51,12 @@ ENV MAGENTO_ROOT_DIR /var/www/code/build/magento
 WORKDIR /var/www/code
 
 # Add apache configuration and enable mod_rewrite
-COPY env/config/apache2.conf /etc/apache2/apache2.conf
+COPY dockerenv/config/apache2.conf /etc/apache2/apache2.conf
 RUN a2enmod rewrite
 
 VOLUME /var/www/code
 
-COPY env/bin/* /usr/local/bin/
+COPY dockerenv/bin/* /usr/local/bin/
 
 # `apache_safe_start_perms` will start apache as the "default" user.
 CMD ["apache_safe_start_perms", "-DFOREGROUND"]
