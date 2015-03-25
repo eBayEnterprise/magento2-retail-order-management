@@ -27,11 +27,13 @@
         <testsuite name="eBay Enterprise Address Validation">
             <directory>tests</directory>
             <exclude>vendor</exclude>
+            <exclude>build</exclude>
         </testsuite>
     </testsuites>
     <filter>
         <blacklist>
             <directory suffix=".php">vendor</directory>
+            <directory suffix=".php">build</directory>
         </blacklist>
     </filter>
 </phpunit>
