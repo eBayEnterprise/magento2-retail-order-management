@@ -87,9 +87,10 @@ pdepend:
     volumes_from:
         - fsdata
     entrypoint: vendor/bin/pdepend
-    command: --jdepend-chart=build/pdepend-chart.svg
-             --overview-pyramid=build/pdepend-overview-pyramid.svg
-             src,tests
+    command: --jdepend-chart="build/pdepend/dependencies.svg" \
+             --jdepend-xml="build/pdepend/jdepend.xml" \
+             --overview-pyramid="build/pdepend/overview-pyramid.svg" \
+             src
 phpcpd:
     build: .
     volumes_from:
