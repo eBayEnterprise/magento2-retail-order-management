@@ -52,6 +52,12 @@ RUN curl -sS https://getcomposer.org/installer | php \
 
 # Setup Apache dirs and configuration.
 
+# Create a "default" user. Any volume mounted files should be owned by this
+# user, so web source files can be shared via a volume mount. Apache will be run
+# as this user by `apache_safe_start_perms` to have the necessary permissions
+# on any volume mounted files and directories.
+RUN adduser --system --uid=1000 default
+
 # Extension repo should be mounted to /var/www/code. Magento 2 will be built
 # and served from /var/www/code/build/magento.
 RUN mkdir -p /var/www/code/build/magento && chown -R default /var/www/code
@@ -61,12 +67,6 @@ WORKDIR /var/www/code
 # Add apache configuration and enable mod_rewrite
 COPY dockerenv/config/apache2.conf /etc/apache2/apache2.conf
 RUN a2enmod rewrite
-
-# Create a "default" user. Any volume mounted files should be owned by this
-# user, so web source files can be shared via a volume mount. Apache will be run
-# as this user by `apache_safe_start_perms` to have the necessary permissions
-# on any volume mounted files and directories.
-RUN adduser --system --uid=1000 default
 
 VOLUME /var/www/code
 
