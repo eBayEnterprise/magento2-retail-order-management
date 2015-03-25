@@ -15,7 +15,8 @@
         "php": "~5.5.0|~5.6.0",
         "ebayenterprise/retail-order-management": "~1.1",
         "magento/framework": "~0.0",
-        "magento/module-customer": "~0.0"
+        "magento/module-customer": "~0.0",
+        "psr/log": "~1.0"
     },
     "require-dev": {
         "pdepend/pdepend": "~1.1",
