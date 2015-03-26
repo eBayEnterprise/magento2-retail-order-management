@@ -4,7 +4,6 @@ namespace EbayEnterprise\Address\Helper;
 
 use eBayEnterprise\RetailOrderManagement\Payload\Checkout\IPhysicalAddress;
 use EbayEnterprise\Address\Api\Data\AddressInterface;
-use EbayEnterprise\Address\Api\Data\AddressInterfaceBuilder;
 use Psr\Log\LoggerInterface;
 
 class Sdk
@@ -50,14 +49,13 @@ class Sdk
      */
     public function transferPhysicalAddressPayloadToAddress(
         IPhysicalAddress $addressPayload,
-        AddressInterfaceBuilder $addressBuilder
+        AddressInterface $address
     ) {
-        return $addressBuilder
+        return $address
             ->setStreet(explode("\n", $addressPayload->getLines()))
             ->setCity($addressPayload->getCity())
             ->setCountryId($addressPayload->getCountryCode())
             ->setRegionCode($addressPayload->getMainDivision())
-            ->setPostcode($addressPayload->getPostalCode())
-            ->create();
+            ->setPostcode($addressPayload->getPostalCode());
     }
 }

@@ -9,7 +9,6 @@
     <type name="Magento\Customer\Model\Address\AbstractAddress">
         <plugin name="ebayenterprise_address_validate_after" type="\EbayEnterprise\Address\Model\Plugin\Validator" sortOrder="1"/>
     </type>
-    <type name="EbayEnterprise\Address\Api\Data\AddressInterfaceBuilder"/>
-    <type name="EbayEnterprise\Address\Api\Data\AddressInterfaceBuilderFactory"/>
+    <type name="EbayEnterprise\Address\Api\Data\AddressInterfaceFactory"/>
     <type name="EbayEnterprise\Address\Api\Data\ValidationResultInterfaceFactory"/>
 </config>

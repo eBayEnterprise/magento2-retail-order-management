@@ -17,8 +17,6 @@ class SdkTest extends \PHPUnit_Framework_TestCase
     protected $address;
     /** @var \Magento\Customer\Api\Data\AddressInterface (mock) */
     protected $addressData;
-    /** @var \Magento\Customer\Api\Data\AddressDataBuilder (mock) */
-    protected $addressDataBuilder;
     /** @var \Magento\Framework\App\Config\ScopeConfigInterface (mock) */
     protected $scopeConfig;
     /** @var string[] */
@@ -34,13 +32,8 @@ class SdkTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->addressData = $this->getMock('EbayEnterprise\Address\Api\Data\AddressInterface');
         $this->scopeConfig = $this->getMock('Magento\Framework\App\Config\ScopeConfigInterface');
-        $this->addressDataBuilder = $this
-            ->getMockBuilder('EbayEnterprise\Address\Api\Data\AddressInterfaceBuilder')
-            ->disableOriginalConstructor()
-            ->setMethods(['setStreet', 'setCity', 'setCountryId', 'setRegionCode', 'setPostcode', 'create'])
-            ->getMock();
+        $this->addressData = $this->getMock('EbayEnterprise\Address\Api\Data\AddressInterface');
 
         $this->objectManager = new ObjectManager($this);
         $this->romFactory = $this->objectManager->getObject(
@@ -52,9 +45,7 @@ class SdkTest extends \PHPUnit_Framework_TestCase
         );
         $this->sdkHelper = $this->objectManager->getObject(
             'EbayEnterprise\Address\Helper\Sdk',
-            [
-                'context' => $this->context,
-            ]
+            ['context' => $this->context]
         );
     }
 
@@ -107,33 +98,30 @@ class SdkTest extends \PHPUnit_Framework_TestCase
             ->setCountryCode($this->countryId)
             ->setPostalCode($this->postcode);
 
-        $this->addressDataBuilder->expects($this->once())
+        $this->addressData->expects($this->once())
             ->method('setStreet')
             ->with($this->identicalTo($this->street))
             ->will($this->returnSelf());
-        $this->addressDataBuilder->expects($this->once())
+        $this->addressData->expects($this->once())
             ->method('setCity')
             ->with($this->identicalTo($this->city))
             ->will($this->returnSelf());
-        $this->addressDataBuilder->expects($this->once())
+        $this->addressData->expects($this->once())
             ->method('setCountryId')
             ->with($this->identicalTo($this->countryId))
             ->will($this->returnSelf());
-        $this->addressDataBuilder->expects($this->once())
+        $this->addressData->expects($this->once())
             ->method('setRegionCode')
             ->with($this->identicalTo($this->regionCode))
             ->will($this->returnSelf());
-        $this->addressDataBuilder->expects($this->once())
+        $this->addressData->expects($this->once())
             ->method('setPostcode')
             ->with($this->identicalTo($this->postcode))
             ->will($this->returnSelf());
-        $this->addressDataBuilder->expects($this->once())
-            ->method('create')
-            ->will($this->returnValue($this->addressData));
 
         $this->sdkHelper->transferPhysicalAddressPayloadToAddress(
             $payload,
-            $this->addressDataBuilder
+            $this->addressData
         );
     }
 }

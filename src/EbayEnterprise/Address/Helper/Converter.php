@@ -2,25 +2,25 @@
 
 namespace EbayEnterprise\Address\Helper;
 
-use EbayEnterprise\Address\Api\Data\AddressInterfaceBuilderFactory;
+use EbayEnterprise\Address\Api\Data\AddressInterfaceFactory;
 use Magento\Customer\Model\Address\AbstractAddress as AbstractCustomerAddress;
 use Psr\Log\LoggerInterface;
 
 class Converter
 {
-    /** @var AddressInterfaceBuilderFactory */
-    protected $addressBuilderFactory;
+    /** @var AddressInterfaceFactory */
+    protected $addressFactory;
     /** @var LoggerInterface */
     protected $logger;
 
     /**
-     * @param AddressInterfaceBuilderFactory
+     * @param AddressInterfaceFactory
      */
     public function __construct(
-        AddressInterfaceBuilderFactory $addressBuilderFactory,
+        AddressInterfaceFactory $addressFactory,
         LoggerInterface $logger
     ) {
-        $this->addressBuilderFactory = $addressBuilderFactory;
+        $this->addressFactory = $addressFactory;
         $this->logger = $logger;
     }
 
@@ -40,7 +40,7 @@ class Converter
             'country_id' => $address->getCountryId(),
             'postcode' => $address->getPostcode(),
         ];
-        return $this->addressBuilderFactory
+        return $this->addressFactory
             ->create()
             ->populateWithArray($data)
             ->create();

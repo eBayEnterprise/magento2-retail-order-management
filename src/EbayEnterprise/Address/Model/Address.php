@@ -16,10 +16,7 @@ class Address extends AbstractSimpleObject implements AddressInterface
     }
 
     /**
-     * Set the street, ensuring that it is an array of street lines.
-     *
-     * @param array
-     * @return self
+     * {@inheritDoc}
      */
     public function setStreet($street = [])
     {
@@ -37,9 +34,25 @@ class Address extends AbstractSimpleObject implements AddressInterface
     /**
      * {@inheritDoc}
      */
+    public function setCity($city)
+    {
+        return $this->setData('city', $city);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getRegionCode()
     {
         return $this->_get('region_code');
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setRegionCode($regionCode)
+    {
+        return $this->setData('region_code', $regionCode);
     }
 
     /**
@@ -53,8 +66,24 @@ class Address extends AbstractSimpleObject implements AddressInterface
     /**
      * {@inheritDoc}
      */
+    public function setCountryId($countryId)
+    {
+        return $this->setData('country_id', $countryId);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getPostcode()
     {
         return $this->_get('postcode');
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setPostcode($postcode)
+    {
+        return $this->setData('postcode', $postcode);
     }
 }

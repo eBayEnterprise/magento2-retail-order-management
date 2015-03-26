@@ -21,7 +21,7 @@ class AddressValidation implements AddressValidationInterface
     protected $scopeConfig;
     /** @var HttpApiFactory */
     protected $httpApiFactory;
-    /** @var ValidationResultInterfaceBuilder */
+    /** @var ValidationResultInterface */
     protected $resultFactory ;
 
     /**
@@ -29,7 +29,7 @@ class AddressValidation implements AddressValidationInterface
      * @param LoggerInterface $logger,
      * @param ScopeConfigInterface $scopeConfig,
      * @param HttpApiFactory $httpApiFactory,
-     * @param ValidationResultInterfaceBuilder $resultFactory
+     * @param ValidationResultInterfaceFactory $resultFactory
      */
     public function __construct(
         SdkHelper $sdkHelper,

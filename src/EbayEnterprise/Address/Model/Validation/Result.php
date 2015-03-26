@@ -3,7 +3,7 @@
 namespace EbayEnterprise\Address\Model\Validation;
 
 use EbayEnterprise\Address\Api\Data\AddressInterface;
-use EbayEnterprise\Address\Api\Data\AddressInterfaceBuilderFactory;
+use EbayEnterprise\Address\Api\Data\AddressInterfaceFactory;
 use EbayEnterprise\Address\Api\Data\ValidationResultInterface;
 use EbayEnterprise\Address\Helper\Sdk as SdkHelper;
 use eBayEnterprise\RetailOrderManagement\Payload\Address\IValidationReply;
@@ -14,26 +14,26 @@ class Result implements ValidationResultInterface
     protected $sdkHelper;
     /** @var IValidationReply */
     protected $replyPayload;
-    /** @var AddressInterfaceBuilderFactory */
-    protected $addressBuilderFactory;
+    /** @var AddressInterfaceFactory */
+    protected $addressFactory;
     /** @var AddressInterface */
     protected $originalAddress;
 
     /**
      * @param SdkHelper
      * @param IValidationReply
-     * @param AddressInterfaceBuilderFactory
+     * @param AddressInterfaceFactory
      * @param AddressInterface
      */
     public function __construct(
         SdkHelper $sdkHelper,
         IValidationReply $replyPayload,
-        AddressInterfaceBuilderFactory $addressBuilderFactory,
+        AddressInterfaceFactory $addressFactory,
         AddressInterface $originalAddress
     ) {
         $this->sdkHelper = $sdkHelper;
         $this->replyPayload = $replyPayload;
-        $this->addressBuilderFactory = $addressBuilderFactory;
+        $this->addressFactory = $addressFactory;
         $this->originalAddress = $originalAddress;
     }
 
@@ -85,7 +85,7 @@ class Result implements ValidationResultInterface
         foreach ($this->replyPayload->getSuggestedAddresses() as $suggestedAddress) {
             yield $suggestedAddress => $this->sdkHelper->transferPhysicalAddressPayloadToAddress(
                 $suggestedAddress,
-                $this->addressBuilderFactory->create()
+                $this->addressFactory->create()
             );
         }
     }
@@ -105,7 +105,7 @@ class Result implements ValidationResultInterface
     {
         return $this->sdkHelper->transferPhysicalAddressPayloadToAddress(
             $this->replyPayload,
-            $this->addressBuilderFactory->create()
+            $this->addressFactory->create()
         );
     }
 }

@@ -18,7 +18,6 @@ class Validator
 
     /**
      * @param AddressValidationInterface
-     * @param AddressInterfaceBuilder
      * @param AddressConverter
      * @param LoggerInterface
      */
