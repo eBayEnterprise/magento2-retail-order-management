@@ -82,12 +82,14 @@ class Result implements ValidationResultInterface
      */
     public function getSuggestions()
     {
+        $addresses = [];
         foreach ($this->replyPayload->getSuggestedAddresses() as $suggestedAddress) {
-            yield $suggestedAddress => $this->sdkHelper->transferPhysicalAddressPayloadToAddress(
+            $addresses[] = $this->sdkHelper->transferPhysicalAddressPayloadToAddress(
                 $suggestedAddress,
                 $this->addressFactory->create()
             );
         }
+        return $addresses;
     }
 
     /**
