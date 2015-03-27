@@ -4,6 +4,7 @@ namespace EbayEnterprise\Address\Helper;
 
 use EbayEnterprise\Address\Api\Data\AddressInterfaceFactory;
 use Magento\Customer\Model\Address\AbstractAddress as AbstractCustomerAddress;
+use Magento\Customer\Api\Data\AddressInterface as CustomerAddressInterface;
 use Psr\Log\LoggerInterface;
 
 class Converter
@@ -41,8 +42,26 @@ class Converter
             'postcode' => $address->getPostcode(),
         ];
         return $this->addressFactory
-            ->create()
-            ->populateWithArray($data)
-            ->create();
+            ->create(['data' => $data]);
+    }
+
+    /**
+     * Convert a customer address object to an address object compatible
+     * with the address validation service.
+     *
+     * @param CustomerAddressInterface
+     * @return \EbayEnterprise\Address\Api\Data\AddressInterface
+     */
+    public function convertCustomerAddressToDataAddress(CustomerAddressInterface $address)
+    {
+        $data = [
+            'street' => $address->getStreet(),
+            'city' => $address->getCity(),
+            'region_code' => $address->getRegion()->getRegionCode(),
+            'country_id' => $address->getCountryId(),
+            'postcode' => $address->getPostcode(),
+        ];
+        return $this->addressFactory
+            ->create(['data' => $data]);
     }
 }
