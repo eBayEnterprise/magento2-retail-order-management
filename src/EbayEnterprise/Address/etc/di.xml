@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<config>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <preference for="EbayEnterprise\Address\Api\Data\AddressInterface"
         type="EbayEnterprise\Address\Model\Address" />
     <preference for="EbayEnterprise\Address\Api\Data\ValidationResultInterface"
         type="EbayEnterprise\Address\Model\Validation\Result" />
     <preference for="EbayEnterprise\Address\Api\AddressValidationInterface"
         type="EbayEnterprise\Address\Model\Service\AddressValidation" />
-    <type name="Magento\Customer\Model\Address\AbstractAddress">
-        <plugin name="ebayenterprise_address_validate_after" type="\EbayEnterprise\Address\Model\Plugin\Validator" sortOrder="1"/>
+    <virtualType name="addressContextAwareLogger" type="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="processors" xsi:type="array">
+                <item name="logstash_context" xsi:type="object">EbayEnterprise\Address\Model\LogstashContextProcessor</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Customer\Api\AddressRepositoryInterface">
+        <plugin name="ebayenterprise_address_validate_before_save" type="\EbayEnterprise\Address\Model\Plugin\Validator" sortOrder="1"/>
     </type>
     <type name="EbayEnterprise\Address\Api\Data\AddressInterfaceFactory"/>
     <type name="EbayEnterprise\Address\Api\Data\ValidationResultInterfaceFactory"/>
+    <type name="EbayEnterprise\Address\Model\LoggerContext\Proxy"/>
+    <type name="EbayEnterprise\Address\Model\LoggerContext">
+        <arguments>
+            <argument name="moduleName" xsi:type="string">EbayEnterprise_Address</argument>
+        </arguments>
+    </type>
+    <type name="EbayEnterprise\Address\Model\LogstashContextProcessor">
+        <arguments>
+            <argument name="logContext" xsi:type="object">EbayEnterprise\Address\Model\LoggerContext\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="EbayEnterprise\Address\Model\Service\AddressValidation">
+        <arguments>
+            <argument name="logger" xsi:type="object">addressContextAwareLogger</argument>
+        </arguments>
+    </type>
+    <type name="EbayEnterprise\Address\Model\Plugin\Validator">
+        <arguments>
+            <argument name="logger" xsi:type="object">addressContextAwareLogger</argument>
+        </arguments>
+    </type>
+    <type name="EbayEnterprise\Address\Model\HttpApiFactory">
+        <arguments>
+            <argument name="logger" xsi:type="object">addressContextAwareLogger</argument>
+        </arguments>
+    </type>
+    <type name="EbayEnterprise\Address\Helper\Converter">
+        <arguments>
+            <argument name="logger" xsi:type="object">addressContextAwareLogger</argument>
+        </arguments>
+    </type>
 </config>
