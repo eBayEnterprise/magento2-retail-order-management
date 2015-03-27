@@ -56,6 +56,14 @@ class Result implements ValidationResultInterface
     /**
      * {@inheritDoc}
      */
+    public function getResultCode()
+    {
+        return $this->replyPayload->getResultCode();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getErrorLocations()
     {
         return $this->replyPayload->getResultErrorLocations();

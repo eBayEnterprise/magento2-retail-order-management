@@ -20,6 +20,13 @@ interface ValidationResultInterface
     public function isAcceptable();
 
     /**
+     * Get the result code of the address validation request.
+     *
+     * @return string
+     */
+    public function getResultCode();
+
+    /**
      * Get the fields on which errors were detected in the request.
      *
      * @return eBayEnterprise\RetailOrderManagement\Payload\Address\IErrorLocationIterable
