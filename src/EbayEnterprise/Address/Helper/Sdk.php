@@ -4,22 +4,9 @@ namespace EbayEnterprise\Address\Helper;
 
 use eBayEnterprise\RetailOrderManagement\Payload\Checkout\IPhysicalAddress;
 use EbayEnterprise\Address\Api\Data\AddressInterface;
-use Psr\Log\LoggerInterface;
 
 class Sdk
 {
-    /** @var LoggerInterface */
-    protected $logger;
-
-    /**
-     * @param LoggerInterface
-     */
-    public function __construct(
-        LoggerInterface $logger
-    ) {
-        $this->logger = $logger;
-    }
-
     /**
      * Transfer the Magento address object to a physical address SDK payload.
      *
