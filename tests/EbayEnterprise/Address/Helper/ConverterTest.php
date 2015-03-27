@@ -10,6 +10,10 @@ class ConverterTest extends \PHPUnit_Framework_TestCase
     protected $addressFactory;
     /** @var \EbayEnterprise\Address\Api\Data\AddressInterface (mock) */
     protected $addressInterface;
+    /** @var \Magento\Directory\Model\RegionFactory (mock) */
+    protected $directoryRegionFactory;
+    /** @var \Magento\Directory\Model\Region (mock) */
+    protected $directoryRegion;
     /** @var ObjectManager */
     protected $objectManager;
     /** @var Converter */
@@ -32,11 +36,21 @@ class ConverterTest extends \PHPUnit_Framework_TestCase
             ->getMock();
         $this->addressInterface = $this
             ->getMockForAbstractClass('\EbayEnterprise\Address\Api\Data\AddressInterface');
+        $this->directoryRegionFactory = $this
+            ->getMockBuilder('\Magento\Directory\Model\RegionFactory')
+            ->setMethods(['create'])
+            ->disableOriginalConstructor()
+            ->getMock();
+        $this->directoryRegion = $this
+            ->getMockBuilder('\Magneto\Directory\Model\Region')
+            ->setMethods(['load', 'getCode'])
+            ->disableOriginalConstructor()
+            ->getMock();
 
         $this->objectManager = new ObjectManager($this);
         $this->converter = $this->objectManager->getObject(
             '\EbayEnterprise\Address\Helper\Converter',
-            ['addressFactory' => $this->addressFactory]
+            ['addressFactory' => $this->addressFactory, 'regionFactory' => $this->directoryRegionFactory]
         );
     }
 
@@ -65,11 +79,13 @@ class ConverterTest extends \PHPUnit_Framework_TestCase
      */
     public function testConvertCustomerAddress()
     {
-        $regionData = ['region_code' => 'PA'];
+        // When saving an address, new addresses will only have a region id.
+        $regionData = ['region_id' => 51];
         $region = $this->objectManager->getObject(
             '\Magento\Customer\Model\Data\Region',
-            ['data' => ['region_code' => 'PA']]
+            ['data' => $regionData]
         );
+
         $addressData = $this->addressData;
         // Customer address has no region code. Includes a "region" containing
         // a region object instead.
@@ -80,6 +96,62 @@ class ConverterTest extends \PHPUnit_Framework_TestCase
             '\Magento\Customer\Model\Data\Address',
             ['data' => $addressData]
         );
+
+        // The region factory should be used to create a new directory region
+        // model. The model should be loaded using the region id of the address
+        // to get the region data needed, e.g. the region code.
+        $this->directoryRegionFactory->expects($this->once())
+            ->method('create')
+            ->will($this->returnValue($this->directoryRegion));
+        $this->directoryRegion->expects($this->once())
+            ->method('load')
+            ->with($this->identicalTo($regionData['region_id']))
+            ->will($this->returnSelf());
+        $this->directoryRegion->expects($this->any())
+            ->method('getCode')
+            ->will($this->returnValue($this->addressData['region_code']));
+
+        $this->addressFactory->expects($this->once())
+            ->method('create')
+            ->with($this->equalTo(['data' => $this->addressData]))
+            ->will($this->returnValue($this->addressInterface));
+
+        $this->converter->convertCustomerAddressToDataAddress($customerAddress);
+    }
+
+    /**
+     * Test that when converting a customer address, if the address object
+     * already has a region code, the directory region model isn't loaded - prevent
+     * an unnecessary DB read when possible.
+     */
+    public function testConvertCustomerAddressAvoidingDbRead()
+    {
+        // Address region may already contain a region code, in which case
+        // it should be used instead of loading the directory region model.
+        $regionData = ['region_id' => 51, 'region_code' => $this->addressData['region_code']];
+        $region = $this->objectManager->getObject(
+            '\Magento\Customer\Model\Data\Region',
+            ['data' => $regionData]
+        );
+
+        $addressData = $this->addressData;
+        // Customer address has no region code. Includes a "region" containing
+        // a region object instead.
+        unset($addressData['region_code']);
+        $addressData['region'] = $region;
+
+        $customerAddress = $this->objectManager->getObject(
+            '\Magento\Customer\Model\Data\Address',
+            ['data' => $addressData]
+        );
+
+        // The region factory should be used to create a new directory region
+        // model. The model should be loaded using the region id of the address
+        // to get the region data needed, e.g. the region code.
+        $this->directoryRegionFactory->expects($this->never())
+            ->method('create');
+        $this->directoryRegion->expects($this->never())
+            ->method('load');
 
         $this->addressFactory->expects($this->once())
             ->method('create')

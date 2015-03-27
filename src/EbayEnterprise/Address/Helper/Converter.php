@@ -5,6 +5,7 @@ namespace EbayEnterprise\Address\Helper;
 use EbayEnterprise\Address\Api\Data\AddressInterfaceFactory;
 use Magento\Customer\Model\Address\AbstractAddress as AbstractCustomerAddress;
 use Magento\Customer\Api\Data\AddressInterface as CustomerAddressInterface;
+use Magento\Directory\Model\RegionFactory;
 use Psr\Log\LoggerInterface;
 
 class Converter
@@ -13,16 +14,20 @@ class Converter
     protected $addressFactory;
     /** @var LoggerInterface */
     protected $logger;
+    /** @var RegionFactory */
+    protected $regionFactory;
 
     /**
      * @param AddressInterfaceFactory
      */
     public function __construct(
         AddressInterfaceFactory $addressFactory,
-        LoggerInterface $logger
+        LoggerInterface $logger,
+        RegionFactory $regionFactory
     ) {
         $this->addressFactory = $addressFactory;
         $this->logger = $logger;
+        $this->regionFactory = $regionFactory;
     }
 
     /**
@@ -54,14 +59,30 @@ class Converter
      */
     public function convertCustomerAddressToDataAddress(CustomerAddressInterface $address)
     {
+        // When the region object on the customer address already has a region
+        // code, it isn't necessary to load the direction region model to get the code.
+        $customerRegion = $address->getRegion();
+        $regionCode = $customerRegion->getRegionCode() ?: $this->loadRegion($customerRegion->getRegionId())->getCode();
+
         $data = [
             'street' => $address->getStreet(),
             'city' => $address->getCity(),
-            'region_code' => $address->getRegion()->getRegionCode(),
+            'region_code' => $regionCode,
             'country_id' => $address->getCountryId(),
             'postcode' => $address->getPostcode(),
         ];
         return $this->addressFactory
             ->create(['data' => $data]);
+    }
+
+    /**
+     * Create and load a region model for the region id.
+     *
+     * @param int
+     * @return \Magento\Directory\Model\Region
+     */
+    protected function loadRegion($regionId)
+    {
+        return $this->regionFactory->create()->load($regionId);
     }
 }
