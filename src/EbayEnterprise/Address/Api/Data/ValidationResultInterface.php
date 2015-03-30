@@ -29,9 +29,21 @@ interface ValidationResultInterface
     /**
      * Get the fields on which errors were detected in the request.
      *
-     * @return eBayEnterprise\RetailOrderManagement\Payload\Address\IErrorLocationIterable
+     * @TODO Maybe promise a less specific type. What if there is not an
+     *       error location iterable easily available? E.g. in
+     *       EbayEnterprise\Address\Model\Validation\ExceptionResult where we
+     *       will not have a result payload.
+     * @return \eBayEnterprise\RetailOrderManagement\Payload\Address\IErrorLocationIterable
      */
     public function getErrorLocations();
+
+    /**
+     * Provide a user friendly reson for the address validation failure. Will
+     * only return a reason if the address validated is invalid.
+     *
+     * @return string|null
+     */
+    public function getFailureReason();
 
     /**
      * Indicates if suggestions to correct the address are available.
@@ -51,7 +63,7 @@ interface ValidationResultInterface
      * Get any addresses returned as suggested corrections to the address
      * being validated.
      *
-     * @return \Generator
+     * @return \EbayEnterprise\Address\Api\Data\AddressInterface[]
      */
     public function getSuggestions();
 

@@ -72,6 +72,15 @@ class Result implements ValidationResultInterface
     /**
      * {@inheritDoc}
      */
+    public function getFailureReason()
+    {
+        // @TODO provide better failure message based on validation results.
+        return !$this->isAcceptable() ? 'Invalid address.' : null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function hasSuggestions()
     {
         return $this->replyPayload->hasSuggestions();
