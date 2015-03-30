@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <!-- Preferences for service contracts/data interfaces -->
     <preference for="EbayEnterprise\Address\Api\Data\AddressInterface"
         type="EbayEnterprise\Address\Model\Address" />
     <preference for="EbayEnterprise\Address\Api\Data\ValidationResultInterface"
         type="EbayEnterprise\Address\Model\Validation\Result" />
     <preference for="EbayEnterprise\Address\Api\AddressValidationInterface"
         type="EbayEnterprise\Address\Model\Service\AddressValidation" />
+
+    <!-- Plugins -->
+    <type name="Magento\Customer\Api\AddressRepositoryInterface">
+        <plugin name="ebayenterprise_address_validate_before_save" type="\EbayEnterprise\Address\Model\Plugin\Validator" sortOrder="1"/>
+    </type>
+
+    <!-- Generated types -->
+    <type name="EbayEnterprise\Address\Api\Data\AddressInterfaceFactory"/>
+    <type name="EbayEnterprise\Address\Api\Data\ValidationResultInterfaceFactory"/>
+    <type name="EbayEnterprise\Address\Model\LoggerContext\Proxy"/>
+
+    <!-- Virtual types -->
     <virtualType name="addressContextAwareLogger" type="Magento\Framework\Logger\Monolog">
         <arguments>
             <argument name="processors" xsi:type="array">
@@ -13,12 +26,13 @@
             </argument>
         </arguments>
     </virtualType>
-    <type name="Magento\Customer\Api\AddressRepositoryInterface">
-        <plugin name="ebayenterprise_address_validate_before_save" type="\EbayEnterprise\Address\Model\Plugin\Validator" sortOrder="1"/>
-    </type>
-    <type name="EbayEnterprise\Address\Api\Data\AddressInterfaceFactory"/>
-    <type name="EbayEnterprise\Address\Api\Data\ValidationResultInterfaceFactory"/>
-    <type name="EbayEnterprise\Address\Model\LoggerContext\Proxy"/>
+    <virtualType name="exceptionResultInterfaceFactory" type="EbayEnterprise\Address\Api\Data\ValidationResultInterfaceFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">EbayEnterprise\\Address\\Model\\Validation\\ExceptionResult</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Specific type argument configuration -->
     <type name="EbayEnterprise\Address\Model\LoggerContext">
         <arguments>
             <argument name="moduleName" xsi:type="string">EbayEnterprise_Address</argument>
@@ -32,6 +46,7 @@
     <type name="EbayEnterprise\Address\Model\Service\AddressValidation">
         <arguments>
             <argument name="logger" xsi:type="object">addressContextAwareLogger</argument>
+            <argument name="exceptionResultFactory" xsi:type="object">exceptionResultInterfaceFactory</argument>
         </arguments>
     </type>
     <type name="EbayEnterprise\Address\Model\Plugin\Validator">
