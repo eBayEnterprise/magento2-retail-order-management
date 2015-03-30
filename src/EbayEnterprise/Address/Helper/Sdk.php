@@ -3,7 +3,9 @@
 namespace EbayEnterprise\Address\Helper;
 
 use eBayEnterprise\RetailOrderManagement\Payload\Checkout\IPhysicalAddress;
+use eBayEnterprise\RetailOrderManagement\Payload\Address\IValidationRequest;
 use EbayEnterprise\Address\Api\Data\AddressInterface;
+use Magento\Framework\App\Config\ScopeConfigInterface;
 
 class Sdk
 {
@@ -44,5 +46,23 @@ class Sdk
             ->setCountryId($addressPayload->getCountryCode())
             ->setRegionCode($addressPayload->getMainDivision())
             ->setPostcode($addressPayload->getPostalCode());
+    }
+
+    /**
+     * Prepare the address validation API request.
+     *
+     * @param IValidationRequest
+     * @param AddressInterface
+     * @param ScopeConfigInterface
+     * @return IValidationRequest
+     */
+    public function prepareSdkRequest(
+        IValidationRequest $apiRequest,
+        AddressInterface $address,
+        ScopeConfigInterface $scopeConfig
+    ) {
+        return $this
+            ->transferAddressToPhysicalAddressPayload($address, $apiRequest)
+            ->setMaxSuggestions($scopeConfig->getValue('ebay_enterprise/address_validation/max_suggestions'));
     }
 }
