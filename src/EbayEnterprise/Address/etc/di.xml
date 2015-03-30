@@ -59,9 +59,4 @@
             <argument name="logger" xsi:type="object">addressContextAwareLogger</argument>
         </arguments>
     </type>
-    <type name="EbayEnterprise\Address\Helper\Converter">
-        <arguments>
-            <argument name="logger" xsi:type="object">addressContextAwareLogger</argument>
-        </arguments>
-    </type>
 </config>

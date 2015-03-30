@@ -2,8 +2,8 @@
 
 namespace EbayEnterprise\Address\Model;
 
-use Magento\Framework\ObjectManagerInterface;
 use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Framework\ObjectManagerInterface;
 use Psr\Log\LoggerInterface;
 
 class HttpApiFactory

@@ -2,9 +2,9 @@
 
 namespace EbayEnterprise\Address\Helper;
 
-use eBayEnterprise\RetailOrderManagement\Payload\Checkout\IPhysicalAddress;
-use eBayEnterprise\RetailOrderManagement\Payload\Address\IValidationRequest;
 use EbayEnterprise\Address\Api\Data\AddressInterface;
+use eBayEnterprise\RetailOrderManagement\Payload\Address\IValidationRequest;
+use eBayEnterprise\RetailOrderManagement\Payload\Checkout\IPhysicalAddress;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 
 class Sdk

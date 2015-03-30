@@ -10,7 +10,6 @@ use EbayEnterprise\Address\Model\HttpApiFactory;
 use eBayEnterprise\RetailOrderManagement\Api\Exception\NetworkError;
 use eBayEnterprise\RetailOrderManagement\Api\Exception\UnsupportedHttpAction;
 use eBayEnterprise\RetailOrderManagement\Api\Exception\UnsupportedOperation;
-use eBayEnterprise\RetailOrderManagement\Payload\Address\IValidationRequest;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Psr\Log\LoggerInterface;
 

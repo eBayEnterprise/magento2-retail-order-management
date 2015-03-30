@@ -3,17 +3,14 @@
 namespace EbayEnterprise\Address\Helper;
 
 use EbayEnterprise\Address\Api\Data\AddressInterfaceFactory;
-use Magento\Customer\Model\Address\AbstractAddress as AbstractCustomerAddress;
 use Magento\Customer\Api\Data\AddressInterface as CustomerAddressInterface;
+use Magento\Customer\Model\Address\AbstractAddress as AbstractCustomerAddress;
 use Magento\Directory\Model\RegionFactory;
-use Psr\Log\LoggerInterface;
 
 class Converter
 {
     /** @var AddressInterfaceFactory */
     protected $addressFactory;
-    /** @var LoggerInterface */
-    protected $logger;
     /** @var RegionFactory */
     protected $regionFactory;
 
@@ -22,11 +19,9 @@ class Converter
      */
     public function __construct(
         AddressInterfaceFactory $addressFactory,
-        LoggerInterface $logger,
         RegionFactory $regionFactory
     ) {
         $this->addressFactory = $addressFactory;
-        $this->logger = $logger;
         $this->regionFactory = $regionFactory;
     }
 
