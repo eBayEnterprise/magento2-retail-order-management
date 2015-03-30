@@ -66,6 +66,9 @@ class AddressValidation implements AddressValidationInterface
                 ->setRequestBody($this->sdkHelper->prepareSdkRequest($api->getRequestBody(), $address, $this->scopeConfig))
                 ->send()
                 ->getResponseBody();
+        // @TODO evaluate log level for each of these, some may be more severe -
+        //       UnsupportedOperation and UnsupportedHttpAction - or less severe
+        //       - maybe NetworkError.
         } catch (NetworkError $e) {
             $this->logger->warning($e);
             return $this->exceptionResultFactory->create(['originalAddress' => $address, 'failureException' => $e]);
