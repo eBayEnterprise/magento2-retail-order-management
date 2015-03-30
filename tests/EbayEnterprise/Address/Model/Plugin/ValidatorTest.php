@@ -65,6 +65,18 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
                 'phraseFactory' => $this->phraseFactory,
             ]
         );
+
+        // Converter will always convert the customer address to a address
+        // validation address.
+        $this->addressConverter->expects($this->once())
+            ->method('convertCustomerAddressToDataAddress')
+            ->with($this->identicalTo($this->customerAddress))
+            ->will($this->returnValue($this->addressDataModel));
+        // Address validation service contract will always return validation results.
+        $this->addressValidation->expects($this->once())
+            ->method('validate')
+            ->with($this->identicalTo($this->addressDataModel))
+            ->will($this->returnValue($this->validationResults));
     }
 
     /**
@@ -72,14 +84,6 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testValidateAddressSuccess()
     {
-        $this->addressConverter->expects($this->once())
-            ->method('convertCustomerAddressToDataAddress')
-            ->with($this->identicalTo($this->customerAddress))
-            ->will($this->returnValue($this->addressDataModel));
-        $this->addressValidation->expects($this->once())
-            ->method('validate')
-            ->with($this->identicalTo($this->addressDataModel))
-            ->will($this->returnValue($this->validationResults));
         $this->validationResults->expects($this->any())
             ->method('isAcceptable')
             ->will($this->returnValue(true));
@@ -97,14 +101,6 @@ class ValidatorTest extends \PHPUnit_Framework_TestCase
     {
         $errorMessage = 'Invalid address';
 
-        $this->addressConverter->expects($this->once())
-            ->method('convertCustomerAddressToDataAddress')
-            ->with($this->identicalTo($this->customerAddress))
-            ->will($this->returnValue($this->addressDataModel));
-        $this->addressValidation->expects($this->once())
-            ->method('validate')
-            ->with($this->identicalTo($this->addressDataModel))
-            ->will($this->returnValue($this->validationResults));
         $this->validationResults->expects($this->any())
             ->method('isAcceptable')
             ->will($this->returnValue(false));

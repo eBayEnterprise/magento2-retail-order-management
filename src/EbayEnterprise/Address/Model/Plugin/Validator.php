@@ -43,9 +43,11 @@ class Validator
      * the address to be passed through to be saved. If invalid, throw an
      * InputExepction to prevent the address from being saved.
      *
+     * @param AddressRepositoryInterface $addressRepository Object the method is being invoked upon - $this in the wrapped method
      * @param AddressInterface
-     * @param array|bool Array of already found errors or "true" if address is valid
-     * @return array|bool Array of errors found or "true" if address is valid
+     * @return array Array of args to be passed through to original method call, e.g. array container the address being validated
+     * @throws InputException If the address is not valid
+     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      */
     public function beforeSave(AddressRepositoryInterface $addressRepository, AddressInterface $address)
     {
