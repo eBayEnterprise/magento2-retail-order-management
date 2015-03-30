@@ -2,7 +2,6 @@
 
 namespace EbayEnterprise\Address\Helper;
 
-use Magento\Framework\App\ScopeInterface;
 use Magento\Framework\TestFramework\Unit\Helper\ObjectManager;
 
 class SdkTest extends \PHPUnit_Framework_TestCase
