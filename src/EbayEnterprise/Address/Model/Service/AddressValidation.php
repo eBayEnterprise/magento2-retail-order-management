@@ -7,12 +7,16 @@ use EbayEnterprise\Address\Api\Data\AddressInterface;
 use EbayEnterprise\Address\Api\Data\ValidationResultInterfaceFactory;
 use EbayEnterprise\Address\Helper\Sdk as SdkHelper;
 use EbayEnterprise\Address\Model\HttpApiFactory;
+use EbayEnterprise\Address\Model\Session as AddressSession;
 use eBayEnterprise\RetailOrderManagement\Api\Exception\NetworkError;
 use eBayEnterprise\RetailOrderManagement\Api\Exception\UnsupportedHttpAction;
 use eBayEnterprise\RetailOrderManagement\Api\Exception\UnsupportedOperation;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Psr\Log\LoggerInterface;
 
+/**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class AddressValidation implements AddressValidationInterface
 {
     /** @var SdkHelper */
@@ -42,7 +46,8 @@ class AddressValidation implements AddressValidationInterface
         ScopeConfigInterface $scopeConfig,
         HttpApiFactory $httpApiFactory,
         ValidationResultInterfaceFactory $resultFactory,
-        ValidationResultInterfaceFactory $exceptionResultFactory
+        ValidationResultInterfaceFactory $exceptionResultFactory,
+        AddressSession $session
     ) {
         $this->sdkHelper = $sdkHelper;
         $this->logger = $logger;
@@ -50,12 +55,24 @@ class AddressValidation implements AddressValidationInterface
         $this->httpApiFactory = $httpApiFactory;
         $this->resultFactory = $resultFactory;
         $this->exceptionResultFactory = $exceptionResultFactory;
+        $this->session = $session;
     }
 
     /**
      * {@inheritDoc}
      */
     public function validate(AddressInterface $address)
+    {
+        return $this->getStashedResultForAddress($address) ?: $this->makeRequestForAddress($address);
+    }
+
+    /**
+     * Make a new request via the SDK to validate the address.
+     *
+     * @param AddressInterface
+     * @return IValidationResult
+     */
+    protected function makeRequestForAddress(AddressInterface $address)
     {
         try {
             /** @var \eBayEnterprise\RetailOrderManagement\Api\IBidirectionalApi */
@@ -72,12 +89,29 @@ class AddressValidation implements AddressValidationInterface
             $this->logger->warning($e);
             return $this->exceptionResultFactory->create(['originalAddress' => $address, 'failureException' => $e]);
         } catch (UnsupportedOperation $e) {
-            $this->logger->warning($e);
+            $this->logger->error($e);
             return $this->exceptionResultFactory->create(['originalAddress' => $address, 'failureException' => $e]);
         } catch (UnsupportedHttpAction $e) {
-            $this->logger->warning($e);
+            $this->logger->error($e);
             return $this->exceptionResultFactory->create(['originalAddress' => $address, 'failureException' => $e]);
         }
-        return $this->resultFactory->create(['replyPayload' => $response, 'originalAddress' => $address]);
+        $result = $this->resultFactory->create(['replyPayload' => $response, 'originalAddress' => $address]);
+        $this->session->setResultForAddress($address, $result)->setCurrentResult($result);
+        return $result;
+    }
+
+    /**
+     * Check the session for an existing result for the address.
+     *
+     * @param AddressInterface
+     * @return IValidationResultInterface|null
+     */
+    protected function getStashedResultForAddress(AddressInterface $address)
+    {
+        $stashedResult = $this->session->getResultForAddress($address);
+        if ($stashedResult) {
+            $this->session->setCurrentResult($stashedResult);
+        }
+        return $stashedResult;
     }
 }

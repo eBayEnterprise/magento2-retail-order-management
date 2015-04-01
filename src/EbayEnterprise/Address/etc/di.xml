@@ -17,6 +17,7 @@
     <type name="EbayEnterprise\Address\Api\Data\AddressInterfaceFactory"/>
     <type name="EbayEnterprise\Address\Api\Data\ValidationResultInterfaceFactory"/>
     <type name="EbayEnterprise\Address\Model\LoggerContext\Proxy"/>
+    <type name="EbayEnterprise\Address\Model\AddressResultPairFactory"/>
 
     <!-- Virtual types -->
     <virtualType name="addressContextAwareLogger" type="Magento\Framework\Logger\Monolog">
@@ -28,7 +29,22 @@
     </virtualType>
     <virtualType name="exceptionResultInterfaceFactory" type="EbayEnterprise\Address\Api\Data\ValidationResultInterfaceFactory">
         <arguments>
-            <argument name="instanceName" xsi:type="string">EbayEnterprise\\Address\\Model\\Validation\\ExceptionResult</argument>
+            <argument name="instanceName" xsi:type="string">EbayEnterprise\Address\Model\Validation\ExceptionResult</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="confirmedResultInterfaceFactory" type="EbayEnterprise\Address\Api\Data\ValidationResultInterfaceFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">EbayEnterprise\Address\Model\Validation\ConfirmedResult</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="addressSessionStorage" type="Magento\Framework\Session\Storage">
+        <arguments>
+            <argument name="namespace" xsi:type="string">ebayenterprise_address</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="addressSession" type="Magento\Framework\Session\SessionManager">
+        <arguments>
+            <argument name="storage" xsi:type="object">addressSessionStorage</argument>
         </arguments>
     </virtualType>
 
@@ -57,6 +73,16 @@
     <type name="EbayEnterprise\Address\Model\HttpApiFactory">
         <arguments>
             <argument name="logger" xsi:type="object">addressContextAwareLogger</argument>
+        </arguments>
+    </type>
+    <type name="EbayEnterprise\Address\Model\Session">
+        <arguments>
+            <argument name="sessionManager" xsi:type="object">addressSession</argument>
+        </arguments>
+    </type>
+    <type name="EbayEnterprise\Address\Controller\Address\SuggestionFormPost">
+        <arguments>
+            <argument name="confirmedResultFactory" xsi:type="object">confirmedResultInterfaceFactory</argument>
         </arguments>
     </type>
 </config>

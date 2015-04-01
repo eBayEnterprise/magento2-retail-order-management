@@ -10,14 +10,26 @@ use eBayEnterprise\RetailOrderManagement\Payload\Address\IValidationReply;
 
 class Result implements ValidationResultInterface
 {
-    /** @var SdkHelper */
-    protected $sdkHelper;
-    /** @var IValidationReply */
-    protected $replyPayload;
-    /** @var AddressInterfaceFactory */
-    protected $addressFactory;
+    /** @var string */
+    protected $id;
     /** @var AddressInterface */
     protected $originalAddress;
+    /** @var bool */
+    protected $isValid;
+    /** @var bool */
+    protected $isAcceptable;
+    /** @var string */
+    protected $resultCode;
+    /** @var array */
+    protected $errorLocations;
+    /** @var bool */
+    protected $hasSuggestions;
+    /** @var AddressInterface[] */
+    protected $suggestions;
+    /** @var int */
+    protected $suggestionCount;
+    /** @var AddressInterface */
+    protected $correctedAddress;
 
     /**
      * @param SdkHelper
@@ -31,10 +43,39 @@ class Result implements ValidationResultInterface
         AddressInterfaceFactory $addressFactory,
         AddressInterface $originalAddress
     ) {
-        $this->sdkHelper = $sdkHelper;
-        $this->replyPayload = $replyPayload;
-        $this->addressFactory = $addressFactory;
+        $this->id = uniqid('AVR-');
         $this->originalAddress = $originalAddress;
+        // Extract data from the payload so the payload instance doesn't need
+        // to be stored (may not be session safe and this object may need
+        // to go into the session).
+        $this->isValid = $replyPayload->isValid();
+        $this->isAcceptable = $replyPayload->isAcceptable();
+        $this->resultCode = $replyPayload->getResultCode();
+        $this->errorLocations = [];
+        foreach ($replyPayload->getErrorLocations() as $errorLocation) {
+            $this->errorLocations[] = $errorLocation->getFieldName();
+        }
+        $this->hasSuggestions = $replyPayload->hasSuggestions();
+        $this->suggestions = [];
+        foreach ($replyPayload->getSuggestedAddresses() as $suggestedAddress) {
+            $this->suggestions[uniqid('AVS-')] = $sdkHelper->transferPhysicalAddressPayloadToAddress(
+                $suggestedAddress,
+                $addressFactory->create()
+            );
+        }
+        $this->suggestionCount = $replyPayload->getResultSuggestionCount();
+        $this->correctedAddress = $sdkHelper->transferPhysicalAddressPayloadToAddress(
+            $replyPayload,
+            $addressFactory->create()
+        );
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -42,7 +83,7 @@ class Result implements ValidationResultInterface
      */
     public function isValid()
     {
-        return $this->replyPayload->isValid();
+        return $this->isValid;
     }
 
     /**
@@ -50,7 +91,7 @@ class Result implements ValidationResultInterface
      */
     public function isAcceptable()
     {
-        return $this->replyPayload->isAcceptable();
+        return $this->isAcceptable;
     }
 
     /**
@@ -58,7 +99,7 @@ class Result implements ValidationResultInterface
      */
     public function getResultCode()
     {
-        return $this->replyPayload->getResultCode();
+        return $this->resultCode;
     }
 
     /**
@@ -66,7 +107,7 @@ class Result implements ValidationResultInterface
      */
     public function getErrorLocations()
     {
-        return $this->replyPayload->getResultErrorLocations();
+        return $this->errorLocations;
     }
 
     /**
@@ -83,7 +124,7 @@ class Result implements ValidationResultInterface
      */
     public function hasSuggestions()
     {
-        return $this->replyPayload->hasSuggestions();
+        return $this->hasSuggestions;
     }
 
     /**
@@ -91,7 +132,7 @@ class Result implements ValidationResultInterface
      */
     public function getSuggestionCount()
     {
-        return $this->replyPayload->getResultSuggestionCount();
+        return $this->suggestionCount;
     }
 
     /**
@@ -99,14 +140,7 @@ class Result implements ValidationResultInterface
      */
     public function getSuggestions()
     {
-        $addresses = [];
-        foreach ($this->replyPayload->getSuggestedAddresses() as $suggestedAddress) {
-            $addresses[] = $this->sdkHelper->transferPhysicalAddressPayloadToAddress(
-                $suggestedAddress,
-                $this->addressFactory->create()
-            );
-        }
-        return $addresses;
+        return $this->suggestions;
     }
 
     /**
@@ -122,9 +156,6 @@ class Result implements ValidationResultInterface
      */
     public function getCorrectedAddress()
     {
-        return $this->sdkHelper->transferPhysicalAddressPayloadToAddress(
-            $this->replyPayload,
-            $this->addressFactory->create()
-        );
+        return $this->correctedAddress;
     }
 }

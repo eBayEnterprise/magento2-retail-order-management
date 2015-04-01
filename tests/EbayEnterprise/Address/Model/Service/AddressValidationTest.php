@@ -36,6 +36,11 @@ class AddressValidationTest extends \PHPUnit_Framework_TestCase
             ->setMethods(['prepareSdkRequest'])
             ->disableOriginalConstructor()
             ->getMock();
+        $this->session = $this
+            ->getMockBuilder('\EbayEnterprise\Address\Model\Session')
+            ->setMethods(['getResultForAddress', 'setResultForAddress', 'setCurrentResult'])
+            ->disableOriginalConstructor()
+            ->getMock();
 
         // Mock out the API and API factory.
         $this->api = $this
@@ -59,6 +64,7 @@ class AddressValidationTest extends \PHPUnit_Framework_TestCase
                 'httpApiFactory' => $this->apiFactory,
                 'resultFactory' => $this->resultFactory,
                 'exceptionResultFactory' => $this->exceptionResultFactory,
+                'session' => $this->session,
             ]
         );
     }
@@ -77,6 +83,14 @@ class AddressValidationTest extends \PHPUnit_Framework_TestCase
         $this->exceptionResultFactory->expects($this->never())
             ->method('create');
 
+        $this->session->expects($this->once())
+            ->method('setResultForAddress')
+            ->with($this->identicalTo($this->address), $this->identicalTo($this->validationResult))
+            ->will($this->returnSelf());
+        $this->session->expects($this->once())
+            ->method('setCurrentResult')
+            ->with($this->identicalTo($this->validationResult))
+            ->will($this->returnSelf());
         $this->sdkHelper->expects($this->any())
             ->method('prepareSdkRequest')
             ->will($this->returnArgument(0));
@@ -145,6 +159,29 @@ class AddressValidationTest extends \PHPUnit_Framework_TestCase
         $this->api->expects($this->once())
             ->method('send')
             ->will($this->throwException($failureException));
+
+        $this->assertSame(
+            $this->validationResult,
+            $this->addressValidation->validate($this->address)
+        );
+    }
+
+    /**
+     * When an address already has results stashed in the session, the previous
+     * result should be returned and a new API request should not be made.
+     */
+    public function testValidateAddressWithStashedResult()
+    {
+        $this->session->expects($this->once())
+            ->method('getResultForAddress')
+            ->with($this->identicalTo($this->address))
+            ->will($this->returnValue($this->validationResult));
+        // When a result is already stashed for the address, no new api requests
+        // should be sent. (If the session result isn't used, the test may actually
+        // fail before the `send` method would be called. However, the important
+        // assertion is that no new requests are made to the api.)
+        $this->api->expects($this->never())
+            ->method('send');
 
         $this->assertSame(
             $this->validationResult,

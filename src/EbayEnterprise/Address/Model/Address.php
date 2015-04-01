@@ -58,6 +58,38 @@ class Address extends AbstractSimpleObject implements AddressInterface
     /**
      * {@inheritDoc}
      */
+    public function getRegionId()
+    {
+        return $this->_get('region_id');
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setRegionId($regionId)
+    {
+        return $this->setData('region_id', $regionId);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getRegionName()
+    {
+        return $this->_get('region_name');
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setRegionName($regionName)
+    {
+        return $this->setData('region_name', $regionName);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getCountryId()
     {
         return $this->_get('country_id');

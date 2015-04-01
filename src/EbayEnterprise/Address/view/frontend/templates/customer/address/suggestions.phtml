@@ -1,0 +1,43 @@
+<form class="form-address-edit" action="<?php echo $block->getSaveUrl() ?>" method="post" id="form-validate" enctype="multipart/form-data" data-hasrequired="<?php echo __('* Required Fields') ?>">
+    <?php echo $block->getBlockHtml('formkey') ?>
+    <?php if ($this->isCorrectionRequired()): ?>
+        <fieldset>
+            <legend><?php echo __('Please select one of the options below.') ?></legend>
+            <input type="hidden" name="validation-id" value="<?php echo $block->getValidationId() ?>" />
+            <ul class="suggestion-list">
+                <?php if ($block->hasCorrectedAddress()): ?>
+                    <li>
+                        <input type="radio" name="suggestion" id="suggestion-normalized" value="normalized"/>
+                        <label for="suggestion-normalized">
+                            <div><?php echo __('Use This Address') ?></div>
+                            <div><?php echo $block->getAddressHtml($block->getCorrectedAddress()) ?></div>
+                        </label>
+                    </li>
+                <?php endif; ?>
+                <?php foreach ($block->getSuggestions() as $suggestionId => $suggestion): ?>
+                    <li>
+                        <input type="radio" name="suggestion" id="suggestion-<?php echo $suggestionId ?>" value="<?php echo $suggestionId ?>"/>
+                        <label for="suggestion-<?php echo $suggestionId ?>">
+                            <div><?php echo __('Use This Address') ?></div>
+                            <div><?php echo $block->getAddressHtml($suggestion) ?></div>
+                        </label>
+                    </li>
+                <?php endforeach; ?>
+                <?php if ($block->hasOriginalAddress()): ?>
+                    <li>
+                        <input type="radio" name="suggestion" id="suggestion-original" value="original"/>
+                        <label for="suggestion-original">
+                            <div><?php echo __('Use Original Address') ?></div>
+                            <div><?php echo $block->getAddressHtml($block->getOriginalAddress()) ?></div>
+                        </label>
+                    </li>
+                <?php endif; ?>
+            </ul>
+            <div>
+                <input type="radio" name="suggestion" id="suggestion-use-new-address" value="new-address" />
+                <label for="suggestion-use-new-address"><?php echo __('Use New Address') ?></label>
+            </div>
+        </fieldset>
+    <?php endif; ?>
+    <?php echo $this->getChildHtml('customer_address_edit_with_suggestions') ?>
+</form>

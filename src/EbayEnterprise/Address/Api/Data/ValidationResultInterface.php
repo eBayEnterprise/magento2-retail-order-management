@@ -5,6 +5,13 @@ namespace EbayEnterprise\Address\Api\Data;
 interface ValidationResultInterface
 {
     /**
+     * Unique identified for the validation result.
+     *
+     * @return string
+     */
+    public function getId();
+
+    /**
      * Indicates if the address has been successfully validated.
      *
      * @return bool

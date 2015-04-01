@@ -3,12 +3,25 @@
 namespace EbayEnterprise\Address\Helper;
 
 use EbayEnterprise\Address\Api\Data\AddressInterface;
+use EbayEnterprise\Address\Helper\Region as RegionHelper;
 use eBayEnterprise\RetailOrderManagement\Payload\Address\IValidationRequest;
 use eBayEnterprise\RetailOrderManagement\Payload\Checkout\IPhysicalAddress;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 
 class Sdk
 {
+    /** @var RegionHelper */
+    protected $regionHelper;
+
+    /**
+     * @param RegionHelper
+     */
+    public function __construct(
+        RegionHelper $regionHelper
+    ) {
+        $this->regionHelper = $regionHelper;
+    }
+
     /**
      * Transfer the Magento address object to a physical address SDK payload.
      *
@@ -40,11 +53,14 @@ class Sdk
         IPhysicalAddress $addressPayload,
         AddressInterface $address
     ) {
+        $region = $this->regionHelper->loadRegion(null, $addressPayload->getMainDivision(), null, $addressPayload->getCountryCode());
         return $address
             ->setStreet(explode("\n", $addressPayload->getLines()))
             ->setCity($addressPayload->getCity())
             ->setCountryId($addressPayload->getCountryCode())
-            ->setRegionCode($addressPayload->getMainDivision())
+            ->setRegionCode($region->getCode())
+            ->setRegionId($region->getId())
+            ->setRegionName($region->getName())
             ->setPostcode($addressPayload->getPostalCode());
     }
 

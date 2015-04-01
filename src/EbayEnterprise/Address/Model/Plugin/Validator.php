@@ -20,17 +20,20 @@ class Validator
     protected $logger;
     /** @var PhraseFactory */
     protected $phraseFactory;
+
     /**
      * @param AddressValidationInterface
      * @param AddressConverter
      * @param LoggerInterface
      */
     public function __construct(
+        \Magento\Framework\App\Action\Context $context,
         AddressValidationInterface $addressValidation,
         AddressConverter $addressConverter,
         LoggerInterface $logger,
         PhraseFactory $phraseFactory
     ) {
+        $this->actionContext = $context;
         $this->addressValidation = $addressValidation;
         $this->addressConverter = $addressConverter;
         $this->logger = $logger;
@@ -67,7 +70,12 @@ class Validator
         // continue through the plug-in chain as array of arguments to original
         // method.
         if ($validationResult->isAcceptable()) {
-            return [$address];
+            // If the address is acceptable, apply any difinitive corrections or
+            // normalizations to the address.
+            return [$this->addressConverter->transferDataAddressToCustomerAddress(
+                $address,
+                $validationResult->getCorrectedAddress()
+            )];
         }
         // Prevent the address save. Exception message will be the text of the
         // message displayed to the user.

@@ -2,27 +2,28 @@
 
 namespace EbayEnterprise\Address\Helper;
 
+use EbayEnterprise\Address\Api\Data\AddressInterface;
 use EbayEnterprise\Address\Api\Data\AddressInterfaceFactory;
+use EbayEnterprise\Address\Helper\Region as RegionHelper;
 use Magento\Customer\Api\Data\AddressInterface as CustomerAddressInterface;
 use Magento\Customer\Model\Address\AbstractAddress as AbstractCustomerAddress;
-use Magento\Directory\Model\RegionFactory;
 
 class Converter
 {
     /** @var AddressInterfaceFactory */
     protected $addressFactory;
-    /** @var RegionFactory */
-    protected $regionFactory;
+    /** @var RegionHelper */
+    protected $regionHelper;
 
     /**
      * @param AddressInterfaceFactory
      */
     public function __construct(
         AddressInterfaceFactory $addressFactory,
-        RegionFactory $regionFactory
+        RegionHelper $regionHelper
     ) {
         $this->addressFactory = $addressFactory;
-        $this->regionFactory = $regionFactory;
+        $this->regionHelper = $regionHelper;
     }
 
     /**
@@ -35,9 +36,11 @@ class Converter
     public function convertAbstractAddressToDataAddress(AbstractCustomerAddress $address)
     {
         $data = [
-            'street' => $address->getStreet(),
+            'street' => array_filter($address->getStreet(), [$this, 'filterEmptyStreets']),
             'city' => $address->getCity(),
             'region_code' => $address->getRegionCode(),
+            'region_id' => $address->getRegionId(),
+            'region_name' => $address->getRegion(),
             'country_id' => $address->getCountryId(),
             'postcode' => $address->getPostcode(),
         ];
@@ -57,12 +60,19 @@ class Converter
         // When the region object on the customer address already has a region
         // code, it isn't necessary to load the direction region model to get the code.
         $customerRegion = $address->getRegion();
-        $regionCode = $customerRegion->getRegionCode() ?: $this->loadRegion($customerRegion->getRegionId())->getCode();
+        $region = $this->regionHelper->loadRegion(
+            $customerRegion->getRegionId(),
+            $customerRegion->getRegionCode(),
+            $customerRegion->getRegion(),
+            $address->getCountryId()
+        );
 
         $data = [
-            'street' => $address->getStreet(),
+            'street' => array_filter($address->getStreet(), [$this, 'filterEmptyStreets']),
             'city' => $address->getCity(),
-            'region_code' => $regionCode,
+            'region_code' => $region->getCode(),
+            'region_id' => $region->getId(),
+            'region_name' => $region->getName(),
             'country_id' => $address->getCountryId(),
             'postcode' => $address->getPostcode(),
         ];
@@ -71,13 +81,38 @@ class Converter
     }
 
     /**
-     * Create and load a region model for the region id.
+     * Transfer data from an address validation address to a customer address.
      *
-     * @param int
-     * @return \Magento\Directory\Model\Region
+     * @param CustomerAddressInterface
+     * @param AddressInterface|null
+     * @return CustomerAddressInterface
      */
-    protected function loadRegion($regionId)
+    public function transferDataAddressToCustomerAddress(
+        CustomerAddressInterface $customerAddress,
+        AddressInterface $dataAddress = null
+    ) {
+        if ($dataAddress) {
+            $region = $customerAddress->getRegion();
+            $region->setRegionCode($dataAddress->getRegionCode())
+                ->setRegionId($dataAddress->getRegionId())
+                ->setRegion($dataAddress->getRegionName());
+            $customerAddress->setStreet($dataAddress->getStreet())
+                ->setCity($dataAddress->getCity())
+                ->setCountryId($dataAddress->getCountryId())
+                ->setPostcode($dataAddress->getPostcode())
+                ->setRegion($region);
+        }
+        return $customerAddress;
+    }
+
+    /**
+     * Method used to filter out any street data that is empty.
+     *
+     * @param string
+     * @return bool
+     */
+    protected function filterEmptyStreets($street)
     {
-        return $this->regionFactory->create()->load($regionId);
+        return (bool) $street;
     }
 }

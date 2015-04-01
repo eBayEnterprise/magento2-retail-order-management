@@ -50,6 +50,37 @@ interface AddressInterface
     public function setRegionCode($regionCode);
 
     /**
+     * Get system id to identify the region.
+     *
+     * @return int
+     */
+    public function getRegionId();
+
+    /**
+     * Set system id of the region.
+     *
+     *
+     * @param int
+     * @return self
+     */
+    public function setRegionId($regionId);
+
+    /**
+     * Get the name of the region.
+     *
+     * @return string
+     */
+    public function getRegionName();
+
+    /**
+     * Set the name of the region.
+     *
+     * @param string
+     * @return self
+     */
+    public function setRegionName($regionName);
+
+    /**
      * Get two-letter country code in ISO_3166-2 format.
      *
      * @return string

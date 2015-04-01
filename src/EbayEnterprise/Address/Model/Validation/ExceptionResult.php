@@ -3,6 +3,7 @@
 namespace EbayEnterprise\Address\Model\Validation;
 
 use EbayEnterprise\Address\Api\Data\AddressInterface;
+use EbayEnterprise\Address\Api\Data\ValidationResultInterface;
 use Exception;
 
 /**
@@ -11,6 +12,8 @@ use Exception;
  */
 class ExceptionResult implements ValidationResultInterface
 {
+    /** @var string */
+    protected $id;
     /** @var AddressInterface */
     protected $originalAddress;
     /** @var Exception */
@@ -24,8 +27,14 @@ class ExceptionResult implements ValidationResultInterface
         AddressInterface $originalAddress,
         Exception $failureException
     ) {
+        $this->id = uniqid('AVER-');
         $this->originalAddress = $originalAddress;
         $this->failureException = $failureException;
+    }
+
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

@@ -10,8 +10,6 @@ class SdkTest extends \PHPUnit_Framework_TestCase
     protected $sdkHelper;
     /** @var \Magento\TestFramework\Helper\ObjectManager */
     protected $objectManager;
-    /** @var \Magento\Framework\App\Helper\Context (mock) */
-    protected $context;
     /** @var \Magento\Customer\Model\Address\AbstractAddress (mock) */
     protected $address;
     /** @var \Magento\Customer\Api\Data\AddressInterface (mock) */
@@ -23,7 +21,11 @@ class SdkTest extends \PHPUnit_Framework_TestCase
     /** @var string */
     protected $city = 'King of Prussia';
     /** @var string */
+    protected $regionName = 'Pennsylvania';
+    /** @var string */
     protected $regionCode = 'PA';
+    /** @var string */
+    protected $regionId = 51;
     /** @var string */
     protected $countryId = 'US';
     /** @var string */
@@ -33,18 +35,33 @@ class SdkTest extends \PHPUnit_Framework_TestCase
     {
         $this->scopeConfig = $this->getMock('Magento\Framework\App\Config\ScopeConfigInterface');
         $this->addressData = $this->getMock('EbayEnterprise\Address\Api\Data\AddressInterface');
+        $this->regionHelper = $this
+            ->getMockBuilder('\EbayEnterprise\Address\Helper\Region')
+            ->setMethods(['loadRegion'])
+            ->disableOriginalConstructor()
+            ->getMock();
+        $this->directoryRegion = $this
+            ->getMockBuilder('\Magento\Directory\Model\Region')
+            ->setMethods(['getName', 'getCode', 'getId'])
+            ->disableOriginalConstructor()
+            ->getMock();
+        $this->directoryRegion->expects($this->any())
+            ->method('getName')
+            ->will($this->returnValue($this->regionName));
+        $this->directoryRegion->expects($this->any())
+            ->method('getCode')
+            ->will($this->returnValue($this->regionCode));
+        $this->directoryRegion->expects($this->any())
+            ->method('getId')
+            ->will($this->returnValue($this->regionId));
 
         $this->objectManager = new ObjectManager($this);
         $this->romFactory = $this->objectManager->getObject(
             '\eBayEnterprise\RetailOrderManagement\Payload\PayloadFactory'
         );
-        $this->context = $this->objectManager->getObject(
-            'Magento\Framework\App\Helper\Context',
-            ['scopeConfig' => $this->scopeConfig,]
-        );
         $this->sdkHelper = $this->objectManager->getObject(
             'EbayEnterprise\Address\Helper\Sdk',
-            ['context' => $this->context]
+            ['regionHelper' => $this->regionHelper]
         );
     }
 
@@ -97,6 +114,10 @@ class SdkTest extends \PHPUnit_Framework_TestCase
             ->setCountryCode($this->countryId)
             ->setPostalCode($this->postcode);
 
+        $this->regionHelper->expects($this->any())
+            ->method('loadRegion')
+            ->will($this->returnValue($this->directoryRegion));
+
         $this->addressData->expects($this->once())
             ->method('setStreet')
             ->with($this->identicalTo($this->street))
@@ -110,8 +131,16 @@ class SdkTest extends \PHPUnit_Framework_TestCase
             ->with($this->identicalTo($this->countryId))
             ->will($this->returnSelf());
         $this->addressData->expects($this->once())
+            ->method('setRegionName')
+            ->with($this->identicalTo($this->regionName))
+            ->will($this->returnSelf());
+        $this->addressData->expects($this->once())
             ->method('setRegionCode')
             ->with($this->identicalTo($this->regionCode))
+            ->will($this->returnSelf());
+        $this->addressData->expects($this->once())
+            ->method('setRegionId')
+            ->with($this->identicalTo($this->regionId))
             ->will($this->returnSelf());
         $this->addressData->expects($this->once())
             ->method('setPostcode')

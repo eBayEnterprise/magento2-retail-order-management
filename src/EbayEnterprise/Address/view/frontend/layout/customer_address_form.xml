@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <remove name="customer_address_edit" />
+    <body>
+        <referenceContainer name="content">
+             <block class="EbayEnterprise\Address\Block\Customer\Suggestions" name="customer_address_suggestions" template="customer/address/suggestions.phtml" cacheable="false">
+                <block class="Magento\Customer\Block\Address\Edit" name="customer_address_edit_with_suggestions" template="EbayEnterprise_Address::customer/address/edit.phtml" cacheable="false"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
