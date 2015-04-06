@@ -114,10 +114,11 @@ class SuggestionFormPost extends CustomerAddressFormPost
     protected function _updateAddressWithSuggestion(CustomerAddressInterface $address)
     {
         $selectedSuggestion = $this->getRequest()->getParam('suggestion');
-        if ($selectedSuggestion) {
-            $resultId = $this->getRequest()->getParam('validation-id');
-            $result = $resultId ? $this->addressSession->getResultById($resultId) : null;
-            if ($result) {
+        $resultId = $this->getRequest()->getParam('validation-id');
+        if ($selectedSuggestion && $selectedSuggestion !== 'new-address' && $resultId) {
+            $result = $this->addressSession->getResultById($resultId);
+            $originalAddress = $this->addressSession->getOriginalCustomerAddress();
+            if ($result && $originalAddress) {
                 switch ($selectedSuggestion) {
                     case 'normalized':
                         $selectedAddress = $result->getCorrectedAddress();
@@ -131,11 +132,11 @@ class SuggestionFormPost extends CustomerAddressFormPost
                 }
                 $address = $this
                     ->addressConverter
-                    ->transferDataAddressToCustomerAddress($address, $selectedAddress);
-                $validationAddress = $this
-                    ->addressConverter
-                    ->convertCustomerAddressToDataAddress($address);
-                $this->addressSession->setResultForAddress($validationAddress, $this->confirmedResultFactory->create(['originalAddress' => $validationAddress]));
+                    ->transferDataAddressToCustomerAddress($originalAddress, $selectedAddress);
+                $this->addressSession->setResultForAddress(
+                    $selectedAddress,
+                    $this->confirmedResultFactory->create(['originalAddress' => $selectedAddress])
+                );
             }
         }
         return $address;

@@ -4,6 +4,7 @@ namespace EbayEnterprise\Address\Model\Plugin;
 
 use EbayEnterprise\Address\Api\AddressValidationInterface;
 use EbayEnterprise\Address\Helper\Converter as AddressConverter;
+use EbayEnterprise\Address\Model\Session as AddressSession;
 use Magento\Customer\Api\AddressRepositoryInterface;
 use Magento\Customer\Api\Data\AddressInterface;
 use Magento\Framework\Exception\InputException;
@@ -20,24 +21,28 @@ class Validator
     protected $logger;
     /** @var PhraseFactory */
     protected $phraseFactory;
+    /** @var AddressSession */
+    protected $session;
 
     /**
      * @param AddressValidationInterface
      * @param AddressConverter
+     * @param AddressSession
      * @param LoggerInterface
+     * @param PhraseFactory
      */
     public function __construct(
-        \Magento\Framework\App\Action\Context $context,
         AddressValidationInterface $addressValidation,
         AddressConverter $addressConverter,
+        AddressSession $session,
         LoggerInterface $logger,
         PhraseFactory $phraseFactory
     ) {
-        $this->actionContext = $context;
         $this->addressValidation = $addressValidation;
         $this->addressConverter = $addressConverter;
         $this->logger = $logger;
         $this->phraseFactory = $phraseFactory;
+        $this->session = $session;
     }
 
     /**
@@ -77,6 +82,7 @@ class Validator
                 $validationResult->getCorrectedAddress()
             )];
         }
+        $this->session->setOriginalCustomerAddress($address);
         // Prevent the address save. Exception message will be the text of the
         // message displayed to the user.
         throw new InputException($this->phraseFactory->create(['text' => $validationResult->getFailureReason()]));

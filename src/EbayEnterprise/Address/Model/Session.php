@@ -5,25 +5,37 @@ namespace EbayEnterprise\Address\Model;
 use EbayEnterprise\Address\Api\Data\AddressInterface;
 use EbayEnterprise\Address\Api\Data\ValidationResultInterface;
 use Magento\Framework\Session\SessionManager;
-
+use Magento\Customer\Api\Data\AddressInterface as CustomerAddressInterface;
+use Magento\Customer\Api\Data\AddressInterfaceFactory as CustomerAddressInterfaceFactory;
+use Magento\Customer\Api\Data\RegionInterfaceFactory as CustomerRegionInterfaceFactory;
 class Session
 {
     /** @var SessionManagerInterface */
     protected $sessionManager;
     /** @var AddressResultPairFactory */
     protected $addressResultPairFactory;
+    /** @var CustomerAddressInterfaceFactory */
+    protected $customerAddressFactory;
+    /** @var CustomerRegionInterfaceFactory */
+    protected $customerRegionFactory;
 
     /**
      * @param SessionManagerInterface
      * @param AddressResultPairFactory
+     * @param CustomerAddressInterfaceFactory
+     * @param CustomerRegionInterfaceFactory
      */
     public function __construct(
         SessionManager $sessionManager,
-        AddressResultPairFactory $addressResultPairFactory
+        AddressResultPairFactory $addressResultPairFactory,
+        CustomerAddressInterfaceFactory $customerAddressFactory,
+        CustomerRegionInterfaceFactory $customerRegionFactory
     ) {
         $this->sessionManager = $sessionManager;
         $this->addressResultPairFactory = $addressResultPairFactory;
         $this->sessionManager->start();
+        $this->customerAddressFactory = $customerAddressFactory;
+        $this->customerRegionFactory = $customerRegionFactory;
     }
 
     /**
@@ -109,5 +121,79 @@ class Session
             }
         }
         return null;
+    }
+
+    /**
+     * Store the original customer address data.
+     *
+     * @param CustomerAddressInterface
+     * @return self
+     */
+    public function setOriginalCustomerAddress(CustomerAddressInterface $address)
+    {
+        $region = $address->getRegion() ?: $this->customerRegionFactory->create();
+        $addressData = [
+            'id' => $address->getId(),
+            'customer_id' => $address->getCustomerId(),
+            'region' => [
+                'region_id' => $region->getRegionId(),
+                'region_code' => $region->getRegionCode(),
+                'region' => $region->getRegion(),
+            ],
+            'country_id' => $address->getCountryId(),
+            'street' => $address->getStreet(),
+            'company' => $address->getCompany(),
+            'telephone' => $address->getTelephone(),
+            'fax' => $address->getFax(),
+            'postcode' => $address->getPostcode(),
+            'city' => $address->getCity(),
+            'firstname' => $address->getFirstname(),
+            'lastname' => $address->getLastname(),
+            'middlename' => $address->getMiddlename(),
+            'prefix' => $address->getPrefix(),
+            'suffix' => $address->getSuffix(),
+            'vat_id' => $address->getVatId(),
+            'is_default_shipping' => $address->isDefaultShipping(),
+            'is_default_billing' => $address->isDefaultBilling(),
+        ];
+        $this->sessionManager->setOriginalCustomerAddressData($addressData);
+    }
+
+    /**
+     * Get the original customer address.
+     *
+     * @return CustomerAddressInterface
+     */
+    public function getOriginalCustomerAddress()
+    {
+        $address = $this->customerAddressFactory->create();
+        $region = $this->customerRegionFactory->create();
+        $addressData = $this->sessionManager->getOriginalCustomerAddressData();
+        if ($addressData) {
+            $region
+                ->setRegionId($addressData['region']['region_id'])
+                ->setRegionCode($addressData['region']['region_id'])
+                ->setRegion($addressData['region']['region']);
+            $address
+                ->setId($addressData['id'])
+                ->setCustomerId($addressData['customer_id'])
+                ->setCountryId($addressData['country_id'])
+                ->setStreet($addressData['street'])
+                ->setCompany($addressData['company'])
+                ->setTelephone($addressData['telephone'])
+                ->setFax($addressData['fax'])
+                ->setPostcode($addressData['postcode'])
+                ->setCity($addressData['city'])
+                ->setFirstname($addressData['firstname'])
+                ->setLastname($addressData['lastname'])
+                ->setMiddlename($addressData['middlename'])
+                ->setPrefix($addressData['prefix'])
+                ->setSuffix($addressData['suffix'])
+                ->setVatId($addressData['vat_id'])
+                ->setIsDefaultShipping($addressData['is_default_shipping'])
+                ->setIsDefaultBilling($addressData['is_default_billing'])
+                ->setRegion($region);
+        }
+        return $address;
     }
 }
