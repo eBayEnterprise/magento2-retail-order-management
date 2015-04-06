@@ -16,7 +16,7 @@
  * @var $block \Magento\Customer\Block\Address\Edit
  */
 ?>
-<fieldset class="fieldset">
+<fieldset class="fieldset new-address">
     <legend class="legend"><span><?php echo __('Contact Information') ?></span></legend><br>
     <input type="hidden" name="success_url" value="<?php echo $block->getSuccessUrl() ?>">
     <input type="hidden" name="error_url" value="<?php echo $block->getErrorUrl() ?>">
@@ -121,16 +121,6 @@
         <input type="hidden" name="default_shipping" value="1">
     <?php endif; ?>
 </fieldset>
-<div class="actions-toolbar">
-    <div class="primary">
-        <button type="submit" class="action save primary" data-action="save-address" title="<?php echo __('Save Address') ?>">
-            <span><?php echo __('Save Address') ?></span>
-        </button>
-    </div>
-    <div class="secondary">
-        <a class="action back" href="<?php echo $block->escapeUrl($block->getBackUrl()) ?>"><span><?php echo __('Go back') ?></span></a>
-    </div>
-</div>
 <script type="text/x-magento-init">
     {
         "#form-validate": {

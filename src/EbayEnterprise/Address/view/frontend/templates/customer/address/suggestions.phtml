@@ -1,13 +1,23 @@
-<form class="form-address-edit" action="<?php echo $block->getSaveUrl() ?>" method="post" id="form-validate" enctype="multipart/form-data" data-hasrequired="<?php echo __('* Required Fields') ?>">
+<?php $_isWithSuggestions = $block->isCorrectionRequired(); ?>
+<form class="form-address-edit"
+    action="<?php echo $block->getSaveUrl() ?>"
+    method="post"
+    id="form-validate"
+    enctype="multipart/form-data"
+    data-hasrequired="<?php echo __('* Required Fields') ?>"
+    <?php if ($_isWithSuggestions): ?>
+    data-mage-init='{"suggestionControl":{"controlSelector":".suggestion-control","showNewValue":"new-address","newAddressFieldsSelector":".new-address-fields"}}'
+    <?php endif; ?>
+    >
     <?php echo $block->getBlockHtml('formkey') ?>
-    <?php if ($this->isCorrectionRequired()): ?>
-        <fieldset>
+    <?php if ($_isWithSuggestions): ?>
+        <fieldset class="fieldset">
             <legend><?php echo __('Please select one of the options below.') ?></legend>
             <input type="hidden" name="validation-id" value="<?php echo $block->getValidationId() ?>" />
             <ul class="suggestion-list">
                 <?php if ($block->hasCorrectedAddress()): ?>
                     <li>
-                        <input type="radio" name="suggestion" id="suggestion-normalized" value="normalized"/>
+                        <input type="radio" name="suggestion" id="suggestion-normalized" value="normalized" class="suggestion-control required"/>
                         <label for="suggestion-normalized">
                             <div><?php echo __('Use This Address') ?></div>
                             <div><?php echo $block->getAddressHtml($block->getCorrectedAddress()) ?></div>
@@ -16,7 +26,7 @@
                 <?php endif; ?>
                 <?php foreach ($block->getSuggestions() as $suggestionId => $suggestion): ?>
                     <li>
-                        <input type="radio" name="suggestion" id="suggestion-<?php echo $suggestionId ?>" value="<?php echo $suggestionId ?>"/>
+                        <input type="radio" name="suggestion" id="suggestion-<?php echo $suggestionId ?>" value="<?php echo $suggestionId ?>" class="suggestion-control required"/>
                         <label for="suggestion-<?php echo $suggestionId ?>">
                             <div><?php echo __('Use This Address') ?></div>
                             <div><?php echo $block->getAddressHtml($suggestion) ?></div>
@@ -25,19 +35,31 @@
                 <?php endforeach; ?>
                 <?php if ($block->hasOriginalAddress()): ?>
                     <li>
-                        <input type="radio" name="suggestion" id="suggestion-original" value="original"/>
+                        <input type="radio" name="suggestion" id="suggestion-original" value="original" class="suggestion-control required"/>
                         <label for="suggestion-original">
-                            <div><?php echo __('Use Original Address') ?></div>
+                            <div><?php echo __('Confirm Original Address') ?></div>
                             <div><?php echo $block->getAddressHtml($block->getOriginalAddress()) ?></div>
                         </label>
                     </li>
                 <?php endif; ?>
+                <li>
+                    <input type="radio" name="suggestion" id="suggestion-use-new-address" value="new-address" class="suggestion-control required"/>
+                    <label for="suggestion-use-new-address"><?php echo __('Use New Address') ?></label>
+                </li>
             </ul>
-            <div>
-                <input type="radio" name="suggestion" id="suggestion-use-new-address" value="new-address" />
-                <label for="suggestion-use-new-address"><?php echo __('Use New Address') ?></label>
-            </div>
         </fieldset>
     <?php endif; ?>
-    <?php echo $this->getChildHtml('customer_address_edit_with_suggestions') ?>
+    <div class="new-address-fields">
+        <?php echo $this->getChildHtml('customer_address_edit_with_suggestions') ?>
+    </div>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" class="action save primary" data-action="save-address" title="<?php echo __('Save Address') ?>">
+                <span><?php echo __('Save Address') ?></span>
+            </button>
+        </div>
+        <div class="secondary">
+            <a class="action back" href="<?php echo $block->escapeUrl($block->getBackUrl()) ?>"><span><?php echo __('Go back') ?></span></a>
+        </div>
+    </div>
 </form>

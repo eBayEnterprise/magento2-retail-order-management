@@ -2,6 +2,9 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <remove name="customer_address_edit" />
     <body>
+        <referenceBlock name="head.components">
+            <block class="Magento\Framework\View\Element\Js\Components" name="address_validation_page_head_components" template="EbayEnterprise_Address::js/components.phtml"/>
+        </referenceBlock>
         <referenceContainer name="content">
              <block class="EbayEnterprise\Address\Block\Customer\Suggestions" name="customer_address_suggestions" template="customer/address/suggestions.phtml" cacheable="false">
                 <block class="Magento\Customer\Block\Address\Edit" name="customer_address_edit_with_suggestions" template="EbayEnterprise_Address::customer/address/edit.phtml" cacheable="false"/>
