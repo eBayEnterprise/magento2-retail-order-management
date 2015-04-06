@@ -8,6 +8,10 @@ use Magento\Framework\Session\SessionManager;
 use Magento\Customer\Api\Data\AddressInterface as CustomerAddressInterface;
 use Magento\Customer\Api\Data\AddressInterfaceFactory as CustomerAddressInterfaceFactory;
 use Magento\Customer\Api\Data\RegionInterfaceFactory as CustomerRegionInterfaceFactory;
+
+/**
+ * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
+ */
 class Session
 {
     /** @var SessionManagerInterface */
@@ -74,6 +78,12 @@ class Session
         return $this;
     }
 
+    /**
+     * Get a validation result by id.
+     *
+     * @param string
+     * @return ValidationResultInterface
+     */
     public function getResultById($resultId)
     {
         $addressResultPairs = $this->sessionManager->getAddressResultPairs();
