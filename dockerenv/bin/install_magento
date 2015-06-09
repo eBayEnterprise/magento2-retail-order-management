@@ -5,22 +5,22 @@ main() {
 }
 
 install_magento() {
-    cd "${MAGENTO_ROOT_DIR}/setup" && \
-        php index.php install \
-            --base_url="http://localhost/" \
-            --backend_frontname="admin" \
-            --db_host="db" \
-            --db_name="$DB_ENV_MYSQL_DATABASE" \
-            --db_user="$DB_ENV_MYSQL_USER" \
-            --db_pass="$DB_ENV_MYSQL_PASSWORD" \
-            --admin_firstname="admin" \
-            --admin_lastname="admin" \
-            --admin_email="test@example.com" \
-            --admin_username="admin" \
-            --admin_password="testing123" \
+    cd "${MAGENTO_ROOT_DIR}/bin" && \
+       php magento setup:install \
+            --base-url="http://localhost/" \
+            --backend-frontname="admin" \
+            --db-host="db" \
+            --db-name="$DB_ENV_MYSQL_DATABASE" \
+            --db-user="$DB_ENV_MYSQL_USER" \
+            --db-password="$DB_ENV_MYSQL_PASSWORD" \
+            --admin-firstname="admin" \
+            --admin-lastname="admin" \
+            --admin-email="test@example.com" \
+            --admin-user="admin" \
+            --admin-password="testing123" \
             --language="en_US" \
             --currency="USD" \
-            --timezone="America/Indianapolis"
+            --timezone="America/New_York"
 }
 
 fix_base_url() {
