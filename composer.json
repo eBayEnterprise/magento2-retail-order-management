@@ -13,7 +13,7 @@
     "prefer-stable": true,
     "require": {
         "php": "~5.5.0|~5.6.0",
-        "ebayenterprise/retail-order-management": "~1.1",
+        "ebayenterprise/retail-order-management": "~1.2",
         "magento/framework": "~0.0",
         "magento/module-customer": "~0.0",
         "magento/module-directory": "~0.0",
@@ -27,7 +27,10 @@
         "phpunit/phpunit": "~4.5",
         "sebastian/phpcpd": "~2.0",
         "squizlabs/php_codesniffer": "~1.5",
-        "magento/product-community-edition": "~0.0"
+        "behat/behat": "~3.0.15",
+        "behat/mink": "~1.6",
+        "behat/mink-extension": "*",
+        "behat/mink-selenium2-driver": "*"
     },
     "repositories": {
         "retail-order-management": {
@@ -51,8 +54,14 @@
     },
     "autoload": {
         "psr-4": {
-            "EbayEnterprise\\Address\\": ["src/EbayEnterprise/Address", "tests/EbayEnterprise/Address"],
-            "Magento\\Setup\\": "vendor/magento/magento2-base/setup/src/Magento/Setup"
+            "EbayEnterprise\\": "src/EbayEnterprise"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "EbayEnterprise\\TestFramework\\": "tests/integration/framework/EbayEnterprise/TestFramework",
+            "EbayEnterprise\\": ["tests/unit/EbayEnterprise", "tests/integration/EbayEnterprise", "tests/functional/EbayEnterprise"],
+            "Magento\\": "build/magento/app/code/Magento"
         }
     }
 }

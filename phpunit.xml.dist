@@ -22,10 +22,10 @@
         stopOnSkipped="false"
         verbose="true"
         timeoutForSmallTests="1"
-        bootstrap="build/magento/app/autoload.php">
+        bootstrap="vendor/autoload.php">
     <testsuites>
         <testsuite name="eBay Enterprise Address Validation">
-            <directory>tests</directory>
+            <directory>tests/unit</directory>
             <exclude>vendor</exclude>
             <exclude>build</exclude>
         </testsuite>

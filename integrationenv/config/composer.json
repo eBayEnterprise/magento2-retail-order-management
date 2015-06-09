@@ -1,0 +1,21 @@
+{
+    "name": "ebayenterprise/magento2-retail-order-management-integration",
+    "description": "Meta-package to create an integration environment for the eBay Enterprise ROM extension for Magneto 2.",
+    "license": "OSL-3.0",
+    "minimum-stability": "dev",
+    "type": "metapackage",
+    "prefer-stable": true,
+    "repositories": [
+        {"type": "git", "url": "/git/magento2-retail-order-management"},
+        {"type": "composer", "url": "http://lvsciapp22.us.gspt.net/"},
+        {"type": "composer", "url": "https://packages.magento.com"}
+    ],
+    "autoload": {
+        "psr-4": {
+            "Magento\\Setup\\": "setup/src/Magento/Setup/"
+        }
+    },
+    "extra": {
+        "magento-force": "override"
+    }
+}

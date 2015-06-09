@@ -78,10 +78,6 @@
     <type name="EbayEnterprise\Address\Model\Session">
         <arguments>
             <argument name="sessionManager" xsi:type="object">addressSession</argument>
-        </arguments>
-    </type>
-    <type name="EbayEnterprise\Address\Controller\Address\SuggestionFormPost">
-        <arguments>
             <argument name="confirmedResultFactory" xsi:type="object">confirmedResultInterfaceFactory</argument>
         </arguments>
     </type>

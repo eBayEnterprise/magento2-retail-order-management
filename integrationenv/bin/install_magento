@@ -1,0 +1,50 @@
+#!/bin/bash
+
+main() {
+    local mageVersion="${1:-~0.0}"
+    local extensionVersion="${2:-dev-`git --git-dir=/git/magento2-retail-order-management/.git rev-parse --abbrev-ref HEAD`}"
+    echo "Installing Magento version \"$mageVersion\" and ROM extension version \"$extensionVersion\""
+    composer_install && install_magento && fix_base_url
+}
+
+composer_install() {
+    # If a composer.json file does not yet exist, use a default in the image.
+    if [[ ! -f composer.json ]]; then
+        cp /home/default/composer.json .
+    fi
+    composer require --no-update \
+        "magento/product-community-edition:$mageVersion" \
+        "ebayenterprise/magento2-retail-order-management:$extensionVersion"
+    composer install
+}
+
+install_magento() {
+    echo "Installing Magento with default configuration"
+    cd "${MAGENTO_ROOT_DIR}" && \
+       php bin/magento setup:install \
+            --base-url="http://localhost/" \
+            --backend-frontname="admin" \
+            --db-host="db" \
+            --db-name="$DB_ENV_MYSQL_DATABASE" \
+            --db-user="$DB_ENV_MYSQL_USER" \
+            --db-password="$DB_ENV_MYSQL_PASSWORD" \
+            --admin-firstname="admin" \
+            --admin-lastname="admin" \
+            --admin-email="test@example.com" \
+            --admin-user="admin" \
+            --admin-password="testing123" \
+            --language="en_US" \
+            --currency="USD" \
+            --timezone="America/New_York" && \
+        php bin/magento cache:disable --all && \
+        php bin/magento setup:static-content:deploy
+}
+
+fix_base_url() {
+    mysql() {
+        command mysql -h db -u "$DB_ENV_MYSQL_USER" --password="${DB_ENV_MYSQL_PASSWORD}" "$DB_ENV_MYSQL_DATABASE" "$@"
+    }
+    mysql -e 'UPDATE core_config_data set value="{{base_url}}" where path="web/unsecure/base_url";'
+}
+
+main "$@"

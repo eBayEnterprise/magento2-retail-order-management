@@ -1,0 +1,25 @@
+default:
+  suites:
+    address:
+      paths: [%paths.base%/features/address]
+
+integration:
+  suites:
+    address:
+      contexts:
+        - EbayEnterprise\Address\IntegrationContext:
+          - 3000
+          - 3
+
+functional:
+  suites:
+    address:
+      contexts:
+        - EbayEnterprise\Address\FunctionalContext
+  extensions:
+    Behat\MinkExtension:
+      base_url: http://web.test/index.php
+      default_session: selenium2
+      selenium2:
+        wd_host: seleniumserver:4444/wd/hub
+        browser: chrome

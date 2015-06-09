@@ -1,0 +1,21 @@
+#!/usr/bin/env php
+<?php
+
+// Include vendor/autoload for autoloading Behat and related dependencies.
+require_once 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+// Bootstrap M2 for the integration tests. This will connect the dev install of
+// the extension - which includes the Behat integration tests, with an
+// integration install of M2 and the extension - which will be the system being
+// tested. This will also add the autoloader for the integration environment
+// which will be prepended to the registered autoloaders causing resources in
+// the integration environment to be preferred over resources in the dev
+// environment. Only resources that do not exist in the integration environment
+// should be pulled from the dev environment.
+// @TODO This is a potential problem as the dev environment could mask some
+// holes that exist in the integration environment, e.g. something is missing
+// from the integration environment but in the dev environment so covers up
+// a failure.
+require_once 'tests' . DIRECTORY_SEPARATOR . 'integration' . DIRECTORY_SEPARATOR . 'bootstrap.php';
+// Once M2 has been bootstrapped, include the Behat script to start running
+// the integration tests.
+require_once 'vendor' . DIRECTORY_SEPARATOR . 'bin' . DIRECTORY_SEPARATOR . 'behat';

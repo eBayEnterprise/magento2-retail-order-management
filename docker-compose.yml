@@ -10,83 +10,142 @@ db:
         - MYSQL_DATABASE=mage
     volumes_from:
         - dbdata
-fsdata:
+testdb:
+    image: mysql:5
+    environment:
+        - MYSQL_ROOT_PASSWORD=mage
+        - MYSQL_USER=mage
+        - MYSQL_PASSWORD=mage
+        - MYSQL_DATABASE=mage
+devfs:
     build: dockerenv
     volumes:
         - .:/var/www/code
     command: echo 'Providing fs data volume'
+intfs:
+    build: integrationenv
+    command: echo 'Prodiving fs data volume'
 web:
-    build: dockerenv
+    build: integrationenv
     environment:
         - MAGE_MODE=developer
     volumes_from:
-        - fsdata
+        - intfs
     links:
         - db
     ports:
         - "80"
+integrationcomposer:
+    build: integrationenv
+    volumes_from:
+        - intfs
+    volumes:
+        - ~/.composer:/home/default/.composer
+        - .:/git/magento2-retail-order-management
+    user: default
+    command: list
+    entrypoint: ["composer"]
+deploy:
+    build: integrationenv
+    volumes_from:
+        - intfs
+    volumes:
+        - ~/.composer:/home/default/.composer
+        - .:/git/magento2-retail-order-management
+    user: default
+    entrypoint: ["deploy_extension"]
 install:
-    build: dockerenv
+    build: integrationenv
     user: default
     volumes_from:
-        - fsdata
+        - intfs
+    volumes:
+        - ~/.composer:/home/default/.composer
+        - .:/git/magento2-retail-order-management
     links:
         - db
-    command: install_magento
+    entrypoint: ["install_magento"]
 magentosetup:
-    build: dockerenv
+    build: integrationenv
     user: default
     volumes_from:
-        - fsdata
+        - intfs
     links:
         - db
-    working_dir: /var/www/code/build/magento/bin
+    working_dir: /var/www/localhost/magento/bin
     entrypoint: ["php", "magento"]
     command: help
 shelltools:
-    build: dockerenv
+    build: integrationenv
     user: default
     volumes_from:
-        - fsdata
+        - intfs
     links:
         - db
     working_dir: /var/www/code/build/magento/dev/shell
-    entrypoint: "php"
+    entrypoint: ["php"]
     command: ["-r", "echo implode('    ', glob('*.php')) . PHP_EOL;"]
 composer:
     build: dockerenv
     volumes_from:
-        - fsdata
+        - devfs
     volumes:
-        - ~/.composer:/home/default/.composer
-    user: default
+        - ~/.composer:/root/.composer
     working_dir: /var/www/code
     command: list
-    entrypoint: composer
+    entrypoint: ["composer"]
+behat:
+    build: dockerenv
+    volumes_from:
+        - devfs
+    working_dir: /var/www/code
+    entrypoint: ["vendor/bin/behat"]
+seleniumserver:
+    image: selenium/standalone-chrome
+    links:
+        - web:web.test
+functionaltests:
+    build: dockerenv
+    volumes_from:
+        - devfs
+    links:
+        - seleniumserver
+    working_dir: /var/www/code
+    entrypoint: ["vendor/bin/behat", "--profile=functional"]
+integrationtests:
+    build: dockerenv
+    links:
+        - db:testdb
+    volumes_from:
+        - devfs
+        - intfs
+    environment:
+        MAGENTO_ROOT_DIR: /var/www/localhost/magento
+    entrypoint: ["php", "bin/integrationTests", "--profile=integration"]
 phpunit:
     build: dockerenv
     volumes_from:
-        - fsdata
+        - devfs
     working_dir: /var/www/code
-    entrypoint: vendor/bin/phpunit
+    entrypoint: ["vendor/bin/phpunit"]
 phpmd:
     build: dockerenv
     volumes_from:
-        - fsdata
+        - devfs
     working_dir: /var/www/code
-    entrypoint: vendor/bin/phpmd
+    entrypoint: ["vendor/bin/phpmd"]
     command: src,tests text phpmd.xml
 document:
     build: dockerenv
     volumes_from:
-        - fsdata
-    entrypoint: vendor/bin/phpdoc
+        - devfs
+    entrypoint: ["vendor/bin/phpdoc"]
     command: -d src -t build/doc
 pdepend:
     build: dockerenv
     volumes_from:
-        - fsdata
-    entrypoint: vendor/bin/pdepend
+        - devfs
+    entrypoint: ["vendor/bin/pdepend"]
     command: --jdepend-chart="build/pdepend/dependencies.svg" \
              --jdepend-xml="build/pdepend/jdepend.xml" \
              --overview-pyramid="build/pdepend/overview-pyramid.svg" \
@@ -94,24 +153,24 @@ pdepend:
 phpcpd:
     build: dockerenv
     volumes_from:
-        - fsdata
-    entrypoint: vendor/bin/phpcpd
+        - devfs
+    entrypoint: ["vendor/bin/phpcpd"]
     command: --fuzzy --progress src tests
 phpcs:
     build: dockerenv
     volumes_from:
-        - fsdata
-    entrypoint: vendor/bin/phpcs
+        - devfs
+    entrypoint: ["vendor/bin/phpcs"]
     command: -p --standard=PSR2 src tests
 phploc:
     build: dockerenv
     volumes_from:
-        - fsdata
-    entrypoint: vendor/bin/phploc
+        - devfs
+    entrypoint: ["vendor/bin/phploc"]
     command: --count-tests --progress src tests
 phplint:
     build: dockerenv
     volumes_from:
-        - fsdata
+        - devfs
     command: sh -c 'find src tests \( -name "*.php" -o -name "*.phtml" \) -print0 |
                     xargs -0 -n1 -P6 -- php -l > /dev/null && echo "no errors"'

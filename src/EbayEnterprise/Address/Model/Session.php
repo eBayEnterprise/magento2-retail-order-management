@@ -4,10 +4,12 @@ namespace EbayEnterprise\Address\Model;
 
 use EbayEnterprise\Address\Api\Data\AddressInterface;
 use EbayEnterprise\Address\Api\Data\ValidationResultInterface;
-use Magento\Framework\Session\SessionManager;
+use EbayEnterprise\Address\Api\Data\ValidationResultInterfaceFactory as ConfirmedValidationResultFactory;
+use EbayEnterprise\Address\Helper\Converter as AddressConverter;
 use Magento\Customer\Api\Data\AddressInterface as CustomerAddressInterface;
 use Magento\Customer\Api\Data\AddressInterfaceFactory as CustomerAddressInterfaceFactory;
 use Magento\Customer\Api\Data\RegionInterfaceFactory as CustomerRegionInterfaceFactory;
+use Magento\Framework\Session\SessionManager;
 
 /**
  * @SuppressWarnings(PHPMD.CouplingBetweenObjects)
@@ -22,6 +24,10 @@ class Session
     protected $customerAddressFactory;
     /** @var CustomerRegionInterfaceFactory */
     protected $customerRegionFactory;
+    /** @var ConfirmedValidationResultFactory */
+    protected $confirmedResultFactory;
+    /** @var AddressConverter */
+    protected $addressConverter;
 
     /**
      * @param SessionManagerInterface
@@ -33,13 +39,17 @@ class Session
         SessionManager $sessionManager,
         AddressResultPairFactory $addressResultPairFactory,
         CustomerAddressInterfaceFactory $customerAddressFactory,
-        CustomerRegionInterfaceFactory $customerRegionFactory
+        CustomerRegionInterfaceFactory $customerRegionFactory,
+        ConfirmedValidationResultFactory $confirmedResultFactory,
+        AddressConverter $addressConverter
     ) {
         $this->sessionManager = $sessionManager;
         $this->addressResultPairFactory = $addressResultPairFactory;
         $this->sessionManager->start();
         $this->customerAddressFactory = $customerAddressFactory;
         $this->customerRegionFactory = $customerRegionFactory;
+        $this->confirmedResultFactory = $confirmedResultFactory;
+        $this->addressConverter = $addressConverter;
     }
 
     /**
@@ -204,6 +214,20 @@ class Session
                 ->setIsDefaultBilling($addressData['is_default_billing'])
                 ->setRegion($region);
         }
+        return $address;
+    }
+
+    public function confirmSelection(
+        CustomerAddressInterface $originalAddress,
+        AddressInterface $selectedAddress
+    ) {
+        $address = $this
+            ->addressConverter
+            ->transferDataAddressToCustomerAddress($originalAddress, $selectedAddress);
+        $this->setResultForAddress(
+            $selectedAddress,
+            $this->confirmedResultFactory->create(['originalAddress' => $selectedAddress])
+        );
         return $address;
     }
 }

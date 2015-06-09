@@ -2,8 +2,6 @@
 
 namespace EbayEnterprise\Address\Controller\Address;
 
-use EbayEnterprise\Address\Api\Data\ValidationResultInterfaceFactory as ConfirmedValidationResultFactory;
-use EbayEnterprise\Address\Helper\Converter as AddressConverter;
 use EbayEnterprise\Address\Model\Session as AddressSession;
 use Magento\Customer\Api\Data\AddressInterface as CustomerAddressInterface;
 use Magento\Customer\Controller\Address\FormPost as CustomerAddressFormPost;
@@ -43,12 +41,9 @@ class SuggestionFormPost extends CustomerAddressFormPost
         \Magento\Customer\Api\Data\RegionInterfaceFactory $regionDataFactory,
         \Magento\Framework\Reflection\DataObjectProcessor $dataProcessor,
         \Magento\Framework\Api\DataObjectHelper $dataObjectHelper,
-        \Magento\Framework\Controller\Result\RedirectFactory $resultRedirectFactory,
         \Magento\Framework\Controller\Result\ForwardFactory $resultForwardFactory,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory,
-        AddressSession $addressSession,
-        ConfirmedValidationResultFactory $confirmedResultFactory,
-        AddressConverter $addressConverter
+        AddressSession $addressSession
     ) {
         parent::__construct(
             $context,
@@ -60,13 +55,10 @@ class SuggestionFormPost extends CustomerAddressFormPost
             $regionDataFactory,
             $dataProcessor,
             $dataObjectHelper,
-            $resultRedirectFactory,
             $resultForwardFactory,
             $resultPageFactory
         );
         $this->addressSession = $addressSession;
-        $this->confirmedResultFactory = $confirmedResultFactory;
-        $this->addressConverter = $addressConverter;
     }
 
     public function execute()
@@ -130,12 +122,9 @@ class SuggestionFormPost extends CustomerAddressFormPost
                         $selectedAddress = $result->getSuggestions()[$selectedSuggestion];
                         break;
                 }
-                $address = $this
-                    ->addressConverter
-                    ->transferDataAddressToCustomerAddress($originalAddress, $selectedAddress);
-                $this->addressSession->setResultForAddress(
-                    $selectedAddress,
-                    $this->confirmedResultFactory->create(['originalAddress' => $selectedAddress])
+                $address = $this->addressSession->confirmSelection(
+                    $originalAddress,
+                    $selectedAddress
                 );
             }
         }

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+main() {
+    # Extension version may be set explicitly as the first argument or will
+    # default to whatever branch of the extension is currently checked out.
+    local extensionVersion="${1:-dev-`git --git-dir=/git/magento2-retail-order-management/.git rev-parse --abbrev-ref HEAD`}"
+    echo "Deploy ROM Extension version \"$extensionVersion\""
+    composer_update && cleanup
+}
+
+composer_update() {
+    composer require --no-update "ebayenterprise/magento2-retail-order-management:$extensionVersion" && \
+        composer update ebayenterprise/magento2-retail-order-management
+}
+
+##
+# Remove files Magento may have created or copied based upon the previously
+# checked out version of the extension.
+cleanup() {
+    # As the extension grows in complexity, it is likely that additional files
+    # and directories will need to be cleaned out - e.g. complied CSS and JS
+    # files
+    rm -rf "$MAGENTO_ROOT_DIR"/var/{generation,*cache*,view_preprocessed}
+}
+
+main "$@"
