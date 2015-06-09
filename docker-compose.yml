@@ -11,12 +11,12 @@ db:
     volumes_from:
         - dbdata
 fsdata:
-    build: .
+    build: dockerenv
     volumes:
         - .:/var/www/code
     command: echo 'Providing fs data volume'
 web:
-    build: .
+    build: dockerenv
     environment:
         - MAGE_MODE=developer
     volumes_from:
@@ -26,7 +26,7 @@ web:
     ports:
         - "80"
 install:
-    build: .
+    build: dockerenv
     user: default
     volumes_from:
         - fsdata
@@ -34,17 +34,17 @@ install:
         - db
     command: install_magento
 magentosetup:
-    build: .
+    build: dockerenv
     user: default
     volumes_from:
         - fsdata
     links:
         - db
-    working_dir: /var/www/code/build/magento/setup
-    entrypoint: ["php", "index.php"]
+    working_dir: /var/www/code/build/magento/bin
+    entrypoint: ["php", "magento"]
     command: help
 shelltools:
-    build: .
+    build: dockerenv
     user: default
     volumes_from:
         - fsdata
@@ -54,7 +54,7 @@ shelltools:
     entrypoint: "php"
     command: ["-r", "echo implode('    ', glob('*.php')) . PHP_EOL;"]
 composer:
-    build: .
+    build: dockerenv
     volumes_from:
         - fsdata
     volumes:
@@ -64,26 +64,26 @@ composer:
     command: list
     entrypoint: composer
 phpunit:
-    build: .
+    build: dockerenv
     volumes_from:
         - fsdata
     working_dir: /var/www/code
     entrypoint: vendor/bin/phpunit
 phpmd:
-    build: .
+    build: dockerenv
     volumes_from:
         - fsdata
     working_dir: /var/www/code
     entrypoint: vendor/bin/phpmd
     command: src,tests text phpmd.xml
 document:
-    build: .
+    build: dockerenv
     volumes_from:
         - fsdata
     entrypoint: vendor/bin/phpdoc
     command: -d src -t build/doc
 pdepend:
-    build: .
+    build: dockerenv
     volumes_from:
         - fsdata
     entrypoint: vendor/bin/pdepend
@@ -92,25 +92,25 @@ pdepend:
              --overview-pyramid="build/pdepend/overview-pyramid.svg" \
              src
 phpcpd:
-    build: .
+    build: dockerenv
     volumes_from:
         - fsdata
     entrypoint: vendor/bin/phpcpd
     command: --fuzzy --progress src tests
 phpcs:
-    build: .
+    build: dockerenv
     volumes_from:
         - fsdata
     entrypoint: vendor/bin/phpcs
     command: -p --standard=PSR2 src tests
 phploc:
-    build: .
+    build: dockerenv
     volumes_from:
         - fsdata
     entrypoint: vendor/bin/phploc
     command: --count-tests --progress src tests
 phplint:
-    build: .
+    build: dockerenv
     volumes_from:
         - fsdata
     command: sh -c 'find src tests \( -name "*.php" -o -name "*.phtml" \) -print0 |
