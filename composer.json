@@ -1,5 +1,5 @@
 {
-    "name": "ebayenterprise/magento2-address-validation",
+    "name": "ebayenterprise/magento2-retail-order-management",
     "description": "Magento 2 module for validating addresses using the eBay Enterprise Retail Order Management API.",
     "license": "OSL-3.0",
     "authors": [
