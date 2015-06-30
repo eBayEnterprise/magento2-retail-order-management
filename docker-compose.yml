@@ -18,15 +18,15 @@ testdb:
         - MYSQL_PASSWORD=mage
         - MYSQL_DATABASE=mage
 devfs:
-    build: dockerenv
+    build: env/dev
     volumes:
         - .:/var/www/code
     command: echo 'Providing fs data volume'
 intfs:
-    build: integrationenv
+    build: env/integration
     command: echo 'Prodiving fs data volume'
 web:
-    build: integrationenv
+    build: env/integration
     environment:
         - MAGE_MODE=developer
     volumes_from:
@@ -36,7 +36,7 @@ web:
     ports:
         - "80"
 integrationcomposer:
-    build: integrationenv
+    build: env/integration
     volumes_from:
         - intfs
     volumes:
@@ -46,7 +46,7 @@ integrationcomposer:
     command: list
     entrypoint: ["composer"]
 deploy:
-    build: integrationenv
+    build: env/integration
     volumes_from:
         - intfs
     volumes:
@@ -55,7 +55,7 @@ deploy:
     user: default
     entrypoint: ["deploy_extension"]
 install:
-    build: integrationenv
+    build: env/integration
     user: default
     volumes_from:
         - intfs
@@ -66,7 +66,7 @@ install:
         - db
     entrypoint: ["install_magento"]
 magentosetup:
-    build: integrationenv
+    build: env/integration
     user: default
     volumes_from:
         - intfs
@@ -76,7 +76,7 @@ magentosetup:
     entrypoint: ["php", "magento"]
     command: help
 shelltools:
-    build: integrationenv
+    build: env/integration
     user: default
     volumes_from:
         - intfs
@@ -86,7 +86,7 @@ shelltools:
     entrypoint: ["php"]
     command: ["-r", "echo implode('    ', glob('*.php')) . PHP_EOL;"]
 composer:
-    build: dockerenv
+    build: env/dev
     volumes_from:
         - devfs
     volumes:
@@ -95,7 +95,7 @@ composer:
     command: list
     entrypoint: ["composer"]
 behat:
-    build: dockerenv
+    build: env/dev
     volumes_from:
         - devfs
     working_dir: /var/www/code
@@ -105,7 +105,7 @@ seleniumserver:
     links:
         - web:web.test
 functionaltests:
-    build: dockerenv
+    build: env/dev
     volumes_from:
         - devfs
     links:
@@ -113,7 +113,7 @@ functionaltests:
     working_dir: /var/www/code
     entrypoint: ["vendor/bin/behat", "--profile=functional"]
 integrationtests:
-    build: dockerenv
+    build: env/dev
     links:
         - db:testdb
     volumes_from:
@@ -123,26 +123,26 @@ integrationtests:
         MAGENTO_ROOT_DIR: /var/www/localhost/magento
     entrypoint: ["php", "bin/integrationTests", "--profile=integration"]
 phpunit:
-    build: dockerenv
+    build: env/dev
     volumes_from:
         - devfs
     working_dir: /var/www/code
     entrypoint: ["vendor/bin/phpunit"]
 phpmd:
-    build: dockerenv
+    build: env/dev
     volumes_from:
         - devfs
     working_dir: /var/www/code
     entrypoint: ["vendor/bin/phpmd"]
     command: src,tests text phpmd.xml
 document:
-    build: dockerenv
+    build: env/dev
     volumes_from:
         - devfs
     entrypoint: ["vendor/bin/phpdoc"]
     command: -d src -t build/doc
 pdepend:
-    build: dockerenv
+    build: env/dev
     volumes_from:
         - devfs
     entrypoint: ["vendor/bin/pdepend"]
@@ -151,25 +151,25 @@ pdepend:
              --overview-pyramid="build/pdepend/overview-pyramid.svg" \
              src
 phpcpd:
-    build: dockerenv
+    build: env/dev
     volumes_from:
         - devfs
     entrypoint: ["vendor/bin/phpcpd"]
     command: --fuzzy --progress src tests
 phpcs:
-    build: dockerenv
+    build: env/dev
     volumes_from:
         - devfs
     entrypoint: ["vendor/bin/phpcs"]
     command: -p --standard=PSR2 src tests
 phploc:
-    build: dockerenv
+    build: env/dev
     volumes_from:
         - devfs
     entrypoint: ["vendor/bin/phploc"]
     command: --count-tests --progress src tests
 phplint:
-    build: dockerenv
+    build: env/dev
     volumes_from:
         - devfs
     command: sh -c 'find src tests \( -name "*.php" -o -name "*.phtml" \) -print0 |
