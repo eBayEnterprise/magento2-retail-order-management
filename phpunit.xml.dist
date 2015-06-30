@@ -25,7 +25,7 @@
         bootstrap="vendor/autoload.php">
     <testsuites>
         <testsuite name="eBay Enterprise Address Validation">
-            <directory>tests/unit</directory>
+            <directory>src/EbayEnterprise/*/Test/Unit</directory>
             <exclude>vendor</exclude>
             <exclude>build</exclude>
         </testsuite>
