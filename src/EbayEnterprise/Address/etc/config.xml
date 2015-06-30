@@ -8,6 +8,7 @@
             <web_services>
                 <api_key backend_model="Magento\Config\Model\Config\Backend\Encrypted"/>
                 <hostname/>
+                <api_timeout>3000</api_timeout>
                 <major_version>1</major_version>
                 <minor_version>0</minor_version>
             </web_services>
