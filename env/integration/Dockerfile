@@ -29,20 +29,8 @@ RUN apt-get update && apt-get install -qqy \
         pcntl \
         xsl \
         zip \
-    && apt-get autoremove -qqy
-
-# Install XDebug
-RUN cd /tmp/ \
-    && wget http://xdebug.org/files/xdebug-2.3.2.tgz \
-    && tar zxvf xdebug-2.3.2.tgz \
-    && cd /tmp/xdebug-2.3.2/ \
-    && phpize \
-    && ./configure \
-    && make \
-    && cp modules/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20131226 \
-    && echo \
-        "zend_extension = /usr/local/lib/php/extensions/no-debug-non-zts-20131226/xdebug.so" \
-        > /usr/local/etc/php/php.ini
+    && apt-get autoremove -qqy \
+    && until rm -rf /var/lib/apt/lists; do sleep 1; done
 
 # Install composer
 WORKDIR /usr/bin
@@ -74,6 +62,9 @@ COPY bin/* /usr/local/bin/
 # Copy a default composer file somewhere into the image. This may not be the
 # best place for it but it will work for now.
 COPY config/composer.json /home/default/composer.json
+
+# Add PHP configuration
+COPY config/magento.php.ini /usr/local/etc/php/conf.d/magento.php.ini
 
 # `apache_safe_start_perms` will start apache as the "default" user.
 CMD ["apache_safe_start_perms", "-DFOREGROUND"]

@@ -12,9 +12,10 @@ RUN apt-get update && apt-get install -qqy \
         libmcrypt-dev \
         libpng12-dev \
         libxslt-dev \
-        mysql-client \
         re2c \
         wget \
+        vim \
+    && pecl install -o -f xdebug \
     && docker-php-ext-configure gd \
         --with-freetype-dir=/usr/include/ \
         --with-jpeg-dir=/usr/include/ \
@@ -29,20 +30,8 @@ RUN apt-get update && apt-get install -qqy \
         pcntl \
         xsl \
         zip \
-    && apt-get autoremove -qqy
-
-# Install XDebug
-RUN cd /tmp/ \
-    && wget http://xdebug.org/files/xdebug-2.3.2.tgz \
-    && tar zxvf xdebug-2.3.2.tgz \
-    && cd /tmp/xdebug-2.3.2/ \
-    && phpize \
-    && ./configure \
-    && make \
-    && cp modules/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20131226 \
-    && echo \
-        "zend_extension = /usr/local/lib/php/extensions/no-debug-non-zts-20131226/xdebug.so" \
-        > /usr/local/etc/php/php.ini
+    && apt-get autoremove -qqy \
+    && until rm -rf /tmp/pear /var/lib/apt/lists; do sleep 1; done
 
 # Install composer
 WORKDIR /usr/bin
@@ -51,6 +40,9 @@ RUN curl -sS https://getcomposer.org/installer | php \
     && ln -s composer.phar composer
 
 RUN mkdir -p /var/www/code
+
+# Add PHP configuration
+COPY config/magento.php.ini /usr/local/etc/php/conf.d/magento.php.ini
 
 WORKDIR /var/www/code
 
