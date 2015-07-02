@@ -1,6 +1,6 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## UNRELEASED
+## [0.1.0] - 2015-07-02
 ### Added
-- Validate addresses being saved in the customer address book.
+- Address Validation in Address Book

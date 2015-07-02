@@ -1,4 +1,4 @@
-Feature: Address Validation
+Feature: Address Validation in Address Book
   As a customer
   I want to validate my address in my address book
   So that my orders are delivered without issue
